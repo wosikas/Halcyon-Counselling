@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Halcyon Counselling | Understanding & Support</title>
+  <meta name="description" content="Counselling services offering support with anxiety, fertility, perinatal challenges, couples therapy, and life transitions in a safe, confidential space.">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://halcyoncounselling.com/">
+  <meta property="og:title" content="Halcyon Counselling | Understanding & Support">
+  <meta property="og:description" content="Counselling services offering support with anxiety, fertility, perinatal challenges, couples therapy, and life transitions in a safe, confidential space.">
+  <meta property="og:image" content="https://halcyoncounselling.com/images/halcyon-preview.jpg">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Halcyon Counselling | Understanding & Support">
+  <meta name="twitter:description" content="Counselling services offering support with anxiety, fertility, perinatal challenges, couples therapy, and life transitions in a safe, confidential space.">
+  <meta name="twitter:image" content="https://halcyoncounselling.com/images/halcyon-preview.jpg">
+
+  <!-- Fonts & Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+
+  <style>
+    /* Base */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Roboto', sans-serif;
+      background: #fff;
+      color: #333;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      overflow-x: hidden; /* prevent horizontal scroll */
+    }
+
+    h1, h2, h3 {
+      font-family: 'EB Garamond', serif;
+      font-weight: 500;
+      line-height: 1.3;
+      color: #000;
+      margin-bottom: 20px;
+    }
+
+    h2 {
+      display: flex;
+      align-items: center;
+      gap: 12px;            /* consistent icon spacing */
+      font-size: 1.8em;
+    }
+
+    h2 i {
+      font-size: 1em;
+      color: #275340;
+      flex-shrink: 0;
+    }
+
+    section {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 15px 20px 25px 20px;
+      box-sizing: border-box;
+    }
+
+    section p {
+      font-size: 1.1em;
+      padding: 10px 0 0 0;
+      color: #444;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .top-section {
+      max-width: 1000px;
+      padding: 40px 20px 30px 20px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .top-section h1 {
+      font-size: 2.2em;
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+    }
+    .top-section h1 i { font-size: 1.1em; color: #275340; }
+    .top-section p { text-align: left; }
+
+    /* Services grid */
+    .services {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 10px 20px 30px 20px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 40px;
+      text-align: center;
+    }
+
+    .service-item {
+      padding: 20px;
+      text-decoration: none;
+      color: inherit;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .service-item:hover { transform: translateY(-5px); box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+
+    .icon-circle {
+      width: 80px; height: 80px; border-radius: 50%;
+      background: #d7fcee;
+      display: flex; justify-content: center; align-items: center;
+      margin: 0 auto 20px auto;
+    }
+    .icon-circle i { font-size: 32px; color: #000; }
+
+    .service-item h3 { font-size: 1.35em; margin-top: 10px; color: #000; font-weight: 500; }
+    .service-item p { font-size: 1em; color: #444; margin-top: 8px; text-align: center; }
+
+    /* Why choose */
+    .why-choose {
+      max-width: 1000px;
+      padding: 20px 20px 10px 20px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .why-choose h2 { font-size: 2.2em; margin: 0 0 24px 0; justify-content: center; }
+    .why-choose p { max-width: 800px; margin: 0 auto 20px auto; font-size: 1.1em; color: #444; text-align: left; }
+    .why-choose ul { display: inline-block; text-align: left; list-style: disc outside; padding-left: 1.25rem; margin: 20px auto 0 auto; }
+    .why-choose ul li { margin-bottom: 12px; font-size: 1em; color: #333; }
+
+    /* CTA + inline forms */
+    .cta-section { max-width: 900px; margin: 20px auto 10px auto; padding: 0 20px; text-align: center; position: relative; }
+    .cta-buttons { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; position: relative; }
+
+    .btn {
+      padding: 14px 28px;
+      font-size: 1.2em;
+      border-radius: 25px;
+      background: #0a9396;
+      text-decoration: none;
+      color: #fff;
+      font-family: 'EB Garamond', serif;
+      font-weight: 500;
+      transition: background 0.3s;
+      cursor: pointer;
+      border: none;
+    }
+    .btn:hover { background: #006b72; }
+
+    .inline-form {
+      display: none;
+      position: absolute;
+      top: -10px;                 /* sits just above the button row */
+      left: 50%;
+      transform: translate(-50%, -100%);
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+      padding: 30px 32px;
+      width: calc(100% - 40px);
+      max-width: 480px;
+      z-index: 10;
+      box-sizing: border-box;
+    }
+
+    .inline-form.active { display: block; }
+
+    .inline-form form {
+      text-align: left;
+      box-sizing: border-box;
+      width: 100%;
+     }
+
+    .inline-form label {
+      display: block;
+      margin: 10px 0 5px;
+      font-weight: 500;
+      color: #333;
+    }
+    .inline-form input, .inline-form textarea {
+      width: 100%;
+      padding: 12px 14px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      font-size: 1em;
+      font-family: 'Roboto', sans-serif;
+      box-sizing: border-box;
+    }
+    .inline-form textarea { min-height: 100px; resize: vertical; }
+
+    .inline-form button[type="submit"] {
+      margin-top: 15px;
+      padding: 12px 22px;
+      background: #0a9396;
+      color: #fff;
+      border: none;
+      border-radius: 25px;
+      font-size: 1.1em;
+      cursor: pointer;
+      transition: background 0.3s;
+      font-family: 'EB Garamond', serif;
+    }
+    .inline-form button[type="submit"]:hover { background: #007f87; }
+
+    /* Process section */
+    .process-section { max-width: 1200px; margin: 0 auto; padding: 35px 10px 60px 20px; }
+    .process-section h2 { text-align: center; font-size: 2.2em; margin-bottom: 10px; justify-content: center; gap: 12px; }
+    .process-section p { max-width: 800px; padding: 20px 10px 10px 10px; margin: 0 auto 20px auto; font-size: 1.1em; color: #444; text-align: left; }
+    .process-section p.subtitle { text-align: center; font-size: 1.1em; color: #555; margin-bottom: 50px; }
+
+    .process-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: stretch; }
+    .left-column { display: flex; flex-direction: column; gap: 30px; }
+
+    .step-card {
+      background: #fff;
+      border-left: 4px solid #275340;
+      border-radius: 12px;
+      padding: 28px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .step-card:hover { transform: translateY(-3px); box-shadow: 0 6px 16px rgba(0,0,0,0.12); }
+
+    .step-card h3 { display: flex; align-items: center; gap: 12px; font-size: 1.4em; margin: 0 0 12px 0; color: #000; }
+    .step-card h3 i { font-size: 28px; color: #0a9396; flex-shrink: 0; }
+    .step-card ul { margin: 0; padding-left: 20px; color: #444; }
+    .step-card li { margin-bottom: 8px; }
+
+    .step-card a {
+      margin-top: 14px; display: inline-block; color: #0a9396; font-weight: 600;
+      text-decoration: none; transition: color 0.3s ease, transform 0.2s ease;
+    }
+    .step-card a:hover { color: #006b72; text-decoration: underline; transform: translateY(-1px); }
+
+    .right-column { border-radius: 10px; overflow: hidden; position: relative; }
+    .right-column picture, .right-column img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+    @media (max-width: 900px) {
+      .process-grid { grid-template-columns: 1fr; }
+      .left-column { gap: 20px; }
+      .right-column { order: -1; height: auto; }
+      .right-column img { height: auto; }
+    }
+
+    @media (max-width: 600px) {
+      .top-section h1,
+      .why-choose h2,
+      .process-section h2 { font-size: 1.8em; }
+      section p, .process-section p.subtitle { font-size: 1em; }
+      .cta-buttons { flex-direction: column; align-items: center; }
+      .cta-buttons .btn { width: 100%; max-width: 280px; }
+    }
+
+    @media (max-width: 400px) {
+      .icon-circle { width: 65px; height: 65px; }
+      .icon-circle i { font-size: 26px; }
+    }
+
+    .inline-form h2 {
+      font-family: 'EB Garamond', serif;
+      color: #0a9396;
+      font-size: 1.6em;
+      text-align: center !important;
+      margin: 0 auto 12px auto;
+      width: 100%;
+      display: block;
+    }
+
+    .inline-form .close-inline {
+      position: absolute;
+      top: 8px;
+      right: 12px;
+      font-size: 1.4em;
+      color: #555;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+    }
+
+/* --- Prevent phantom vertical scrollbar (GoDaddy-safe) --- */
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* prevent horizontal scroll */
+}
+
+/* allow vertical scroll but hide the scrollbar visually */
+html {
+  overflow-y: auto;
+  -ms-overflow-style: none;  /* hide scrollbar in IE/Edge */
+  scrollbar-width: none;     /* hide scrollbar in Firefox */
+}
+
+html::-webkit-scrollbar {
+  display: none;             /* hide scrollbar in Chrome/Safari */
+}
+
+/* only lock scroll when a modal is open */
+body.modal-open {
+  overflow: hidden !important;
+}
+
+/* Force identical typography with "Your path to emotional wellbeing" */
+.process-section .journey-text.subtitle {
+  text-align: center;
+  font-family: 'Roboto', sans-serif;  /* match subtitle exactly */
+  font-size: 1.1em;
+  color: #555;
+  font-weight: 400;
+  line-height: 1.6;
+  margin: 25px auto 0;
+  letter-spacing: normal;
+}
+
+.inline-form form {
+  text-align: left;
+}
+
+.inline-form button[type="submit"] {
+  display: block; /* ensures margin:auto can center it */
+  margin: 20px auto 0 auto !important; /* centers horizontally */
+  font-family: 'EB Garamond', serif !important;
+  font-size: 1.1em !important;  /* match "Contact Me" heading size */
+  font-weight: 500 !important;
+  color: #fff;
+  background: #0a9396;
+  border: none;
+  border-radius: 25px;
+  padding: 12px 36px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.inline-form button[type="submit"]:hover {
+  background: #006b72;
+}
+
+  </style>
+</head>
+<body>
+  <main>
+    <!-- Understanding -->
+    <section>
+      <h2><i class="fa-solid fa-leaf" aria-hidden="true"></i> Understanding Life's Challenges</h2>
+      <p>Life brings moments of joy, but also times of uncertainty, stress, sadness, and heartache. These challenges can sometimes feel overwhelming. Whether you’re navigating relationship struggles, coping with loss, adjusting to life transitions, or facing the unique challenges of infertility, you don’t have to face these things alone.</p>
+    </section>
+
+    <!-- Anxiety -->
+    <section>
+      <h2><i class="fa-solid fa-brain" aria-hidden="true"></i> When Anxiety Holds You Back</h2>
+      <p>Anxiety often keeps us stuck in an endless loop, where asking for help can feel just too difficult. Taking that first step can feel daunting, but it’s also an act of courage. I'm so glad you've found your way here.</p>
+    </section>
+
+    <!-- Safe Space -->
+    <section>
+      <h2><i class="fa-solid fa-heart" aria-hidden="true"></i> A Safe Space To Move Forward</h2>
+      <p>With me, you’ll find a safe, supportive, and confidential space where you can share your thoughts and feelings openly. Together, we’ll explore your triggers, understand the root of your struggles, and find effective ways to move forward.</p>
+    </section>
+
+    <!-- CTA (top) -->
+    <section class="cta-section">
+      <div class="cta-buttons">
+        <button class="btn contactBtn" aria-haspopup="dialog">Contact Me</button>
+        <div class="inline-form" aria-hidden="true">
+            <button type="button" class="close-inline" aria-label="Close">&times;</button>
+            <h2>Contact Me</h2>
+            <form id="contactFormTop" action="https://formspree.io/f/xanpyqzq" method="POST"> 
+            <label for="nameTop">Name <span style="color:#c00">*</span></label>
+            <input id="nameTop" type="text" name="name" required>
+
+            <label for="emailTop">Email <span style="color:#c00">*</span></label>
+            <input id="emailTop" type="email" name="email" required>
+
+            <label for="phoneTop">Phone</label>
+            <input id="phoneTop" type="tel" name="phone">
+
+            <label for="messageTop">Message <span style="color:#c00">*</span></label>  
+            <textarea id="messageTop" name="message" rows="5" required></textarea>
+
+            <label style="display:flex; align-items:flex-start; gap:10px; margin-top:12px; font-size:0.95em; line-height:1.4;">
+  <input type="checkbox" name="consentTop" required 
+    style="width:16px; height:16px; margin-top:3px;">
+  <span style="display:block;">I confirm that I'm happy for the information entered to be sent via email</span>
+</label>
+
+<label style="display:flex; align-items:flex-start; gap:10px; margin-top:10px; font-size:0.95em; line-height:1.4;">
+  <input type="checkbox" name="sendConfirmationTop"
+    style="width:16px; height:16px; margin-top:3px;">
+  <span style="display:block;">Send me a confirmation email</span>
+</label>
+
+
+            <button type="submit">Send</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- How I can help -->
+    <section class="top-section">
+      <h1><i class="fa-solid fa-hand-holding-heart" aria-hidden="true" style="color:#275340;"></i> How I Can Help</h1>
+      <p>In addition to working with a wide range of concerns, including anxiety, depression, grief, and loss, I have specialist expertise and experience in the following areas.</p>
+    </section>
+
+    <!-- Services -->
+    <section class="services">
+      <a href="https://halcyoncounselling.com/services#fertility" data-open="fertility" target="_blank" class="service-item" rel="noopener">
+        <div class="icon-circle"><i class="fa-solid fa-seedling" aria-hidden="true"></i></div>
+        <h3>Fertility Counselling</h3>
+        <p>Supporting you at every stage of your conception journey; from first hopes, through treatments and beyond.</p>
+      </a>
+      <a href="https://halcyoncounselling.com/services#perinatal" data-open="perinatal" target="_blank" class="service-item" rel="noopener">
+        <div class="icon-circle"><i class="fa-solid fa-baby" aria-hidden="true"></i></div>
+        <h3>Perinatal Counselling</h3>
+        <p>Ensuring your wellbeing through the changes of pregnancy, postnatal life and the transition to parenthood.</p>
+      </a>
+      <a href="https://halcyoncounselling.com/services#couples" data-open="couples" target="_blank" class="service-item" rel="noopener">
+        <div class="icon-circle"><i class="fa-solid fa-heart" aria-hidden="true"></i></div>
+        <h3>Couples Counselling</h3>
+        <p>Providing a safe space for open communication to explore difficulties, resolve conflict and consider the best way forward.</p>
+      </a>
+      <a href="https://halcyoncounselling.com/services#transitions" data-open="transitions" target="_blank" class="service-item" rel="noopener">
+        <div class="icon-circle"><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></div>
+        <h3>Life Transitions</h3>
+        <p>Helping you navigate your way through life changes, such as redundancy, menopause, parenthood, loss and ageing.</p>
+      </a>
+    </section>
+
+    <!-- Why choose -->
+    <section class="why-choose">
+      <h2><i class="fa-solid fa-star" aria-hidden="true"></i> Why Choose My Practice</h2>
+      <p>Choosing the right counsellor is an important step in your journey. I strive to create a warm, supportive environment where you feel understood and empowered to make positive changes.</p>
+      <ul>
+        <li>Personalised counselling tailored to your unique needs</li>
+        <li>A safe and confidential space for open discussion</li>
+        <li>Compassionate, evidence-based therapeutic approaches</li>
+        <li>Flexible online and phone sessions for your convenience</li>
+      </ul>
+    </section>
+
+    <!-- Learn more CTA -->
+    <section class="cta-section">
+      <div class="cta-buttons">
+        <a href="https://halcyoncounselling.com/services" target="_blank" rel="noopener" class="btn">Learn More</a>
+      </div>
+    </section>
+
+    <!-- Process -->
+    <section class="process-section">
+      <h2><i class="fa-solid fa-seedling" aria-hidden="true"></i> How We'll Work Together</h2>
+      <p class="subtitle">Your path to emotional wellbeing</p>
+      <div class="process-grid">
+        <div class="left-column">
+          <div class="step-card">
+            <h3><i class="fa-solid fa-comments" aria-hidden="true"></i> Informal Phone Call</h3>
+            <ul>
+              <li>What brings you to counselling</li>
+              <li>What you hope to achieve</li>
+            </ul>
+          </div>
+          <div class="step-card">
+            <h3><i class="fa-solid fa-user-check" aria-hidden="true"></i> Introductory Session</h3>
+            <ul>
+              <li>Deciding whether I’m the right counsellor for you!</li>
+              <li>Agreeing a way forward (session frequency, approach &amp; duration..)</li>
+            </ul>
+            <a href="https://halcyoncounselling.com/session-%26-fees" target="_blank" rel="noopener">Explore →</a>
+          </div>
+          <div class="step-card">
+            <h3><i class="fa-solid fa-hand-holding-heart" aria-hidden="true"></i> Regular Personalised Sessions</h3>
+            <ul>
+              <li>With regular reviews to check progress</li>
+            </ul>
+            <a href="https://halcyoncounselling.com/session-%26-fees" target="_blank" rel="noopener">Connect →</a>
+          </div>
+        </div>
+        <div class="right-column">
+          <picture>
+            <source srcset="https://res.cloudinary.com/ds1pmmoc1/image/upload/v1759227226/pebbles_lknarh.jpg" type="image/jpeg">
+            <img src="https://res.cloudinary.com/ds1pmmoc1/image/upload/v1759227226/pebbles_lknarh.jpg" alt="Pebbles on a beach" loading="lazy" width="768" height="768">
+          </picture>
+        </div>
+      </div>
+      <p class="subtitle journey-text">Ready to begin your journey?</p>
+      <!-- Bottom CTA (inline form) -->
+      <div class="cta-buttons" style="margin-top:40px;">
+        <button class="btn contactBtn" aria-haspopup="dialog">Contact Me</button>
+        <div class="inline-form" aria-hidden="true">
+            <button type="button" class="close-inline" aria-label="Close">&times;</button>
+            <h2>Contact Me</h2>
+            <form id="contactFormTop" action="https://formspree.io/f/xanpyqzq" method="POST">
+            <label for="nameBottom">Name <span style="color:#c00">*</span></label>
+            <input id="nameBottom" type="text" name="name" required>
+
+            <label for="emailBottom">Email <span style="color:#c00">*</span></label>
+            <input id="emailBottom" type="email" name="email" required>
+
+            <label for="phoneBottom">Phone</label>
+            <input id="phoneBottom" type="tel" name="phone">
+
+            <label for="messageBottom">Message <span style="color:#c00">*</span></label>
+            <textarea id="messageBottom" name="message" rows="5" required></textarea>
+
+            <label style="display:flex; align-items:flex-start; gap:10px; margin-top:12px; font-size:0.95em; line-height:1.4;">
+  <input type="checkbox" name="consentBottom" required 
+    style="width:16px; height:16px; margin-top:3px;">
+  <span style="display:block;">I confirm that I'm happy for the information entered to be sent via email</span>
+</label>     
+
+<label style="display:flex; align-items:flex-start; gap:10px; margin-top:10px; font-size:0.95em; line-height:1.4;">
+  <input type="checkbox" name="sendConfirmationBottom"
+    style="width:16px; height:16px; margin-top:3px;">
+  <span style="display:block;">Send me a confirmation email</span>
+</label>
+
+            <button type="submit">Send</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+  <script>
+    // Inline form toggles (works for any number of buttons)
+    document.addEventListener('DOMContentLoaded', function () {
+      const buttons = document.querySelectorAll('.contactBtn');
+
+      buttons.forEach((btn) => {
+        btn.addEventListener('click', (e) => {
+          e.preventDefault();
+
+          const form = btn.nextElementSibling;
+          if (!form || !form.classList) return;
+
+          const isActive = form.classList.contains('active');
+
+          // close all
+          document.querySelectorAll('.inline-form').forEach(f => f.classList.remove('active'));
+
+          // toggle this one
+          if (!isActive) form.classList.add('active');
+        });
+      });
+
+      // Close when clicking outside any CTA area
+      document.addEventListener('click', (e) => {
+        if (!e.target.closest('.cta-buttons')) {
+          document.querySelectorAll('.inline-form').forEach(f => f.classList.remove('active'));
+        }
+      });
+    });
+
+    // ✅ Services handoff: localStorage + ?open= + 300ms delay
+    (function () {
+      if (window.__serviceLinkHandlerBound__) return;
+      window.__serviceLinkHandlerBound__ = true;
+
+      const links = document.querySelectorAll('.services a[data-open]');
+      if (!links.length) return;
+
+      links.forEach((link) => {
+        const key = link.getAttribute('data-open');
+
+        // Prime storage early for reliability
+        function prime() {
+          try { localStorage.setItem('openService', key); } catch (e) {}
+        }
+        link.addEventListener('mousedown', prime, { passive: true, capture: true });
+        link.addEventListener('touchstart', prime, { passive: true, capture: true });
+
+        // Open with query + hash, after a small delay
+        link.addEventListener('click', function (e) {
+          e.preventDefault();
+          try { localStorage.setItem('openService', key); } catch (e) {}
+          setTimeout(() => {
+            const url = `https://halcyoncounselling.com/services?open=${key}#${key}`;
+            window.open(url, '_blank', 'noopener');
+          }, 300);
+        }, { capture: true });
+      });
+    })();
+
+// Inline form close buttons
+document.addEventListener('click', (e) => {
+  if (e.target.classList.contains('close-inline')) {
+    e.preventDefault();
+    e.target.closest('.inline-form').classList.remove('active');
+  }
+});
+  </script>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+  function addConsentValidation(formId, consentName) {
+    const form = document.getElementById(formId);
+    if (!form) return;
+
+    form.addEventListener("submit", function(e) {
+      const consent = form.querySelector(`input[name="${consentName}"]`);
+
+      // Remove any old message
+      const oldMsg = form.querySelector(".consent-error");
+      if (oldMsg) oldMsg.remove();
+
+      if (!consent.checked) {
+        e.preventDefault();
+
+        // Add friendly inline message
+        const msg = document.createElement("div");
+        msg.className = "consent-error";
+        msg.style.color = "#c00";
+        msg.style.marginTop = "6px";
+        msg.style.fontSize = "0.9em";
+        msg.textContent = "Please confirm that you’re happy for your information to be sent via email.";
+
+        consent.parentElement.insertAdjacentElement("afterend", msg);
+      }
+    });
+  }
+
+  // Apply to both forms
+  addConsentValidation("contactFormTop", "consentTop");
+  addConsentValidation("contactFormBottom", "consentBottom");
+
+});
+</script>
+
+
+
+</body>
+</html>
