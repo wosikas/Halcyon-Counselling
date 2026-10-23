@@ -13,7 +13,13 @@
 
 ## Guiding principles
 
-- **Define "higher probability" before anything else.** Hit rate alone is misleading. A 70% win rate with a 1:0.3 reward-to-risk loses money. Every claim will be judged on **expectancy net of spread, slippage and swap**. We will also track R-multiple distribution, maximum adverse and maximum favourable excursion (MAE/MFE), drawdown, and **calibration**: when we say 65%, it should happen about 65% of the time.
+- **North Star: 90% accuracy, defined so it can't be gamed.** Hit rate and payoff are mathematically linked. The breakeven win rate is `1 / (1 + R)`, where R is reward-to-risk. So 90% is easy to fake with a tiny target and a wide stop (R = 0.1 breaks even at about 91%), and that loses money once costs are included. The North Star is therefore defined as:
+  - **≥ 90% of "A-grade" signals reach target before stop, with reward-to-risk of at least 1:1**, measured live and out-of-sample, after costs, on a published record.
+  - **Coverage is reported alongside accuracy:** how many A-grade signals fire per week. The system is allowed, and expected, to say "no trade" most of the time. This approach is called selective prediction, or abstention.
+  - **Calibration:** a stated probability of 90% must come true about 90% of the time. Lower tiers (for example 70–80%) are shown honestly as lower tiers.
+  - **Expectancy net of spread, slippage and swap** remains the guardrail metric. We also track the R-multiple distribution, maximum adverse and maximum favourable excursion (MAE/MFE), and drawdown.
+  - **Reality check:** a sustained 90% at 1:1 would beat every known fund. Renaissance's Medallion fund is reported to be right about 50.75% of the time. The research will establish how close we can get, on which setups, horizons and conditions, and will treat any backtest showing 90%+ as a red flag for overfitting until it is proven live.
+  - **Marketing:** public accuracy claims are regulated (UK FCA financial promotions, US FTC/CFTC). We will only claim what the published record shows.
 - **Assume nothing is an edge until tested out-of-sample.** Most signal products fail through overfitting and survivorship bias. The research will apply the same tests to our own ideas as to competitors'.
 - **Evidence, not opinion.** Every competitor claim, price and feature gets a source and a date. User pain points come from real reviews and forums, not assumptions.
 - **Regulation shapes the product.** Whether this is "advice" or "information/tools" changes what we can build and say. This gets checked early, not at launch.
@@ -108,7 +114,80 @@ Review academic and practitioner work (SSRN, arXiv q-fin, BIS and central bank p
 
 **Output:** a ranked list of modelling techniques. For each one: what it would add to the product, what data it needs, how hard it is to build, and the evidence that it works.
 
-## Phase 4: Data and feasibility audit
+## Phase 4: Market-moving activity intelligence ("follow the money and the mouths")
+
+For every source below we record: what it reveals, how delayed it is, how often it updates, cost and licensing, whether we can redistribute it, and **published evidence that it moves or predicts price**. Then we test that ourselves in Phase 8.
+
+### 4a. Large trades and disclosed positions
+
+Spot FX is over-the-counter, so there is no public tape. Large flow still leaks through several disclosure regimes.
+
+| Source | What it shows | Delay |
+|---|---|---|
+| CFTC Part 43 real-time swap reporting (DTCC public dissemination) | FX options, NDFs and other swaps, including large-notional trades (capped and delayed for block size) | Minutes to hours |
+| Large FX option expiries (derived from DTCC data, published daily by news desks) | Big strikes that can pin or attract price around 10am NY cut | Daily |
+| CME FX futures and options: block trades, volume, open interest | Large exchange-traded positioning, plus volume and open interest that spot FX lacks | Real-time to end-of-day |
+| CFTC Commitments of Traders | Positioning of leveraged funds, asset managers and dealers | Weekly (Tuesday data released Friday) |
+| SEC 13F / 13D / 13G, Form 4 insider trades | Holdings of large managers (including sovereign funds that file 13F), 5% stakes, insider buying and selling | 2 business days to 45 days |
+| UK and EU major-holding and short-position disclosures | Large stakes and net short positions above thresholds | 1–4 days |
+| Japan Ministry of Finance intervention data, central bank FX operations | Official buying and selling of currencies | Monthly, with daily detail later |
+| US TIC data, IMF COFER reserves, World Gold Council central bank gold | Foreign official demand for USD, Treasuries and gold | Monthly or quarterly |
+| Cross-border M&A announcements | Large deals that require currency conversion | Real-time |
+| Calendar flows | Month-end and quarter-end rebalancing, the WM/R 4pm fix, Japanese fiscal half-year repatriation | Predictable dates |
+
+### 4b. Wealthy individuals, companies and sovereign funds
+
+- **Sovereign wealth funds and public pensions:**
+  - Norway NBIM holdings, plus Saudi PIF and others through 13F filings
+  - Global SWF and SWF Institute trackers
+  - announced allocation changes (for example Japan's GPIF)
+- **Billionaire and fund-manager moves:** 13F changes for well-known managers, Berkshire filings and letters, hedge fund investor letters, and activist 13D filings.
+- **Corporate signals:** insider-trading clusters, large buybacks, and hedging commentary on earnings calls (for example "we expect a stronger dollar to hurt us").
+
+The research question for all of these is honest: most of this data is slow (days to months). It is likely to be useful for **regime and bias** (which way the big money is leaning) rather than for **entry timing**. We will measure that.
+
+### 4c. Politicians, Trump, central bankers and prominent voices
+
+- **Political statements:**
+  - Trump's Truth Social posts. There is no official API, so the licensing and terms of service of monitoring services need checking.
+  - Posts on X, White House releases and executive orders, and Federal Register tariff notices.
+  - Foreign leaders and finance ministries.
+- **Precedent:** JPMorgan's 2019 "Volfefe index" showed Trump's tweets measurably moved US rates volatility. Tariff headlines in 2018–19 and 2025 moved CNH, MXN, CAD and EUR.
+- **Central bankers:** the speech calendar and transcripts (the BIS central bankers' speeches database), Fed, ECB and BoE minutes, and hawkish/dovish scoring with NLP.
+- **Politicians' own trading:** US STOCK Act disclosures, filed within 45 days (via Capitol Trades and Quiver Quantitative style trackers).
+- **Prominent investors and institutions:** public commentary from people such as Dalio, Druckenmiller, Ackman and Burry, and from investment banks' public research. Interviews and podcasts can be transcribed. We would measure **each voice's own track record** before giving it any weight.
+- **Prediction markets** (Polymarket, Kalshi): live, market-priced probabilities for political events. These are useful for "how much of this is already priced in?"
+
+**Output:** a source inventory with cost, delay and licensing for each, plus a shortlist of 5–10 sources worth testing for predictive value.
+
+## Phase 5: News vs hype vs misdirection ("signal vs noise")
+
+This is about building a way to classify each item as **news**, **hype**, or **misdirection**.
+
+- **What makes something news:**
+  - it is new information (novelty detection: not a rehash of yesterday's story)
+  - it differs from what was expected (surprise vs consensus, or vs prediction-market odds)
+  - it comes from a credible primary source
+  - it is confirmed by related markets, for example yields and FX moving together
+- **What makes something hype:**
+  - mentions accelerate with no confirmation from price, flow or positioning
+  - the sources are low-credibility or anonymous
+  - the language is promotional, the accounts look like coordinated bots, or the "influencers" have a poor track record
+- **What puts traders off the trail:**
+  - recycled or stale headlines presented as new
+  - a headline that differs from the actual detail of the story
+  - fake or impersonation accounts (for example fake breaking-news accounts)
+  - "sources say" stories that are later denied
+  - crowded retail positioning around obvious levels, which invites stop runs
+  - reactions to data that are not justified by the size of the surprise
+- **Method:**
+  - a source-credibility score and a per-voice accuracy score
+  - an LLM-based classifier checked against labelled history
+  - "did the market care?" event studies: how much each headline type actually moved price
+
+**Output:** a labelled taxonomy, the scoring design, and an evaluation plan.
+
+## Phase 6: Data and feasibility audit
 
 - **Price data:** OANDA, Dukascopy tick data, LMAX, FXCM, Polygon/Twelve Data, and CME FX futures via Databento. FX futures add volume and open interest, which spot FX does not have.
 - **Rates and macro data:** FRED, US Treasury, ECB Data Portal, central bank sites, Trading Economics, Finnhub/FMP calendar APIs.
@@ -117,7 +196,7 @@ Review academic and practitioner work (SSRN, arXiv q-fin, BIS and central bank p
 - **Licensing for redistribution is the key constraint.** Many feeds forbid showing their data to your customers. Cost each data source at the MVP stage and at scale.
 - **Technical needs:** latency budget for each signal type, and the compute needed to run correlation and regime models live.
 
-## Phase 5: Regulatory scan
+## Phase 7: Regulatory scan
 
 Find out whether flagging entries counts as regulated investment advice or a "recommendation" in each target market, and what that means for product design (disclaimers, "tool not advice" framing, personalisation limits, marketing rules).
 
@@ -127,7 +206,7 @@ Find out whether flagging entries counts as regulated investment advice or a "re
 - **Australia and Singapore:** ASIC and MAS.
 - **Distribution:** App Store and Google Play rules for financial apps.
 
-## Phase 6: Proof-of-edge experiments (before any build)
+## Phase 8: Proof-of-edge experiments (before any build)
 
 Take 3–5 of the strongest hypotheses (including **your correlation method**) and test them honestly on historical data in Python:
 
@@ -141,10 +220,35 @@ Candidate tests:
 3. **Regime filtering:** does a regime filter improve standard technical setups (breakout vs mean-reversion)?
 4. **Fundamental bias:** does aligning technical triggers with a macro bias (surprise index plus rate differential) raise expectancy?
 5. **Event handling:** does skipping or fading the first move after a data surprise change results?
+6. **Big-money and political signals:** do large FX option expiries, COT extremes, block trades or political-statement shocks improve accuracy when combined with the signals above?
+7. **The 90% test:** at what confidence threshold, if any, does the combined model reach 90% at 1:1 or better, and how many signals per week survive at that threshold?
 
 **Output:** a short report per test. Kill the ideas that don't hold up.
 
-## Phase 7: Gap synthesis and product thesis
+## Phase 9: UI and dashboard design
+
+- **Teardown of the best interfaces:**
+  - Bloomberg Terminal, Koyfin, TradingView, TrendSpider
+  - Unusual Whales, Quiver Quantitative, FinancialJuice
+  - Forex Factory, Myfxbook
+  - what traders praise and hate about each
+- **Core screens to prototype:**
+  1. **Signal board:** ranked live signals with tier, calibrated probability, entry, stop, target, reasons for and against, and a countdown to the next risk event.
+  2. **Cross-asset correlation and lead-lag map:** a live heatmap or network, with divergence alerts highlighted.
+  3. **Currency scorecard:** a fundamental bias per currency (surprise index, rate differential, positioning, big-money flow).
+  4. **Big-money and political feed:** large trades, option expiries, disclosures, and political or central bank statements. Each item is tagged news, hype or misdirection and shows its measured market impact.
+  5. **Event calendar** with expected volatility and prediction-market odds.
+  6. **Track record:** every signal ever issued, filterable, with a calibration chart.
+- **Alerts:**
+  - channels: push, email, Telegram/Discord and webhook
+  - filtered by the trader's pairs, tier threshold and prop-firm rules
+  - alerts are deliberately few: quality over quantity
+- **Process:**
+  - wireframes
+  - an interactive clickable prototype
+  - usability sessions with 5–8 traders
+
+## Phase 10: Gap synthesis and product thesis
 
 - A gap matrix scoring each capability (rows) against each competitor (columns).
 - Opportunities scored on: how painful the problem is for traders, whether we can prove an edge, whether it is defensible, data cost, regulatory risk, and willingness to pay.
@@ -163,13 +267,17 @@ Candidate tests:
 7. **Better trading chat rooms:** calls posted in a structured format, reputation earned from verified outcomes, and AI summaries of the room. This removes the guru noise.
 8. **Prop-firm-aware risk:** signals and position sizes that respect the trader's challenge rules (daily loss and maximum drawdown limits). This is a large, underserved segment.
 9. **Fewer, ranked alerts** instead of a firehose.
+10. **"Follow the money and the mouths" in one place.** Disclosed big trades, sovereign and billionaire moves, and political and central bank statements, each scored for credibility and measured market impact. Today this information is scattered across a dozen sites.
+11. **A noise filter.** Every headline and post is labelled news, hype or misdirection, with the evidence for the label. This directly targets what throws traders off the trail.
 
 ## How the work will be executed
 
-- Phases 1–3 run in parallel with research agents, each covering one category, using web search and primary sources. All findings are cited and dated.
-- Phase 6 runs in Python notebooks against free or low-cost historical data.
+- Phases 1–5 run in parallel with research agents, each covering one category, using web search and primary sources. All findings are cited and dated.
+- Phase 8 runs in Python notebooks against free or low-cost historical data.
 - Deliverables:
   - a research report
+  - a source inventory of big-money, political and news feeds
+  - a clickable dashboard prototype
   - the competitor matrix
   - the backtest notebooks
   - a product thesis and MVP specification
