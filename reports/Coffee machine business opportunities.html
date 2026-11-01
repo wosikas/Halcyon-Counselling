@@ -106,13 +106,14 @@ h3 { font-family: var(--font-display); font-weight: 700; font-size: 20px; line-h
 .lead p { font-size: 18.5px; }
 
 /* Recommended ideas */
-.picks { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; margin: 22px 0 8px; }
-@media (max-width: 760px) { .picks { grid-template-columns: minmax(0, 1fr); } }
+.picks { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; margin: 22px 0 8px; }
+@media (max-width: 1100px) { .picks { grid-template-columns: minmax(0, 1fr); } }
 .pick { background: var(--surface); border: 1px solid var(--rule); border-top: 4px solid var(--leaf); border-radius: 4px; padding: 22px 22px 18px; display: flex; flex-direction: column; gap: 12px; min-width: 0; }
 .pick .tag { font-family: var(--font-data); font-size: 12px; letter-spacing: .06em; color: var(--leaf); text-transform: uppercase; }
 .pick h3 { margin: 0; font-size: 22px; }
 .pick p { margin: 0; font-size: 16px; }
 .pick .scores { display: flex; gap: 18px; font-family: var(--font-data); font-size: 13px; color: var(--ink-soft); border-top: 1px solid var(--rule); padding-top: 12px; margin-top: auto; }
+.pick .scores { flex-wrap: wrap; }
 .pick .scores b { font-family: var(--font-display); font-size: 22px; color: var(--ink); font-weight: 800; margin-right: 4px; }
 .pick .cond { font-size: 14.5px; color: var(--ink-soft); background: var(--crema-soft); padding: 10px 12px; border-radius: 3px; }
 .pick .cond strong { color: var(--ink); }
@@ -137,12 +138,15 @@ table.heat { min-width: 640px; border: 1px solid var(--rule); background: var(--
 table.heat th { text-align: center; }
 table.heat th:first-child { text-align: left; }
 table.heat td { text-align: center; font-family: var(--font-data); font-size: 14px; padding: 8px 6px; border: 1px solid var(--surface); }
-table.heat td.name { text-align: left; font-family: var(--font-display); font-size: 14px; padding: 8px 12px; white-space: nowrap; border: 0; border-bottom: 1px solid var(--rule); }
+table.heat td.name { text-align: left; font-family: var(--font-display); font-size: 14px; padding: 8px 12px; min-width: 200px; border: 0; border-bottom: 1px solid var(--rule); }
 table.heat td.name small { color: var(--ink-soft); font-family: var(--font-data); font-size: 11.5px; margin-right: 6px; }
 .c-hi { background: var(--pass-strong); color: var(--pass-text); font-weight: 500; }
 .c-mid { background: var(--mid-cell); color: var(--ink); }
 .c-lo { background: var(--low-cell); color: var(--cherry); font-weight: 500; }
 table.heat td.avg { font-weight: 500; background: var(--paper); }
+table.heat td.verdict { text-align: left; min-width: 130px; max-width: 170px; padding: 8px 10px; vertical-align: middle; }
+table.heat td { vertical-align: middle; }
+.verdict-pill { white-space: normal; line-height: 1.35; border-radius: 8px; }
 table.heat tr.sep td { border-top: 3px solid var(--ink); }
 .verdict-pill { display: inline-block; font-family: var(--font-data); font-size: 11px; padding: 2px 7px; border-radius: 99px; letter-spacing: .03em; }
 .v-pass { background: var(--leaf); color: var(--surface); }
@@ -179,94 +183,170 @@ footer.end { margin-top: 56px; padding-top: 18px; border-top: 1px solid var(--ru
 <div class="shell">
   <nav class="rail" aria-label="Report contents">
     <h2>Contents</h2>
-    <ol id="toc"><li><a href="#summary">Executive summary</a></li><li><a href="#market">Market &amp; customers</a></li><li><a href="#partners">Partners &amp; operating models</a></li><li><a href="#hurdles">Supply, compliance &amp; finance</a></li><li><a href="#panel">Reviewer panel</a></li><li><a href="#roadmap">Phased roadmap</a></li><li><a href="#buzz">Launch buzz plan</a></li><li><a href="#risks">Risks, partners &amp; gaps</a></li><li><a href="#conclusion">Conclusion</a></li></ol>
+    <ol id="toc"><li><a href="#summary">Executive summary</a></li><li><a href="#workplace-coffee-is-a-3-78bn-market-sold">Market &amp; buyers</a></li><li><a href="#independents-win-on-service-but-hide-the">Independents &amp; Coffee Lady</a></li><li><a href="#six-gaps-the-evidence-points-to">Six gaps</a></li><li><a href="#use-partners-balance-sheets-for-equipmen">Partners &amp; operating models</a></li><li><a href="#seven-reviewers-recommend-three-of-eight">Reviewer panel</a></li><li><a href="#roadmap-and-unit-economics-start-with-of">Roadmap &amp; economics</a></li><li><a href="#a-b2b-launch-built-on-exposing-lock-in">Launch buzz plan</a></li><li><a href="#risks-compliance-and-contract-checklist">Risks &amp; compliance</a></li><li><a href="#who-to-contact-what-to-watch-what-to-val">Contacts &amp; open questions</a></li><li><a href="#conclusion">Conclusion</a></li></ol>
   </nav>
 
   <main>
     <header class="cover">
-      <p class="eyebrow">Deep research · Coffee venture · UK</p>
-      <h1>Own the customer, let partners fund the machines</h1>
-      <p class="dek">Thirteen business ideas went through seven independent reviewers. Two passed with 8+ from every reviewer, and both can start for under £1,000.</p>
+      <p class="eyebrow">Deep research · Business coffee · UK</p>
+      <h1>Win offices by ending coffee lock-in</h1>
+      <p class="dek">Re-centred on business customers: offices, hospitality and customer-facing sites, with premium home enthusiasts as a later segment. Eighteen ideas went to seven reviewers, and three passed with 8+ from every one. Independents, including Coffee Lady, are profiled as competitors and as partners.</p>
       <div class="meta">
         <span><b>Date</b> 1 November 2026</span>
         <span><b>Market</b> Great Britain (assumed)</span>
-        <span><b>Sources</b> 6 research streams, 95 cited</span>
+        <span><b>Sources</b> 10 research streams, 103 cited</span>
       </div>
-      <details class="mobile-toc"><summary>Contents</summary><ol><li><a href="#summary">Executive summary</a></li><li><a href="#market">Market &amp; customers</a></li><li><a href="#partners">Partners &amp; operating models</a></li><li><a href="#hurdles">Supply, compliance &amp; finance</a></li><li><a href="#panel">Reviewer panel</a></li><li><a href="#roadmap">Phased roadmap</a></li><li><a href="#buzz">Launch buzz plan</a></li><li><a href="#risks">Risks, partners &amp; gaps</a></li><li><a href="#conclusion">Conclusion</a></li></ol></details>
+      <details class="mobile-toc"><summary>Contents</summary><ol><li><a href="#summary">Executive summary</a></li><li><a href="#workplace-coffee-is-a-3-78bn-market-sold">Market &amp; buyers</a></li><li><a href="#independents-win-on-service-but-hide-the">Independents &amp; Coffee Lady</a></li><li><a href="#six-gaps-the-evidence-points-to">Six gaps</a></li><li><a href="#use-partners-balance-sheets-for-equipmen">Partners &amp; operating models</a></li><li><a href="#seven-reviewers-recommend-three-of-eight">Reviewer panel</a></li><li><a href="#roadmap-and-unit-economics-start-with-of">Roadmap &amp; economics</a></li><li><a href="#a-b2b-launch-built-on-exposing-lock-in">Launch buzz plan</a></li><li><a href="#risks-compliance-and-contract-checklist">Risks &amp; compliance</a></li><li><a href="#who-to-contact-what-to-watch-what-to-val">Contacts &amp; open questions</a></li><li><a href="#conclusion">Conclusion</a></li></ol></details>
     </header>
 
     <div class="figures" role="list">
-      <div role="listitem"><div class="n">£163m</div><div class="l">UK home machine sales, 2023 (1.76m units)</div></div>
-      <div role="listitem"><div class="n">~£92</div><div class="l">implied average price per machine</div></div>
-      <div role="listitem"><div class="n">2 of 13</div><div class="l">ideas scored 8+ from all seven reviewers</div></div>
-      <div role="listitem"><div class="n">£300–900</div><div class="l">estimated Phase 0 cash outlay</div></div>
+      <div role="listitem"><div class="n">£3.78bn</div><div class="l">UK vending, coffee services &amp; automated retail, 2025</div></div>
+      <div role="listitem"><div class="n">61%</div><div class="l">of machine placements are in workplaces</div></div>
+      <div role="listitem"><div class="n">3 of 18</div><div class="l">ideas scored 8+ from all seven reviewers</div></div>
+      <div role="listitem"><div class="n">£500–1.5k</div><div class="l">estimated Phase 0 cash outlay</div></div>
     </div>
 
     <section class="block" id="summary">
       <h2><span class="secnum">EXECUTIVE SUMMARY</span>The answer in one page</h2>
-      <div class="body-copy lead"><p>Of thirteen ideas tested, two clear the panel's bar of 8 or more from every reviewer. Neither is "a shop that sells coffee machines". The first is a <strong>curated "Matchmaker-to-Mug" home proposition</strong>: a buyer's quiz and setup service, with machines drop shipped from UK distributor stock, followed by an own-label bean subscription. The second is a <strong>"no lock-in" micro-office coffee agent</strong>: the business refers small offices to operators and lease funders who supply the equipment, and supplies its own beans where the contract allows. Both need almost no upfront capital. Other firms hold the stock, carry the credit risk or own the machines, while this business owns the customer relationship and the repeat coffee sales. This matters because hardware is a weak business for a newcomer. UK consumer machine sales are only about <strong>£163m a year, at an implied average of roughly £92 per unit</strong> (<a href="https://www.worldcoffeeportal.com/news/uk-at-home-coffee-market-set-for-growth-as-consumers-bring-cafe-quality-to-their-kitchens/">World Coffee Portal</a>). Currys, Amazon and John Lewis cut bean-to-cup prices by 35–60% on Black Friday (<a href="https://www.yours.co.uk/life/home/black-friday-coffee-machine/">Yours</a>). Sage and Nespresso already treat the machine as the cost of winning a coffee customer (<a href="https://www.sageappliances.com/en-gb/program/fast-track">Sage Fast-Track</a>). The gaps that remain are trust and service, not price. The best-rated UK specialist, Bella Barista, wins on advice and aftercare (<a href="https://jp.trustpilot.com/review/bellabarista.co.uk">Trustpilot</a>). Rivals lose customers through EU plugs and refund disputes (<a href="https://uk.trustpilot.com/review/coffeefriend.co.uk">Trustpilot</a>), slow repairs (<a href="https://uk.trustpilot.com/review/www.delonghi.com?page=5">Trustpilot</a>) and 3–5-year lease lock-ins (<a href="https://www.ukbusinessforums.co.uk/threads/coffee-machine-leasing-contract.420090/post-3163454">UKBF</a>). This report assumes the business is <strong>UK-based (GB) and selling to UK customers</strong>, inferred from the user's spelling. All costs and margins marked "estimate" are illustrative arithmetic from the cited rates, not quotes. Trade margins are unpublished across the industry, so validating them is the first job.</p>
+      <div class="body-copy lead"><p>For a low-capital entrant into UK business coffee, the strongest opening is <strong>not selling machines. It is being the transparent, no-lock-in supplier of choice for small workplaces and independent hospitality, while lease funders, operators, roasters and subcontracted engineers carry the equipment, credit and van costs.</strong> Three of eighteen candidate ideas, after strengthening, earned 8 or more from all seven reviewers. The first is <strong>"No-Lock-In Workplace Coffee"</strong>: published prices, free two-week trials, service on rolling 30-day terms with no auto-renewal, machines funded by lessors or partner operators, and own-label beans. The second is a <strong>"Café Kit Partner"</strong> that gives small roasters and their café, garden-centre and coffee-van customers machines, finance and service under the roaster's brand. The third is an <strong>"Independent Partner Network"</strong>. It passes out-of-area leads to vetted local independents such as Coffee Lady, buys engineering capacity from them, and so builds a pipeline of retiring owners whose customer books can be bought later on earn-out terms. That acquisition route is a Phase 3 gate, not a launch idea. The market is large but its terms are opaque. UK vending, coffee services and automated retail were worth <strong>£3.78bn in 2025</strong>, and coffee-to-go machines take <strong>£2.89 a serve</strong> (<a href="https://fmuk-online.co.uk/britains-vending-industry-hits-3-78-billion-as-smart-fridges-and-cashless-tech-drive-automated-retail-boom/">FMUK</a>). Yet buyers still sign <strong>3–7-year leases that roll over unless written notice arrives 90 days before expiry</strong> (<a href="https://vmarketed.com/how-to-rent-an-office-coffee-machine/">vmarketed</a>; <a href="https://www.ukbusinessforums.co.uk/threads/coffee-machine-leasing-contract.420090/post-3163304">UKBF</a>). Most independents sell on quote only. Even Coffee Lady, which does show machine and service-package prices, sells no coffee, has no bookable trial or rolling-rental product, and charges 50% of the invoice for cancellation before installation (<a href="https://coffeelady.uk/terms-conditions/">Coffee Lady terms</a>). Business buyers have almost no statutory protection against rollover, so "no lock-in, published prices" is both the product and the buzz. The earlier home "Matchmaker-to-Mug" idea drops to a side option, and premium home enthusiasts are served later through a care plan that shares the B2B engineers. All costs and margins labelled "estimate" are illustrative arithmetic, not quotes. Trade margins, introducer fees and engineer subcontract rates are unpublished, so getting them in writing is the first job.</p>
 </div>
 
       <div class="picks">
         <article class="pick">
-          <span class="tag">Recommended · S1 · Home</span>
-          <h3>Matchmaker-to-Mug</h3>
-          <p>A buyer's quiz and café-vs-home calculator. The machine ships from UK distributor stock (or goes through an affiliate link), with a £49 remote dial-in call, then an own-label bean subscription with descaler sent automatically.</p>
-          <p class="cond"><strong>Condition:</strong> a written drop-ship agreement covering returns and warranty. Without it, Procurement drops to 7 and the idea runs on affiliate links only.</p>
-          <div class="scores"><span><b>8.4</b>average</span><span><b>8</b>lowest</span><span><b>£90–370</b>per customer, before acquisition cost (est.)</span></div>
+          <span class="tag">Recommended · S1 · Offices</span>
+          <h3>No-Lock-In Workplace Coffee</h3>
+          <p>A free "Renewal Radar" contract check and a two-week trial. Then the office picks a rolling rental through a partner (introducer fee) or a lessor-funded 2–3-year machine with no auto-renewal, a published buy-out price, and our own service and beans on 30-day terms.</p>
+          <p class="cond"><strong>Condition:</strong> a written engineer service agreement before launch, and limited companies only until we have FCA introducer (IAR) status.</p>
+          <div class="scores"><span><b>8.3</b>average</span><span><b>£1.8–3.2k</b>per office over 3 years (est.)</span></div>
         </article>
         <article class="pick">
-          <span class="tag">Recommended · S2 · Business</span>
-          <h3>No-lock-in micro-office coffee agent</h3>
-          <p>A free two-week trial on a partner operator's demo machine. The office then takes the operator's free-on-loan deal (we earn an introducer fee) or a lease through a finance partner (we earn 1–7% commission and supply our own beans).</p>
-          <p class="cond"><strong>Condition:</strong> limited-company customers only until the business has FCA introducer (IAR) status.</p>
-          <div class="scores"><span><b>8.1</b>average</span><span><b>8</b>lowest</span><span><b>£100–780</b>per deal, year 1 (est.)</span></div>
+          <span class="tag">Recommended · S2 · Hospitality</span>
+          <h3>Café Kit Partner</h3>
+          <p>For small roasters that no longer want to own machines: we specify the kit, arrange the lease and book install and service for their cafés, garden centres and coffee vans. The roaster keeps the beans, and a pause-able winter plan serves seasonal sites.</p>
+          <p class="cond"><strong>Condition:</strong> launches only once IAR status is in place, because most cafés are sole traders.</p>
+          <div class="scores"><span><b>8.1</b>average</span><span><b>£1.3–3k</b>per café, year 1 (est.)</span></div>
+        </article>
+        <article class="pick">
+          <span class="tag">Recommended · S3 · Independents</span>
+          <h3>Independent Partner Network</h3>
+          <p>Leads from outside our home region go to one vetted local independent that meets a published standard (no auto-renewal, stated response times, published prices), for a referral fee. The same partners sell us engineering capacity at home.</p>
+          <p class="cond"><strong>Builds toward:</strong> buying a retiring owner's customer book on earn-out terms (S4, a Phase 3 gate).</p>
+          <div class="scores"><span><b>8.1</b>average</span><span><b>Fee</b>per signed contract</span></div>
         </article>
       </div>
     </section>
 
-    <section class="block" id="market"><h2><span class="secnum">01 · MARKET &AMP; CUSTOMERS</span>A £163m machine market that rewards advice, not price</h2><div class="body-copy"><h3 id="hardware-is-a-thin-discount-driven-market">Hardware is a thin, discount-driven market</h3>
-<p>The free data shows a small, volume-led machine market. Allegra/World Coffee Portal put UK consumer machine sales at <strong>£162.8m and about 1.76m units (2023)</strong>, forecast to reach <strong>£183.2m and 1.83m units by 2026</strong>. By value, <strong>pods were 48.7%, espresso 27.2% and filter 24.1%</strong>. Espresso is expected to reach about 30% by 2028 (<a href="https://www.worldcoffeeportal.com/news/uk-at-home-coffee-market-set-for-growth-as-consumers-bring-cafe-quality-to-their-kitchens/">World Coffee Portal</a>). Commissioned research-firm estimates disagree by about 3x (US<span class="math inline">311<em>m</em><em>t</em><em>o</em><em>U</em><em>S</em></span>0.8bn+), so they are excluded here (<a href="https://www.grandviewresearch.com/horizon/outlook/coffee-machine-market/uk">Grand View</a>; <a href="https://www.verifiedmarketreports.com/product/bean-to-cup-coffee-machine-market/">Verified Market Reports</a>). Value is moving upmarket: De'Longhi's 2025 revenue rose 10.4% to about €3.8bn, driven by manual espresso and accessories (<a href="https://www.businesswire.com/news/home/20260128191504/en/De-Longhi-Group---Record-Preliminary-2025-Revenues-of-%E2%82%AC3.8-Billion-up-10.4-at-Constant-Exchange-Rates">Business Wire</a>). The three most-clicked machines on Ideal Home in 2025 were all bean-to-cup (<a href="https://www.idealhome.co.uk/all-rooms/coffee/most-clicked-coffee-machine-ih-readers-2025">Ideal Home</a>). The most attractive price band, £250–£1,000 bean-to-cup and espresso, is also the most heavily discounted. A De'Longhi Magnifica S fell from £479.99 to £299 at Currys on Black Friday 2025 (<a href="https://www.yours.co.uk/life/home/black-friday-coffee-machine/">Yours</a>), and a Ninja Luxe Café was cut by £100 on Prime Day (<a href="https://www.techradar.com/seasonal-sales/the-best-selling-ninja-luxe-cafe-is-gbp100-off-right-now-bringing-bean-to-cup-goodness-to-your-home-for-less">TechRadar</a>). A newcomer cannot win this market on price.</p>
-<h3 id="home-coffee-is-about-saving-money-and-looking-good">Home coffee is about saving money and looking good</h3>
-<p>Demand is healthy, but it is driven by saving money and by aesthetics. A 12oz latte now averages <strong>£3.64</strong>, and the branded café market still grew <strong>5.2% to £6.1bn</strong> (<a href="https://www.worldcoffeeportal.com/news/value-in-the-spotlight-as-competition-heats-up-in-6-1bn-uk-branded-coffee-shop-market/">World Coffee Portal</a>). Home brewing therefore sits alongside café visits rather than replacing them. Nespresso's October 2026 data says consumers believe they save <strong>£24.77 a month</strong> by making coffee at home (<a href="https://retailtimes.co.uk/serving-coffee-at-home-is-saving-brits-nearly-300-a-year-nespresso-data-reveals/">Retail Times</a>). A Redrow/OnePulse survey found <strong>47%</strong> name saving money as the reason for a home coffee station, 78% say a coffee bar makes a home feel premium, and searches for "kitchen coffee bar" rose <strong>96%</strong> (<a href="https://kbnweekly.co.uk/kitchen-coffee-bar-searches-up-96-as-home-cafe-trend-grows/">KBN Weekly</a>). Younger buyers find coffee through social media: <strong>79% of Gen Z and 73% of millennials</strong> have tried viral coffee recipes, and 68% of Gen Z make iced coffee at home (<a href="https://retailtimes.co.uk/serving-coffee-at-home-is-saving-brits-nearly-300-a-year-nespresso-data-reveals/">Retail Times</a>). Grind grew through TikTok Shop and earned social media in 2025 (<a href="https://corq.studio/insights/coffee-tea-and-matcha-how-grind-perfectted-and-twinings-drove-growth-via-tiktok-shop-and-earned-social-in-2025/">Corq Studio</a>).</p>
-<h3 id="machine-owners-pain-points-are-where-the-business-can-add-value">Machine owners' pain points are where the business can add value</h3>
-<p>Owners' complaints point straight at service gaps. Which?'s April 2025 survey of 5,864 owners found faults cluster in <strong>dispensing (20%, sometimes caused by grinding too fine), leaks (19%) and cracked bodies (8%)</strong>. Scale build-up is the leading cause of poor performance. Sage offers <strong>no repairs after its 2-year guarantee</strong>, and Lavazza has no repair service at all (<a href="https://www.which.co.uk/reviews/coffee-machines/article/top-coffee-machine-brands-aHDL51d47Bti">Which?</a>). The UK's 2021 right-to-repair rules exclude small appliances, so nobody is legally required to supply parts (<a href="https://www.techadvisor.com/news/appliances/right-repair-appliances-new-rules-3806471/">Tech Advisor</a>). Many of these faults come from poor setup and too little descaling. A business that onboards customers properly and keeps their machines healthy addresses the issues behind most complaints.</p>
-<h3 id="competition-strong-on-price-and-lock-in-weak-on-advice-and-flexibility">Competition: strong on price and lock-in, weak on advice and flexibility</h3>
-<p>Each competitor group leaves one gap open. Manufacturers lock customers in through coffee: Sage gives two free bags on registration plus £50 cashback per £200 spent on beanz.com (<a href="https://www.sageappliances.com/en-gb/program/fast-track">Sage</a>), and Nespresso bundles machines with capsule plans (<a href="https://www.nespresso.com/uk/en/subscription/machine-subscription">Nespresso UK</a>). Mass retailers compete on price events and warranty length, with Lakeland offering 3 years against the usual 1–2 (<a href="https://trustedtraders.which.co.uk/reviews/coffee-machines/article/top-coffee-machine-brands-aHDL51d47Bti">Which?</a>). Among specialists, <strong>Bella Barista (about 4.8–4.9 on Trustpilot from about 9,500 reviews)</strong> sets the standard for advice. Coffee Friend's 4.0 rating suffers from complaints about EU two-pin plugs, slow deliveries from overseas and partial refunds (<a href="https://uk.trustpilot.com/review/coffeefriend.co.uk">Trustpilot</a>). That makes UK stock, UK plugs and fast refunds a selling point. Refurbished Sage machines sell for 35–50% off on Back Market with a 12-month warranty (<a href="https://www.backmarket.co.uk/en-gb/l/sage-coffee-machines/777ace76-e66b-46a7-a1e7-c0ef84e49edf?page=2">Back Market</a>), but buyers report limescale and poor cleaning (<a href="https://www.backmarket.ie/en-ie/r/l/coffee-machine/f713867b-9c7a-4454-86bc-31c9ae472842">Back Market reviews</a>).</p>
-<p>In the office market, small businesses sign <strong>3–5-year leases</strong>, for example Caffia from £7.94 a week (<a href="https://caffia.com/office-coffee-machines-rental-london/">Caffia</a>) and Westwon at £123–£281 a month (<a href="https://westwon.co.uk/?p=5991">Westwon</a>). Free-on-loan deals depend on minimum coffee orders (<a href="https://www.kandoo.co.uk/guides/how-to-offer-finance-for-coffee-machines">Kandoo</a>), and users complain about being stuck until the lease ends (<a href="https://www.ukbusinessforums.co.uk/threads/coffee-machine-leasing-contract.420090/post-3163454">UKBF</a>). Self-serve majors need sites selling 30–50+ cups a day (Tchibo pays sites 50% above 30 cups a day; Costa targets 50+) (<a href="https://www.thegrocer.co.uk/analysis-and-features/c-store-retailers-convenience-plus-coffee-equals-cash/519117.article">The Grocer</a>). Costa Express held <strong>71%</strong> of premium self-serve by the end of 2021 (<a href="https://www.worldcoffeeportal.com/news/new-hot-and-iced-coffee-machines-boost-record-2022-revenues-for-costa-express/">World Coffee Portal</a>).</p>
+    <section class="block" id="workplace-coffee-is-a-3-78bn-market-sold"><h2><span class="secnum">01</span>Workplace coffee is a £3.78bn market sold on lock-in</h2><div class="body-copy"><h3 id="the-money-sits-in-workplace-machines-and-the-cups-they-pour">The money sits in workplace machines and the cups they pour</h3>
+<p>The Automatic Vending Association's 2025 census puts UK vending, coffee services and automated retail at <strong>£3.78bn, up 3.3%</strong>. Traditional vending plus office coffee service accounts for <strong>£3.13bn</strong>, and hot beverages grew 4.1% (<a href="https://fmuk-online.co.uk/britains-vending-industry-hits-3-78-billion-as-smart-fridges-and-cashless-tech-drive-automated-retail-boom/">FMUK</a>). Premium coffee is pulling the market upmarket. There are <strong>33,200 coffee-to-go machines (+8%) generating £645m</strong>, the average serve is <strong>£2.89 against £0.56</strong> for a traditional vending hot drink, and <strong>over 40% of new tabletop machines have fresh-milk modules</strong> (<a href="https://fmuk-online.co.uk/britains-vending-industry-hits-3-78-billion-as-smart-fridges-and-cashless-tech-drive-automated-retail-boom/">FMUK</a>). In 2024 a coffee-to-go machine earned about <strong>£21,664 a year</strong>, against £7,143 for a freestanding hot-drinks machine. <strong>Workplaces ("Business &amp; Industry") account for 61% of placements</strong> (<a href="https://www.westomatic.com/vending-machine-statistics-2026-uk-market-size-sales-mix-and-global-context/">Westomatic/AVA</a>). The commercial machine market itself has no reliable size: research-firm estimates mix consumer and commercial units and disagree widely (<a href="https://www.grandviewresearch.com/horizon/outlook/coffee-machine-market/uk">Grand View Research</a>). The defensible conclusion is that the profit pool sits in recurring service and consumables on business machines, not in one-off hardware sales.</p>
+<p>Hybrid working changes how machines should be sized, not whether offices buy them. Remit Consulting recorded repeated post-pandemic occupancy highs in mid-2025 (<a href="https://www.costar.com/article/1249269266/new-post-covid-lockdown-high-hit-for-uk-office-occupancy">CoStar</a>), and a 2026 headline reports occupancy stabilising above 40% (<a href="https://www.meilleurescpi.com/actualites/bureaux-au-royaume-uni-une-fenetre-d-opportunite-se-dessine/">meilleurescpi.com</a>). Offices therefore need machines sized for Tuesday-to-Thursday peaks but with low average volumes. That suits flexible rental of a quality bean-to-cup machine better than free-on-loan deals that require minimum volumes. Smart fridges (+50%) and micro-markets (+8%) show employers are still spending on refreshment amenities (<a href="https://fmuk-online.co.uk/britains-vending-industry-hits-3-78-billion-as-smart-fridges-and-cashless-tech-drive-automated-retail-boom/">FMUK</a>).</p>
+<h3 id="business-buyers-decide-at-renewal-time-and-regret-the-lock-in">Business buyers decide at renewal time and regret the lock-in</h3>
+<p>Public evidence on who decides is thin, so treat this as a hypothesis to test in interviews. In SMEs the decision falls to office and facilities managers, in micro-businesses to the owner, and in public bodies to procurement teams running tenders on Find a Tender and Contracts Finder (<a href="https://www.find-tender.service.gov.uk/Notice/031672-2023">Find a Tender</a>). The contract mechanics are better documented. Leases run <strong>1–5 years</strong> (<a href="https://thecoffeedesk.co.uk/blog/dont-sign-a-coffee-machine-lease/">The CoffeeDesk</a>) and rentals commonly roll for another 12 months unless notice is given 90 days before expiry (<a href="https://vmarketed.com/how-to-rent-an-office-coffee-machine/">vmarketed</a>). The lease and the service agreement are often separate documents, so cancelling one does not cancel the other (<a href="https://baristalife.co/blogs/blog/commercial-coffee-machine-lease">Barista Life</a>).</p>
+<p>The complaints follow from that structure. One firm paid <strong>£110 + VAT a month for a powdered-milk machine it had not used for about two years</strong>. Forum replies said "seven year coffee leases are normal" and "watertight", that the finance company is separate from the coffee supplier, and that one renewal clause rolled "for another 5 years" without 12 months' notice (<a href="https://www.ukbusinessforums.co.uk/threads/coffee-machine-leasing-contract.420090/post-3163304">UKBF</a>; <a href="https://www.ukbusinessforums.co.uk/goto/post?id=3163303">UKBF</a>). Café owners report the same pattern in free-on-loan deals. The machine is paid for through inflated coffee prices but never owned, and shortfall charges apply when volumes dip (<a href="https://bridgecoffeeroasters.co.uk/blog/equipment/coffeemachinefinancing">Bridge Coffee Roasters</a>). Free-on-loan deliveries often cannot be paused, which hurts seasonal sites (<a href="https://freshground.co.uk/free-on-loan-coffee-machines/">FreshGround</a>). Above 200 drinks a day, service response time ("48h vs 4h") matters more than the machine brand (<a href="https://plcoffeeshopconsulting.co.uk/insights/commercial-coffee-machine-guide-uk">PL Coffee Shop Consulting</a>). For the target segments this ranks the buying criteria: predictable total cost, freedom to leave, fast repairs, then coffee quality.</p>
+<h3 id="prices-cluster-tightly-which-makes-publishing-them-a-weapon">Prices cluster tightly, which makes publishing them a weapon</h3>
+<p>Published small-office prices for bean-to-cup leases run <strong>£7–£20 a week</strong>: Logic Vending from £8 + VAT, Canny Coffee £15–£20, Coffeeseller from £7, and Caffia from £7.94 on a five-year lease (<a href="https://www.logicvending.co.uk/about">Logic Vending</a>; <a href="https://cannycoffee.com/collections/workplace-coffee-machines-jura-bean-cup">Canny Coffee</a>; <a href="https://caffia.com/small-office-coffee-machines/">Caffia</a>). High-volume Franke machines cost <strong>£41–£125.50 a week</strong> (<a href="https://caffia.com/commercial-coffee-machines/commercial-bean-to-cup-coffee-machines/page/2">Caffia</a>). Service plans for owned bean-to-cup machines cost <strong>£200–£500 a year</strong>, and one worked example puts a 50-person office's ingredients at <strong>£5,600 a year on lease against £6,500 on free-on-loan</strong> (<a href="https://www.cheshirevending.com/resources-lease-vs-buy-vs-free-on-loan-coffee-machines">Cheshire Vending</a>). In hospitality, a new two-group machine costs <strong>£8k–£15k</strong>, a refurbished one <strong>£1,550–£1,650</strong> at the older end, and a service <strong>£180–£350 a visit</strong> (<a href="https://plcoffeeshopconsulting.co.uk/insights/commercial-coffee-machine-guide-uk">PL Coffee Shop Consulting</a>; <a href="https://coffeeclinic.co.uk/refurbished-used-commercial-espresso-machines/">Coffee Clinic</a>). Even the leaders publish inconsistent figures: Caffia lists a Jura W8 at £7.35, £10.59 and £14 a week on different pages (<a href="https://caffia.com/coffee-machine-rental">Caffia</a>). A single, honest, published price list would therefore stand out.</p>
 </div></section>
-<section class="block" id="partners"><h2><span class="secnum">02 · PARTNERS &AMP; OPERATING MODELS</span>Partners can carry the stock, the credit and the equipment</h2><div class="body-copy"><p>The user's constraint is to avoid upfront costs, so the plan is to put each cost on the partner best placed to carry it. Three groups of partners matter. The aim with each is to borrow their balance sheet while keeping the customer relationship.</p>
-<h3 id="drop-shipping-a-no-stock-way-in-not-a-price-led-storefront">Drop shipping: a no-stock way in, not a price-led storefront</h3>
-<p>Several UK trade suppliers openly offer drop shipping. <strong>Brewed By Hand</strong> ships in neutral packaging from a UK warehouse, with no minimum spend, through a free Shopify app called Stockshare. It carries Sage, Wilfa, Baratza, Comandante, Aeropress, xBloom and others, and is the exclusive UK distributor for Wilfa, Opal and Felicita (<a href="https://trade.brewedbyhand.com/pages/drop-shipping">Brewed By Hand</a>). <strong>Fiamma Espresso UK</strong> ships commercial machines direct to resellers' customers at "a substantial discount", with a 12-month parts-only warranty and return-to-base service (<a href="https://www.fiamma-espresso.co.uk/?page=fiamma_resellers">Fiamma</a>). <strong>NMII</strong> runs a dropship programme for UK customers (<a href="https://nmii.co.uk/pages/work-with-us">NMII</a>), and <strong>Style Café</strong> drop ships for catering resellers (<a href="https://www.stylecafe.co.uk/coffee-machine-solutions-for-catering-suppliers">Style Café</a>).</p>
-<p>The weakness is that none of them publish margins, minimum advertised price (MAP) rules or how returns are handled. The often-quoted "10–25%" dropship margin could not be confirmed from any primary source; trade terms are given only on application. The supplier holds the stock, but the seller is still the trader for the customer's 14-day cancellation right and for Consumer Rights Act claims (<a href="https://www.legislation.gov.uk/uksi/2013/3134/contents">SI 2013/3134</a>; <a href="https://www.legislation.gov.uk/ukpga/2015/15/contents">CRA 2015</a>). A returned espresso machine may well have been used, which creates B-stock that has to be cleaned.</p>
-<p>So drop shipping should do one job: fulfilling a curated range with UK stock and UK plugs. It should not be a price-led catalogue. Where a machine cannot be drop shipped, the business can link to it through an affiliate programme instead. De'Longhi on Awin pays <strong>up to 10%</strong> of the ex-VAT price (<a href="https://ui.awin.com/merchant-profile/22911">Awin</a>), Rocket Espresso UK runs an Awin programme (<a href="https://ui.awin.com/merchant-profile/38418">Awin</a>), and Nespresso reportedly pays 5% on machines (<a href="https://affi.io/m/nespresso-b2b-uk">affi.io</a>). On a £499 machine that is roughly <strong>£17–£42 a sale</strong> (estimate). That is too little to build a business on, but it lets the quiz recommend the right machine with no stock risk at all. Before launch, the business should get written terms covering who pays return carriage, who refurbishes customer returns, and whether warranty claims go straight to the distributor.</p>
-<h3 id="equipment-operators-be-their-agent-not-their-competitor">Equipment operators: be their agent, not their competitor</h3>
-<p>"Free-on-loan" is a mature UK model. The supplier owns and maintains the machine, and the customer commits to buying beans from that supplier, typically for 3 years. Public tenders show the scale. County Durham &amp; Darlington awarded Bewley's <strong>£143,738 over 36 months</strong> on that basis (<a href="https://www.contractsfinder.service.gov.uk/Notice/17adbb3f-6a47-4297-a539-2fac13f0d31a">Contracts Finder</a>), and Leeds City Council ran a free-on-loan lot worth about £80,000 (<a href="https://www.find-tender.service.gov.uk/Notice/007377-2024">Find a Tender</a>). Because the operator profits from coffee sales over several years, it can afford to pay a finder's fee. VendLocus already charges vending operators fees for introducing sites, triggered by any "installation, placement, trial, supply agreement", with a 12-month non-circumvention clause (<a href="https://tally.so/r/2EWAkA">VendLocus</a>). That is a template for the business's own introducer agreements.</p>
-<p>Nobody publishes referral rates, so they have to be negotiated with each operator. The opening is the micro-office (2–15 staff) that operators underserve because they prefer volume and long terms (<a href="https://caffia.com/small-office-coffee-machines/">Caffia small office</a>). The business should find these customers, run the trial and keep the relationship. The operator supplies the machine and the engineers.</p>
-<h3 id="lease-and-finance-partners-get-paid-for-the-credit-you-arrange">Lease and finance partners: get paid for the credit you arrange</h3>
-<p>Asset-finance lenders pay introducers a share of the amount financed: <strong>1–7%</strong> on published grids, capped at <strong>2–5%</strong> by Allica (<a href="https://dev.utbank.co.uk/wp-content/uploads/2021/05/19144-Asset_PG_v3-AA.pdf">UTB</a>; <a href="https://allica.bank/hubfs/Asset%20finance%20broker%20rates.pdf?hsLang=en">Allica</a>; <a href="https://www.azets.co.uk/about-us/policies-legal/table-of-commissions-from-preferred-partners/">Azets</a>). The lender carries the credit risk, and Shire Leasing pays partner invoices in full once paperwork completes (<a href="https://apollo-fire.co.uk/apollo-leasing-programme-uk/become-an-apollo-leasing-provider/">Apollo/Shire</a>). The regulatory line is sharp. Lending to <strong>limited companies is generally unregulated</strong>. Lending to sole traders, partnerships of 2–3 and consumers is FCA-regulated, so introducing them needs credit-broking permission or Introducer Appointed Representative (IAR) status under an authorised firm (<a href="https://www.novuna.co.uk/media/n2qlshid/introducer-onboarding-and-ongoing-montitoring-checklist-2025.pdf">Novuna checklist</a>; <a href="https://www.evolutionfunding.com/public/initial-disclosure-document/">Evolution Funding</a>). Commission disclosure has also come under scrutiny since the Johnson v FirstRand ruling (<a href="https://assetfinanceconnect.com/?p=25809">Asset Finance Connect</a>).</p>
-<p>The rule for Phase 1 is simple: refer limited companies only, disclose commission in writing, and add an IAR arrangement before approaching sole-trader cafés. For consumers, 0% point-of-sale finance is funded by a merchant subsidy that guides put between "low single digits to low teens percent" (<a href="https://www.kandoo.co.uk/guides/top-5-retail-finance-alternatives-in-the-uk">Kandoo</a>). That could wipe out a machine margin, so interest-bearing plans are safer than 0% ones.</p>
-<h3 id="wholesalers-and-distributors-competitors-as-well-as-suppliers">Wholesalers and distributors: competitors as well as suppliers</h3>
-<p>Most prosumer brands reach the UK through a single importer that also sells to consumers. Bella Barista distributes Lelit and ECM (<a href="https://news.bellabarista.co.uk/portfolio/rocket-appartamento-and-fausto/">Bella Barista</a>), Rocket Espresso UK is Rocket's official distributor (<a href="https://ui.awin.com/merchant-profile/38418">Awin</a>), and Ascaso UK operates from Ware (<a href="https://housewareslive.net/coffee-machine-company-ascaso-sets-up-uk-office/">Housewares Live</a>). A new reseller therefore buys from its competitors, and none of them publish trade discounts or opening-order minimums. For mass-market brands, the realistic route is a buying group. CIH/Euronics lowered its entry threshold and added associate membership in April 2025 (<a href="https://www.kbbreview.com/72265/news/cih-lowers-contribution-threshold-to-attract-new-members/">KBB Review</a>), and Sirius is adding approved members (<a href="https://ertonline.co.uk/news/sirius-welcomes-a-host-of-new-members-in-2026/">ERT Online</a>).</p>
-<p>Coffee is the supply line worth owning. White-label roasters start at <strong>£12/kg</strong> (Caffè Society) and <strong>£16.95/kg</strong> (Redber), with minimums as low as <strong>20 × 227g bags</strong> at Stokes (<a href="https://www.caffesociety.co.uk/bespoke-private-label-coffee">Caffè Society</a>; <a href="https://www.redber.co.uk/products/bulk-wholesale-cafe-francais-whole-bean-coffee">Redber</a>; <a href="https://stokescoffee.com/pages/white-label-coffee">Stokes</a>). That gives the business a branded, repeat product with only a few hundred pounds of stock. Fracino, which makes about 90% of each machine's components in Birmingham, is the only British-made option for a "made in Britain" commercial offer (<a href="https://www.madeinbritain.org/about/case-studies/fracino">Made in Britain</a>).</p>
+<section class="block" id="independents-win-on-service-but-hide-the"><h2><span class="secnum">02</span>Independents win on service but hide their terms</h2><div class="body-copy"><h3 id="four-types-of-independent-serve-business-buyers">Four types of independent serve business buyers</h3>
+<p>The research found about twenty named UK independents, and they fall into four types. <strong>Vending operators</strong> (Coinadrink in Walsall, UK Vending in Kent, Cheshire Vending, United Vending in London) make their money on ingredients and offer free-on-loan machines. <strong>Multi-brand dealers and online sellers</strong> (Logic Vending in Hertfordshire, Jurang, Canny Coffee, Coffeeseller) lead on leases. <strong>Roasters with machine programmes</strong> (Redber, Capital Coffee, Verde, Clifton, Dark Woods, Union, Office Coffee Company) tie the machine to their beans. <strong>Equipment rental houses</strong> (Rental+) bundle service but exclude consumables (<a href="https://www.logicvending.co.uk/about">Logic Vending</a>; <a href="https://coin-a-drink.co.uk/tabletop/bean-to-cup">Coinadrink</a>; <a href="https://rental-plus.co.uk/blog/office-coffee-machine-rental-guide/">Rental+</a>). Their strengths are local and human. Coinadrink claims a response "less than 2 hours from logging a call", free trials and a 10% loyalty discount on consumables (<a href="https://coin-a-drink.co.uk/tabletop/bean-to-cup">Coinadrink</a>). Office Coffee Company holds <strong>Trustpilot 5.0 from about 357 reviews</strong>, with praise for installation and repair speed (<a href="https://nl-be.trustpilot.com/review/office-coffee.co.uk">Trustpilot</a>). Their weaknesses are digital and geographic. Canny Coffee's product pages show £0.00 price placeholders, Logic Vending's footer still reads 2024, Coinadrink's outer areas are "not all covered", and Caffia dominates city-level searches for "office coffee machine" (<a href="https://cannycoffee.com/collections/workplace-coffee-machines-jura-bean-cup">Canny Coffee</a>; <a href="https://coin-a-drink.co.uk/tabletop/bean-to-cup">Coinadrink</a>).</p>
+<p>Several independents already sell against lock-in. United Vending says it doesn't "ask for a contract" (<a href="https://www.unitedvending.co.uk/">United Vending</a>), Verde offers rolling monthly terms after three months (<a href="https://verdecoffee.co.uk/pages/free-on-loan-espresso-machines">Verde Coffee</a>), and Logic Vending and Redber rent for 6 and 1–12 months (<a href="https://www.redber.co.uk/collections/rent-commercial-coffee-machines-uk">Redber</a>). "No lock-in" is therefore not unique as a claim. What is missing is a brand that combines it with <strong>published prices, a published response-time commitment and a single contract covering machine, service and coffee</strong>.</p>
+<h3 id="coffee-lady-a-one-founder-dealer-that-earns-on-machines-finance-and-service-not-coffee">Coffee Lady: a one-founder dealer that earns on machines, finance and service, not coffee</h3>
+<p>Coffee Lady (coffeelady.uk), named by the user, is the closest template for the business being considered. All figures below are the company's own website claims, checked on 1 November 2026.</p>
+<p><strong>Who it is.</strong> It trades as <strong>"Jan Revill T/a Coffee Lady Consultancy", a sole trader rather than a limited company</strong>. It is FCA-registered (FRN 1004670), which lets it arrange equipment leases. It is based around Aylesbury and claims UK-wide coverage (<a href="https://coffeelady.uk/faqs/">Coffee Lady FAQs</a>; <a href="https://coffeelady.uk/about/">about</a>). It claims 500+ businesses served and 500+ machines serviced a year, but quotes both "25+" and "35+ years' experience" (<a href="https://coffeelady.uk/">Coffee Lady</a>; <a href="https://coffeelady.uk/about/">about</a>). It says it is an "authorised supplier and service partner" for Franke, Jura, WMF, Bestir, Bravilor Bonamat, Fracino, Iberital, La Pavoni/Smeg, Lavazza, Dalla Corte and AA First. It does not say how many engineers it has or whether they are employed or subcontracted.</p>
+<p><strong>What it sells.</strong> A quote-only catalogue of about 150 products with no online basket. It covers Franke (A300 to SB1200 and Mytico), Jura (W4 to GIGA), WMF, Bestir, Bravilor filter brewers, Fracino and Dalla Corte espresso, Lavazza Flavia, grinders, water boilers and coolers, ware-washers and ice machines. Category pages are aimed at offices, cafés, hotels, salons, bars and events (<a href="https://coffeelady.uk/product_cat-sitemap.xml">sitemap</a>). Prices are shown for some products. A Franke A800 (250 cups a day) is "From £15,458.94 ex. VAT" or "Lease from £84.67/week", with installation, training and a 12-month Franke warranty (<a href="https://coffeelady.uk/franke-a800-coffee-machine/">A800</a>). Its own cost guide spans <strong>£855 (Bravilor Solo) to £13,965 (Franke SB1200)</strong> (<a href="https://coffeelady.uk/how-much-does-an-office-coffee-machine-cost-in-the-uk/">cost guide</a>).</p>
+<p><strong>How it makes money.</strong> There are three visible income streams:</p>
+<ul>
+<li><strong>Machine sales</strong> at full commercial prices.</li>
+<li><strong>Leases arranged through unnamed finance companies.</strong> It offers leasing "for all machines" (<a href="https://coffeelady.uk/faqs/">FAQs</a>), quotes a "typical three year term" at £10–£90 a week, and puts the A800 at about £59 a week, which conflicts with the £84.67 on the product page (<a href="https://coffeelady.uk/should-you-lease-or-buy-commercial-coffee-machines-a-2025-guide-for-uk-businesses/">lease guide</a>).</li>
+<li><strong>Annual service packages</strong> at <strong>from £399.50 for Jura, from £350 for traditional espresso and from £1,232 for Franke</strong>, ex VAT. These include minor repairs, with parts at cost, contact within 24 hours, routine visits in 3–5 working days and emergency response "within 48 hours" or "1–2 days", and "no long-term contract required" (<a href="https://coffeelady.uk/coffee-machine-service-packages/">service packages</a>).</li>
+</ul>
+<p><strong>There is no visible coffee, ingredient or free-on-loan income.</strong> Its "coffee suppliers" page only mentions "relationships with experts in the coffee trade" and was last updated in March 2024 (<a href="https://coffeelady.uk/coffee-suppliers/">coffee suppliers</a>).</p>
+<p><strong>Its trading terms favour the seller.</strong> Payment is upfront or on signed lease documents, with 30-day credit by agreement and 5% late interest. Returns need prior agreement and carry a 15% handling charge. Cancelling before installation costs <strong>50% of the invoice</strong>, and £200–£400 for removal after installation. Leases follow the finance company's terms, and warranty follows the manufacturer's, excluding scale, blockage and cleaning faults (<a href="https://coffeelady.uk/terms-conditions/">terms</a>).</p>
+<p><strong>How it wins customers.</strong> It wins on the founder's personal brand and local networking:</p>
+<ul>
+<li><strong>Networking.</strong> Jan Revill is Regional Lead for <strong>Business Buzz Berkshire</strong> and hosts the monthly Caversham Buzz (£10 + VAT on the door), and says networking "built my business" (<a href="https://coffeelady.uk/business-buzz/">Business Buzz</a>).</li>
+<li><strong>Search content.</strong> Buying guides cover costs, lease versus buy, best machines for 2026, error codes and Franke pricing (<a href="https://coffeelady.uk/post-sitemap.xml">post sitemap</a>).</li>
+<li><strong>Trust signals.</strong> A <strong>5.0★ Google rating</strong>, FCA registration and dealer logos.</li>
+<li><strong>Positioning.</strong> "No hard sell, no vague contracts" and "you speak with people, not bots" (<a href="https://coffeelady.uk/about/">about</a>).</li>
+<li><strong>Sales funnel.</strong> Every call to action leads to a quote or consultation. There is no checkout, instant price or trial booking.</li>
+</ul>
+<div class="table-wrap"><table>
+<thead>
+<tr class="header">
+<th>Gap Coffee Lady leaves open</th>
+<th>How this report uses it</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>No coffee or consumables revenue</td>
+<td>Own-label beans on 30-day terms (idea 4, S1); roaster partnerships (S2)</td>
+</tr>
+<tr class="even">
+<td>Inconsistent prices and response times (£59 vs £84.67 a week; 48h vs 1–2 days); no published callout rates</td>
+<td>Published price index and response-time scoreboard (S1, buzz plan)</td>
+</tr>
+<tr class="odd">
+<td>Trials mentioned but no bookable trial or rolling-rental product</td>
+<td>Free two-week trial and rolling Route A (S1)</td>
+</tr>
+<tr class="even">
+<td>50% cancellation fee, 15% restocking charge, finance company's lease terms</td>
+<td>"No auto-renewal, published buy-out" contract (S1)</td>
+</tr>
+<tr class="odd">
+<td>High-ticket range (£855–£15k+); no clear offer for 10–40-cup micro-offices or customer-facing sites</td>
+<td>Micro-office and amenity bundles (S1, S5)</td>
+</tr>
+<tr class="even">
+<td>Depends on one founder, as a sole trader, with no visible team or self-service</td>
+<td>Partner network and, if the owner ever wishes, a succession conversation (S3, S4)</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Competitor, partner or acquisition target?</strong> As a <strong>competitor</strong>, Coffee Lady is strong on dealer authorisations, finance and service credibility in Bucks, Oxon and Berkshire. Its service-package prices (£350–£399.50 a year for espresso and Jura machines) set the benchmark a newcomer's service plan must meet. As a <strong>partner</strong>, it has the engineering and dealer status a newcomer lacks. It also already holds FCA registration, so it could take sole-trader leads before the newcomer's IAR appointment, and it could buy own-label beans for customers it has no coffee to sell to. As a <strong>succession prospect</strong>, a sole-trader business built around one founder has key-person risk and no separate company to sell. Any future deal would be a transfer of assets and customers, not a share sale. The owner's intentions are unknown and must not be assumed. Its turnover, Google review count, engineer model, finance partners and full FCA permissions all still need checking.</p>
+<h3 id="nationals-consolidate-quietly-and-set-the-pricing-anchors">Nationals consolidate quietly and set the pricing anchors</h3>
+<p>Nationals compete on scale, showrooms and long leases. <strong>Liquidline</strong> bought City Vending and The Hot Coffee Company in Belfast in 2025, after earlier deals for Café Subito, Underdog and Ionia (<a href="https://www.liquidline.co.uk/about/history/">Liquidline</a>). The Hot Coffee Company told customers that products, services and contacts would stay the same "for the time being", the standard script for retaining customers after a book acquisition (<a href="https://www.thehotcoffeecompany.com/liquidline/">Hot Coffee Company</a>). <strong>Selecta</strong> bought London's Express Vending (<a href="https://www.selecta.com/int/en/selecta-group/newsroom/selecta-group-acquires-express-vending">Selecta</a>). GEM Vending bought Allen Vending, and Alpine Vending bought "the machine park and assets" of Merseyvend (<a href="https://www.planet-vending.com/tag/uk-vending-acquisitions/">Planet Vending</a>). <strong>Caffia</strong> sets the published lease anchor (<a href="https://caffia.com/small-office-coffee-machines/">Caffia</a>). <strong>Lavazza Professional</strong> runs regional supplier territories and offers free-on-loan above roughly 200 drinks a month through distributors (<a href="https://www.lavazzapro.co.uk/suppliers/supplier-east-of-england/">Lavazza Pro</a>; <a href="https://docs.google.com/document/d/1fAqZ48TjEquUNEIq_jxzLTfMO7LS_BYE/export?format=pdf">AMR Lavazza</a>). <strong>Costa Express</strong> held 71% of premium self-serve by the end of 2021, and self-serve majors want 30–50+ cups a day per site (<a href="https://www.worldcoffeeportal.com/news/new-hot-and-iced-coffee-machines-boost-record-2022-revenues-for-costa-express/">World Coffee Portal</a>; <a href="https://www.thegrocer.co.uk/analysis-and-features/c-store-retailers-convenience-plus-coffee-equals-cash/519117.article">The Grocer</a>). No deal multiples are disclosed. The pattern of quiet tuck-ins confirms that customer books trade, and that the buyers pay for recurring contracts and route density.</p>
+<h3 id="hospitality-and-premium-home-independents-follow-the-same-pattern">Hospitality and premium-home independents follow the same pattern</h3>
+<p>Roasters dominate independent café supply. Free-on-loan typically needs <strong>6–12 kg of beans a week on 12-month minimums</strong>, sometimes with £600–£1,200 upfront (<a href="https://capitalcoffee.co.uk/coffee-machines/">Capital Coffee</a>). Low-volume packages hide the machine cost in the beans: Verde's bundle implies about <strong>£52–£63 per kg</strong>, against £12–£25 per kg for plain wholesale (<a href="https://verdecoffee.co.uk/pages/free-on-loan-espresso-machines">Verde Coffee</a>; <a href="https://freshground.co.uk/learning-hub/coffee-bean-pricing-explained-how-much-do-businesses-need-to-budget/">FreshGround</a>). Some roasters are leaving the model. Bridge Coffee Roasters "largely stopped" free-on-loan after 2020 and now sends customers to third-party leasing (<a href="https://bridgecoffeeroasters.co.uk/blog/equipment/coffeemachinefinancing">Bridge</a>). The specialty leaders (Clifton, Dark Woods, Union) win with barista training and keep their terms behind enquiry forms (<a href="https://cliftoncoffee.co.uk/pages/wholesale">Clifton</a>). In the premium home segment, <strong>Bella Barista</strong> leads with a Wellingborough showroom, demo machines, an authorised service centre and <strong>Trustpilot 4.8 from about 9,700 reviews</strong> (<a href="https://bellabarista.co.uk/pages/the-showroom">Bella Barista</a>; <a href="https://uk.trustpilot.com/review/bellabarista.co.uk">Trustpilot</a>). <strong>Machina</strong> in Edinburgh already combines home retail with commercial leasing and servicing (<a href="https://machina-coffee.com/">Machina</a>). No UK retailer found offers a formal trade-in, and Espresso Underground lists service plans as "coming soon" (<a href="https://www.espressounderground.co.uk/">Espresso Underground</a>).</p>
 </div></section>
-<section class="block" id="hurdles"><h2><span class="secnum">03 · SUPPLY, COMPLIANCE &AMP; FINANCE</span>Supply, compliance and finance set the real hurdles</h2><div class="body-copy"><p>Compliance is cheap for a reseller and expensive for an importer, and that difference decides which ideas are viable. Anyone reselling mains-powered machines in Great Britain needs them to conform to the <strong>Electrical Equipment (Safety) Regulations 2016</strong>. <strong>CE marking remains accepted alongside UKCA</strong> (<a href="https://www.gov.uk/government/publications/current-approaches-to-product-marking/product-regulations-and-current-approaches-to-product-marking-for-the-gb-market">GOV.UK</a>). Every seller has a WEEE take-back duty. Online sellers can meet it through the Valpak Distributor Take-back Scheme for a <strong>£112.50 minimum over the three-year phase</strong> that ends 31 December 2026 (<a href="https://dts.valpak.co.uk/DTS/Fees">Valpak DTS</a>). Fees for the next phase have not been published.</p>
-<p>Importing own-brand machines is far harder. The importer becomes the legally responsible party, must hold the technical file and Declaration of Conformity, must register as a WEEE producer and must show food-contact compliance for the brew path (<a href="https://www.gov.uk/guidance/electrical-and-electronic-equipment-eee-producer-responsibility">GOV.UK EEE</a>; <a href="https://www.legislation.gov.uk/eur/2004/1935/contents">Reg 1935/2004</a>). Alibaba "15-bar" claims describe the pump's maximum pressure, not brewing pressure (<a href="https://seller.alibaba.com/blogs/2026/southeast-asia/coffee-machines/pressure-rating-9bar-15bar-guide-alibaba-b2b">Alibaba seller blog</a>). Third-country duty is about <strong>2% plus 20% import VAT</strong> (aggregator figure, to be checked on the official tariff) (<a href="https://treayo.com/en/hs/uk/8516710000">Treayo</a>).</p>
-<p>Beyond product safety, the main thresholds are <strong>VAT registration at £90,000 turnover</strong> (<a href="https://www.gov.uk/government/publications/vat-notice-70011-cancelling-your-registration/vat-notice-70011-supplement">GOV.UK</a>) and <strong>packaging EPR only above £1m turnover and 25 tonnes</strong> (<a href="https://www.pkfscs.co.uk/gov-releases-epr-base-rates-2025/">PKF</a>). Sales into Northern Ireland or the EU need an EU or NI responsible person under GPSR (<a href="https://www.gov.uk/government/publications/general-product-safety-regulations-northern-ireland/eu-regulation-2023988-on-general-product-safety-detailed-guidance">GOV.UK</a>), so the first phase should cover Great Britain only.</p>
-<p>Marketing law matters more for this business than product law. Since <strong>6 April 2025</strong>, fake or undisclosed incentivised reviews are automatically unlawful, and the CMA can fine up to <strong>10% of global turnover</strong> (<a href="https://www.hilldickinson.com/our-view/articles/digital-markets-competition-and-consumers-act-2024-new-consumer-law-protections-now-in-force/">Hill Dickinson</a>; <a href="https://kpmg.com/uk/en/insights/legal/new-consumer-enforcement-regime.html">KPMG</a>). Every gifted or commission-paid creator post needs an upfront "#ad", and the brand shares liability for it (<a href="https://www.kolsquare.com/en-gb/blog/the-complete-guide-to-influencer-post-disclosure-uk-rule">Kolsquare</a>). The DMCC subscription regime will require renewal reminders and easy online cancellation. Its start date is disputed between <strong>January 2027</strong> and spring 2027 (<a href="https://brodies.com/insights/commercial-contracts-and-outsourcing/the-dmcca-subscription-contracts-the-timeline-just-got-shorter/">Brodies</a>; <a href="https://www.lewissilkin.com/en/insights/2026/04/02/consumer-law-update-subscriptions-regime-delayed-again-to-spring-2027-102mops">Lewis Silkin</a>), so any bean subscription should be built to comply from day one. Sustainability claims such as "eco trade-in" or "pod-free" carry supply-chain-wide liability under the CMA's January 2026 guidance (<a href="https://www.brownejacobson.com/insights/food-for-thought-spring-2026/cma-green-claims-supply-chain-guidance">Browne Jacobson</a>).</p>
-<p>Aftercare is where cost accumulates. A catering-engineer callout costs about <strong>£120–£195 for the first hour</strong> (<a href="https://industrial-warewashers.com/catering-equipment-engineers">Industrial Warewashers</a>; <a href="https://www.caterkwik.co.uk/pdf/doc219EngineerCallOutRev10.114.05.2026.pdf">CaterKwik</a>). One visit can wipe out the margin on a machine. Any warranty the business offers should therefore be return-to-base, backed by the distributor, and never involve its own engineers in the early phases.</p>
+<section class="block" id="six-gaps-the-evidence-points-to"><h2><span class="secnum">03</span>Six gaps the evidence points to</h2><div class="body-copy"><p>The evidence points to six gaps a newcomer can fill without owning equipment. Ranked by strength of evidence:</p>
+<ul>
+<li><strong>Transparent, no-rollover workplace coffee.</strong> Lock-in is the dominant complaint, and B2B buyers have little statutory protection. Published prices are rare, and the leaders' own prices are inconsistent (<a href="https://www.ukbusinessforums.co.uk/threads/coffee-machine-leasing-contract.420090/post-3163304">UKBF</a>; <a href="https://caffia.com/coffee-machine-rental">Caffia</a>).</li>
+<li><strong>Equipment risk that roasters no longer want.</strong> Bridge's exit from free-on-loan shows roasters want someone else to carry machines, finance and service (<a href="https://bridgecoffeeroasters.co.uk/blog/equipment/coffeemachinefinancing">Bridge</a>).</li>
+<li><strong>Seasonal and low-volume hospitality.</strong> Garden centres, farm shops and coffee vans struggle with weekly kg minimums and deliveries that cannot be paused (<a href="https://freshground.co.uk/free-on-loan-coffee-machines/">FreshGround</a>).</li>
+<li><strong>Lead quality and digital reach for independents.</strong> Suppliers complain that Bark and Approved Index leads are poor value (about £7–£40 per lead on Bark), and independents lose search visibility to Caffia (<a href="https://whito.co.uk/trades/tools/bark-cost-uk/">Whito</a>; <a href="https://www.ukbusinessforums.co.uk/threads/approved-index-legit.251468/">UKBF</a>).</li>
+<li><strong>Succession supply.</strong> Family firms nearing 50 years of trading (UK Vending Ltd) and founder-led brands sit alongside a buyer pattern of "machine park and assets" tuck-ins (<a href="https://directory.dailypost.co.uk/company/437678751477761">directory</a>; <a href="https://www.planet-vending.com/tag/uk-vending-acquisitions/">Planet Vending</a>).</li>
+<li><strong>Prosumer aftercare and certified pre-owned machines.</strong> E61 servicing costs £155–£240 with collection (<a href="https://servicedbyjamie.co.uk/pages/coffee-machine-servicing-price-list">Servicedbyjamie</a>), used Lelit Biancas resell at about 50–76% of new (<a href="https://www.coffeeforums.co.uk/threads/lelit-bianca-black-hardly-used-19-months-warranty-bella-barista-%C2%A31900.71931/">Coffee Forums UK</a>), and nobody in the UK runs Clive Coffee's US-style trade-in (<a href="https://clivecoffee.com/pages/trade-in-program">Clive Coffee</a>).</li>
+</ul>
+<p>The weakest-evidenced gap is <strong>customer-facing sites</strong> such as car dealerships, gyms, salons and waiting rooms. They are plausible amenity buyers but have no volume data, and the majors' 30–50 cup thresholds leave them under-served for structural reasons rather than proven demand (<a href="https://www.thegrocer.co.uk/analysis-and-features/c-store-retailers-convenience-plus-coffee-equals-cash/519117.article">The Grocer</a>).</p>
 </div></section>
-<section class="block" id="panel"><h2><span class="secnum">04 · REVIEWER PANEL</span>Seven reviewers passed two of thirteen ideas</h2><div class="body-copy"><h3 id="how-the-panel-worked">How the panel worked</h3>
-<p>Seven personas each scored every idea out of 10. They were a Head of Marketing (MKT), Head of Sales (SAL), Coffee Industry Expert (COF), Retail Expert (RET), Head of Product (PRD), Head of Design (DES) and Procurement Manager (PRO). Each scored against the evidence above and against the user's main constraint of minimal upfront cost. An idea is recommended only if <strong>every</strong> score is 8 or above. The thirteen original ideas were scored as first described. Where an idea came close, the panel recorded what would have to change, and the strengthened versions were scored again from scratch. Scores were not raised just because ideas were combined. Two strengthened versions still failed and are shown below.</p>
-<h3 id="scoreboard-every-score-every-reviewer">Scoreboard: every score, every reviewer</h3>
-<p class="reviewers"><span><b>MKT</b>Head of Marketing</span><span><b>SAL</b>Head of Sales</span><span><b>COF</b>Coffee Industry Expert</span><span><b>RET</b>Retail Expert</span><span><b>PRD</b>Head of Product</span><span><b>DES</b>Head of Design</span><span><b>PRO</b>Procurement Manager</span></p><div class="legend"><span><i class="c-hi"></i>8–10 pass</span><span><i class="c-mid"></i>6–7 short</span><span><i class="c-lo"></i>2–5 weak</span></div><div class="heat-wrap"><table class="heat"><thead><tr><th>Idea</th><th>MKT</th><th>SAL</th><th>COF</th><th>RET</th><th>PRD</th><th>DES</th><th>PRO</th><th>Avg</th><th>Verdict</th></tr></thead><tbody><tr><td class="name"><small>1</small>Price-led drop ship webshop</td><td class="c-lo">4</td><td class="c-lo">5</td><td class="c-lo">4</td><td class="c-lo">3</td><td class="c-lo">4</td><td class="c-lo">4</td><td class="c-mid">6</td><td class="avg">4.3</td><td><span class="verdict-pill v-fail">Rejected</span></td></tr><tr><td class="name"><small>2</small>Affiliate review site only</td><td class="c-mid">6</td><td class="c-lo">4</td><td class="c-mid">6</td><td class="c-lo">5</td><td class="c-lo">5</td><td class="c-mid">6</td><td class="c-hi">9</td><td class="avg">5.9</td><td><span class="verdict-pill v-fail">Fallback channel</span></td></tr><tr><td class="name"><small>3</small>Curated matchmaker &amp; setup shop</td><td class="c-mid">7</td><td class="c-mid">7</td><td class="c-hi">8</td><td class="c-mid">7</td><td class="c-mid">7</td><td class="c-hi">8</td><td class="c-mid">7</td><td class="avg">7.3</td><td><span class="verdict-pill v-near">Merged into S1</span></td></tr><tr><td class="name"><small>4</small>Machine + white-label bean subscription</td><td class="c-mid">7</td><td class="c-mid">7</td><td class="c-hi">8</td><td class="c-mid">7</td><td class="c-hi">8</td><td class="c-mid">7</td><td class="c-hi">8</td><td class="avg">7.4</td><td><span class="verdict-pill v-near">Merged into S1</span></td></tr><tr><td class="name"><small>5</small>Home machine subscription (own fleet)</td><td class="c-hi">8</td><td class="c-mid">6</td><td class="c-mid">7</td><td class="c-mid">6</td><td class="c-mid">7</td><td class="c-hi">8</td><td class="c-lo">3</td><td class="avg">6.4</td><td><span class="verdict-pill v-fail">Rejected</span></td></tr><tr><td class="name"><small>6</small>Refurbished home espresso specialist</td><td class="c-mid">7</td><td class="c-mid">7</td><td class="c-hi">8</td><td class="c-mid">7</td><td class="c-mid">7</td><td class="c-mid">7</td><td class="c-lo">4</td><td class="avg">6.7</td><td><span class="verdict-pill v-fail">Phase 3 gate</span></td></tr><tr><td class="name"><small>7</small>Independent care / servicing plan</td><td class="c-mid">6</td><td class="c-mid">6</td><td class="c-hi">9</td><td class="c-mid">7</td><td class="c-hi">8</td><td class="c-mid">6</td><td class="c-lo">5</td><td class="avg">6.7</td><td><span class="verdict-pill v-near">Merged into S1/S3</span></td></tr><tr><td class="name"><small>8</small>B2B introducer (free-on-loan, lease)</td><td class="c-mid">6</td><td class="c-hi">8</td><td class="c-mid">7</td><td class="c-mid">6</td><td class="c-mid">6</td><td class="c-lo">5</td><td class="c-hi">8</td><td class="avg">6.6</td><td><span class="verdict-pill v-near">Became S2</span></td></tr><tr><td class="name"><small>9</small>Self-serve in low-volume venues</td><td class="c-mid">7</td><td class="c-mid">6</td><td class="c-mid">7</td><td class="c-mid">7</td><td class="c-mid">7</td><td class="c-mid">7</td><td class="c-lo">4</td><td class="avg">6.4</td><td><span class="verdict-pill v-fail">Rejected</span></td></tr><tr><td class="name"><small>10</small>Rental-block &amp; holiday-let coffee</td><td class="c-mid">6</td><td class="c-mid">6</td><td class="c-mid">7</td><td class="c-mid">6</td><td class="c-mid">7</td><td class="c-hi">8</td><td class="c-mid">6</td><td class="avg">6.6</td><td><span class="verdict-pill v-fail">Phase 4 option</span></td></tr><tr><td class="name"><small>11</small>Event coffee cart / pop-up bar</td><td class="c-hi">9</td><td class="c-mid">6</td><td class="c-hi">8</td><td class="c-mid">6</td><td class="c-lo">5</td><td class="c-hi">8</td><td class="c-lo">5</td><td class="avg">6.7</td><td><span class="verdict-pill v-fail">Buzz tactic only</span></td></tr><tr><td class="name"><small>12</small>Own-brand imported (OEM) machine</td><td class="c-mid">6</td><td class="c-lo">5</td><td class="c-lo">3</td><td class="c-lo">4</td><td class="c-mid">6</td><td class="c-hi">8</td><td class="c-lo">2</td><td class="avg">4.9</td><td><span class="verdict-pill v-fail">Rejected</span></td></tr><tr><td class="name"><small>13</small>Home barista classes</td><td class="c-hi">8</td><td class="c-mid">6</td><td class="c-hi">9</td><td class="c-mid">6</td><td class="c-mid">6</td><td class="c-mid">7</td><td class="c-hi">9</td><td class="avg">7.3</td><td><span class="verdict-pill v-near">Merged into S1</span></td></tr><tr class="sep"><td class="name"><small>S1</small><strong>Matchmaker-to-Mug</strong></td><td class="c-hi">9</td><td class="c-hi">8</td><td class="c-hi">9</td><td class="c-hi">8</td><td class="c-hi">8</td><td class="c-hi">9</td><td class="c-hi">8</td><td class="avg">8.4</td><td><span class="verdict-pill v-pass">Recommended</span></td></tr><tr><td class="name"><small>S2</small><strong>No-lock-in micro-office agent</strong></td><td class="c-hi">8</td><td class="c-hi">9</td><td class="c-hi">8</td><td class="c-hi">8</td><td class="c-hi">8</td><td class="c-hi">8</td><td class="c-hi">8</td><td class="avg">8.1</td><td><span class="verdict-pill v-pass">Recommended</span></td></tr><tr><td class="name"><small>S3</small>Care club → refurbished</td><td class="c-hi">8</td><td class="c-hi">8</td><td class="c-hi">9</td><td class="c-hi">8</td><td class="c-hi">8</td><td class="c-hi">8</td><td class="c-mid">7</td><td class="avg">8.0</td><td><span class="verdict-pill v-near">Not yet (PRO 7)</span></td></tr><tr><td class="name"><small>S4</small>Venue self-serve via operators</td><td class="c-mid">7</td><td class="c-mid">6</td><td class="c-mid">7</td><td class="c-mid">7</td><td class="c-mid">7</td><td class="c-mid">7</td><td class="c-mid">7</td><td class="avg">6.9</td><td><span class="verdict-pill v-fail">Still fails</span></td></tr></tbody></table></div>
+<section class="block" id="use-partners-balance-sheets-for-equipmen"><h2><span class="secnum">04</span>Use partners&#x27; balance sheets for equipment, credit and engineers</h2><div class="body-copy"><p>The no-upfront-cost constraint means each cost goes to the partner best placed to carry it, while this business keeps the customer, the contract and the coffee.</p>
+<h3 id="drop-shipping-covers-the-range-not-the-business">Drop shipping covers the range, not the business</h3>
+<p>UK trade suppliers will deliver commercial kit straight to a reseller's customer. <strong>Fiamma Espresso UK</strong> offers a "substantial discount" to resellers, a 12-month parts-only warranty and return-to-base service. <strong>Style Café</strong> drop ships for catering resellers, <strong>NMII</strong> runs a UK dropship programme, and <strong>The Coffee Lobby</strong> has a reseller portal (<a href="https://www.fiamma-espresso.co.uk/?page=fiamma_resellers">Fiamma</a>; <a href="https://www.stylecafe.co.uk/coffee-machine-solutions-for-catering-suppliers">Style Café</a>; <a href="https://nmii.co.uk/pages/work-with-us">NMII</a>; <a href="https://www.coffeemachinestore.co.uk/">Coffee Lobby</a>). Business buyers, however, need installation, water treatment and training, and none of these suppliers publish margins. Drop shipping should therefore fill gaps in the range when a customer wants to buy outright, never act as the storefront. One caveat matters for sales to sole traders: B2B buyers do not get consumer cancellation rights, but anything sold to premium home buyers carries the 14-day cancellation right and CRA 2015 duties (<a href="https://www.legislation.gov.uk/uksi/2013/3134/contents">SI 2013/3134</a>).</p>
+<h3 id="operators-who-front-equipment-refer-dont-compete-until-the-brand-can-carry-its-own">Operators who front equipment: refer, don't compete, until the brand can carry its own</h3>
+<p>Free-on-loan, revenue-share and rental operators fund machines from future consumables. Public contracts show the scale: Bewley's won <strong>£143,738 over 36 months</strong> for free-to-loan supply in County Durham and Darlington (<a href="https://www.contractsfinder.service.gov.uk/Notice/17adbb3f-6a47-4297-a539-2fac13f0d31a">Contracts Finder</a>). Referral fees are unpublished. VendLocus provides a contract template: the fee triggers on any "installation, placement, trial, supply agreement", with a 12-month non-circumvention clause (<a href="https://tally.so/r/2EWAkA">VendLocus</a>). The tension is that free-on-loan normally ties the customer to the operator's beans (<a href="https://www.contractsfinder.service.gov.uk/Notice/d719e860-83a9-4d52-b26e-f8ac866b2975">Contracts Finder</a>). Ask every operator whether it will stock the business's own-label blend. Rolling-term operators (United Vending, Verde, Redber, Logic Vending) fit the "no lock-in" brand best.</p>
+<h3 id="lease-partners-carry-the-credit-iar-status-unlocks-sole-trader-cafés">Lease partners carry the credit; IAR status unlocks sole-trader cafés</h3>
+<p>Asset-finance lenders pay introducers <strong>1–7% of the amount financed</strong>, and Allica caps it at 2–5% (<a href="https://dev.utbank.co.uk/wp-content/uploads/2021/05/19144-Asset_PG_v3-AA.pdf">UTB</a>; <a href="https://allica.bank/hubfs/Asset%20finance%20broker%20rates.pdf?hsLang=en">Allica</a>). <strong>Shire Leasing</strong> funds coffee dealers' deals of £1,000+ over 2–5 years (<a href="https://ads-coffee-supplies.co.uk/brands/fracino-coffee-machines/">ADS Coffee Supplies</a>) and pays partner invoices in full once paperwork completes (<a href="https://apollo-fire.co.uk/apollo-leasing-programme-uk/become-an-apollo-leasing-provider/">Apollo/Shire</a>). This matters for the constraint: the business can be the supplier of record while the lessor pays for the machine on day one. The regulatory line decides the order of segments. <strong>Limited companies are generally outside FCA regulation, but sole traders and partnerships of two or three are regulated customers</strong>, so introducing them needs credit-broking permission or Introducer Appointed Representative (IAR) status (<a href="https://www.novuna.co.uk/media/n2qlshid/introducer-onboarding-and-ongoing-montitoring-checklist-2025.pdf">Novuna checklist</a>). Many cafés, salons and van traders are sole traders, so offices come first and hospitality follows the IAR appointment. Cheshire Vending's FCA broking permission and Coffee Lady's "FCA-authorised finance" show the standard the market expects (<a href="https://www.cheshirevending.com/resources-lease-vs-buy-vs-free-on-loan-coffee-machines">Cheshire Vending</a>). Since Johnson v FirstRand, commission must be disclosed in writing (<a href="https://assetfinanceconnect.com/?p=25809">Asset Finance Connect</a>).</p>
+<p>One structural point decides whether "no lock-in" is honest. <strong>A finance lease is still a fixed term</strong>: Cheshire Vending's leases run 2, 3 or 5 years with break fees (<a href="https://www.cheshirevending.com/resources-lease-vs-buy-vs-free-on-loan-coffee-machines">Cheshire Vending</a>). The honest promise is narrower than "no contract". It has three parts: no automatic rollover, a published end-of-term purchase price, and service and coffee on 30-day rolling terms that the business owns. Customers who want true monthly flexibility go to a rolling-rental partner.</p>
+<h3 id="wholesalers-distributors-and-roasters">Wholesalers, distributors and roasters</h3>
+<p>Manufacturer access runs through authorised dealers. Jurang is authorised for Jura, Franke, La Cimbali, Coffetek and Bravilor (<a href="https://www.jurang.co.uk/shop/196-jura-professional-bean-to-cup-coffee-machines">Jurang</a>). <strong>Coffetek</strong>, a UK manufacturer, supplies both nationals and independents (<a href="https://www.logicvending.co.uk/coffetek-zen-sfbt-beverage-machine">Logic Vending</a>). <strong>Fracino</strong> of Birmingham, with standard E61 parts and its own sales, service and independent-engineer lines, is the most accessible brand for small dealers and coffee vans (<a href="https://coffeeclinic.co.uk/commercial-coffee-machines-information/fracino-espresso-machine-repairs-servicing/">Coffee Clinic</a>; <a href="https://fracino.com/contact.html">Fracino</a>). No public "become a dealer" terms were found, so dealer status is a Phase 2 negotiation rather than a launch requirement. For coffee, white-label roasters start at <strong>£12 per kg</strong> (Caffè Society) and <strong>£16.95 per kg</strong> (Redber, 96 kg+) (<a href="https://www.caffesociety.co.uk/bespoke-private-label-coffee">Caffè Society</a>; <a href="https://www.redber.co.uk/products/bulk-wholesale-cafe-francais-whole-bean-coffee">Redber</a>). Catering-grade beans cost about £11–£14 per kg (<a href="https://www.caffeprima.co.uk/collections/wholesale-coffee-for-business">Caffè Prima</a>).</p>
+<h3 id="agent-and-introducer-schemes">Agent and introducer schemes</h3>
+<p>Agent schemes exist but pay little. <strong>rijo42 Machines</strong> offers sales agents £250–£400 per converted sale (<a href="https://salesagents.uk/opportunities/coffee-machine-sales-agent/">Sales Agents UK</a>), and Rocket Espresso UK runs an Awin affiliate programme (<a href="https://ui.awin.com/merchant-profile/38418">Awin</a>). Treat these as supplementary income while volume builds. The more valuable introducer role runs the other way. The business pays coworking operators, Chambers, managing agents and van builders to introduce customers to it. The NI Chamber's member offer (office machine, 500 free drinks and servicing for <strong>£75 a month</strong>) is a ready-made format (<a href="https://www.northernirelandchamber.com/member-offer/office-coffee-machines-500-free-drinks-and-servicing-75-p-m/">NI Chamber</a>). Van builders already broker third-party finance (<a href="https://reallyawesomecoffee.co.uk/coffee-van-conversion/">Really Awesome Coffee</a>), so they are natural referrers once IAR status is in place.</p>
+<h3 id="subcontracted-engineers-keep-vans-and-wages-off-the-books">Subcontracted engineers keep vans and wages off the books</h3>
+<p>An engineer network can be bought rather than built. <strong>Coffee Lady</strong> offers UK-wide engineers with parts at cost, and annual service packages from £350 (espresso) and £399.50 (Jura) (<a href="https://coffeelady.uk/coffee-machine-service-packages/">service packages</a>). <strong>Rental+</strong> runs a "nationwide engineer network". <strong>ADS</strong> uses CoffeeSafe-accredited engineers. Independent firms such as Coffee Clinic, All Things Coffee, Espresso Care Solutions, The Coffee Guys and Mulmar sell repair and servicing to anyone (<a href="https://coffeelady.uk/traditional-coffee-machine-service/">Coffee Lady</a>; <a href="https://rental-plus.co.uk/blog/office-coffee-machine-rental-guide/">Rental+</a>; <a href="https://ads-coffee-supplies.co.uk/brands/fracino-coffee-machines/">ADS</a>; <a href="https://www.atcoffee.co.uk/coffee-machine-servicing/">All Things Coffee</a>). For pricing, a pay-as-you-go callout costs <strong>£185 including 30 minutes, then £15 per 15 minutes</strong> (<a href="https://bridgecoffeeroasters.co.uk/serviceandmaintenance">Bridge</a>), and catering engineers charge <strong>£150–£195 for the first hour</strong> (<a href="https://industrial-warewashers.com/catering-equipment-engineers">Industrial Warewashers</a>; <a href="https://www.caterkwik.co.uk/pdf/doc219EngineerCallOutRev10.114.05.2026.pdf">CaterKwik</a>). Subcontract rates are not published. At these retail rates, a single reactive callout can wipe out a year's margin on a small-office service plan. That is the main reason a published response-time commitment must be backed by a written subcontract SLA and remote-fix triage first.</p>
+<h3 id="buying-retiring-independents-customer-books">Buying retiring independents' customer books</h3>
+<p>Book acquisitions are an established pattern, but the terms behind them are unknown. Deals are mostly undisclosed tuck-ins of "machine park and assets" (<a href="https://www.planet-vending.com/tag/uk-vending-acquisitions/">Planet Vending</a>). Brokers such as Hornblower have handled vending and coffee service sales (<a href="https://hornblower-businesses.co.uk/recent-deals/acquisition-general-vending-coffee-machine-maintenance-service-company/">Hornblower</a>). No multiples, owner-age data or succession pipeline were found. Customer contracts and any third-party finance leases must be assigned, which needs lessor consent. With a no-upfront-capital constraint, the realistic structure is a <strong>deferred, earn-out purchase</strong> paid from retained customers' margin. The route in is a subcontract relationship that lets both sides trust each other first. That is why the book-acquisition idea appears below as a Phase 3 gate built on the partner network.</p>
+</div></section>
+<section class="block" id="seven-reviewers-recommend-three-of-eight"><h2><span class="secnum">05</span>Seven reviewers recommend three of eighteen ideas</h2><div class="body-copy"><h3 id="how-the-panel-scored">How the panel scored</h3>
+<p>Seven personas scored every idea out of 10 from scratch, against the B2B evidence above and the user's target-segment priorities (offices, then hospitality, then customer-facing sites, then premium home): Head of Marketing (MKT), Head of Sales (SAL), Coffee Industry Expert (COF), Retail Expert (RET), Head of Product (PRD), Head of Design (DES) and Procurement Manager (PRO). PRO scores capital need, supplier risk and contract exposure, and is the strictest. <strong>An idea is recommended only if every reviewer scores 8 or more.</strong> Near misses were strengthened by combining ideas or adding a specific control, then re-scored from scratch. A score rises only where the change answers that reviewer's stated objection, and three strengthened versions still fall short.</p>
+<h3 id="scoreboard">Scoreboard</h3>
+<p class="reviewers"><span><b>MKT</b>Head of Marketing</span><span><b>SAL</b>Head of Sales</span><span><b>COF</b>Coffee Industry Expert</span><span><b>RET</b>Retail Expert</span><span><b>PRD</b>Head of Product</span><span><b>DES</b>Head of Design</span><span><b>PRO</b>Procurement Manager</span></p><div class="legend"><span><i class="c-hi"></i>8–10 pass</span><span><i class="c-mid"></i>6–7 short</span><span><i class="c-lo"></i>2–5 weak</span></div><div class="heat-wrap"><table class="heat"><thead><tr><th>Idea</th><th>MKT</th><th>SAL</th><th>COF</th><th>RET</th><th>PRD</th><th>DES</th><th>PRO</th><th>Avg</th><th>Verdict</th></tr></thead><tbody><tr><td class="name"><small>1</small>Drop-ship commercial machine webshop</td><td class="c-lo">4</td><td class="c-lo">5</td><td class="c-lo">4</td><td class="c-lo">4</td><td class="c-lo">4</td><td class="c-lo">4</td><td class="c-mid">6</td><td class="avg">4.4</td><td class="verdict"><span class="verdict-pill v-fail">Rejected</span></td></tr><tr><td class="name"><small>2</small>Office coffee introducer/agent</td><td class="c-mid">6</td><td class="c-hi">8</td><td class="c-mid">7</td><td class="c-mid">6</td><td class="c-mid">6</td><td class="c-lo">5</td><td class="c-hi">8</td><td class="avg">6.6</td><td class="verdict"><span class="verdict-pill v-near">Near miss, into S1</span></td></tr><tr><td class="name"><small>3</small>Transparent no-lock-in office rental brand</td><td class="c-hi">9</td><td class="c-hi">8</td><td class="c-hi">8</td><td class="c-hi">8</td><td class="c-hi">8</td><td class="c-hi">8</td><td class="c-mid">6</td><td class="avg">7.9</td><td class="verdict"><span class="verdict-pill v-near">Near miss, into S1</span></td></tr><tr><td class="name"><small>4</small>Own-label beans and consumables for business machines</td><td class="c-mid">6</td><td class="c-mid">7</td><td class="c-hi">8</td><td class="c-hi">8</td><td class="c-hi">8</td><td class="c-mid">7</td><td class="c-hi">8</td><td class="avg">7.4</td><td class="verdict"><span class="verdict-pill v-near">Near miss, into S1/S2</span></td></tr><tr><td class="name"><small>5</small>Contract audit and &quot;renewal rescue&quot; service</td><td class="c-hi">9</td><td class="c-mid">7</td><td class="c-mid">6</td><td class="c-hi">8</td><td class="c-mid">7</td><td class="c-hi">8</td><td class="c-hi">9</td><td class="avg">7.7</td><td class="verdict"><span class="verdict-pill v-near">Near miss, into S1</span></td></tr><tr><td class="name"><small>6</small>Vertical pre-qualified coffee lead marketplace</td><td class="c-mid">6</td><td class="c-mid">7</td><td class="c-mid">6</td><td class="c-mid">7</td><td class="c-mid">7</td><td class="c-mid">6</td><td class="c-hi">9</td><td class="avg">6.9</td><td class="verdict"><span class="verdict-pill v-near">Near miss, into S3</span></td></tr><tr><td class="name"><small>7</small>White-label kit/finance/service back office for roasters</td><td class="c-mid">6</td><td class="c-hi">8</td><td class="c-hi">8</td><td class="c-mid">7</td><td class="c-hi">8</td><td class="c-mid">6</td><td class="c-mid">7</td><td class="avg">7.1</td><td class="verdict"><span class="verdict-pill v-near">Near miss, into S2</span></td></tr><tr><td class="name"><small>8</small>Pause-able seasonal hospitality package</td><td class="c-hi">8</td><td class="c-mid">7</td><td class="c-hi">8</td><td class="c-hi">8</td><td class="c-hi">8</td><td class="c-hi">8</td><td class="c-mid">6</td><td class="avg">7.6</td><td class="verdict"><span class="verdict-pill v-near">Near miss, into S2</span></td></tr><tr><td class="name"><small>9</small>Coffee van and cart starter introducer</td><td class="c-mid">7</td><td class="c-mid">6</td><td class="c-mid">7</td><td class="c-mid">6</td><td class="c-mid">6</td><td class="c-mid">7</td><td class="c-mid">6</td><td class="avg">6.4</td><td class="verdict"><span class="verdict-pill v-fail">Rejected alone, channel in S2</span></td></tr><tr><td class="name"><small>10</small>Refurbished commercial machines with 12-month on-site warranty</td><td class="c-mid">7</td><td class="c-mid">7</td><td class="c-hi">8</td><td class="c-mid">7</td><td class="c-mid">7</td><td class="c-mid">7</td><td class="c-lo">4</td><td class="avg">6.7</td><td class="verdict"><span class="verdict-pill v-near">Phase 3 gate</span></td></tr><tr><td class="name"><small>11</small>Cash purchase of a retiring independent&#x27;s customer book</td><td class="c-lo">5</td><td class="c-hi">9</td><td class="c-hi">8</td><td class="c-mid">7</td><td class="c-mid">7</td><td class="c-lo">5</td><td class="c-lo">3</td><td class="avg">6.3</td><td class="verdict"><span class="verdict-pill v-near">Near miss, into S4</span></td></tr><tr><td class="name"><small>12</small>Amenity coffee for customer-facing sites and holiday lets</td><td class="c-hi">8</td><td class="c-mid">7</td><td class="c-hi">8</td><td class="c-hi">8</td><td class="c-mid">7</td><td class="c-hi">9</td><td class="c-mid">6</td><td class="avg">7.6</td><td class="verdict"><span class="verdict-pill v-near">Near miss, into S5</span></td></tr><tr><td class="name"><small>13</small>Revenue-share self-serve in low-volume venues</td><td class="c-mid">7</td><td class="c-lo">5</td><td class="c-mid">7</td><td class="c-mid">6</td><td class="c-mid">7</td><td class="c-mid">7</td><td class="c-lo">4</td><td class="avg">6.1</td><td class="verdict"><span class="verdict-pill v-fail">Rejected</span></td></tr><tr><td class="name"><small>14</small>Direct public-sector tender bidding</td><td class="c-lo">4</td><td class="c-mid">6</td><td class="c-mid">6</td><td class="c-lo">5</td><td class="c-lo">5</td><td class="c-lo">4</td><td class="c-lo">5</td><td class="avg">5.0</td><td class="verdict"><span class="verdict-pill v-fail">Rejected for now</span></td></tr><tr><td class="name"><small>15</small>Telemetry &quot;uptime guarantee&quot; managed service</td><td class="c-hi">8</td><td class="c-mid">6</td><td class="c-hi">8</td><td class="c-mid">7</td><td class="c-hi">8</td><td class="c-mid">7</td><td class="c-lo">5</td><td class="avg">7.0</td><td class="verdict"><span class="verdict-pill v-near">Near miss, into S5</span></td></tr><tr><td class="name"><small>16</small>Prosumer certified pre-owned and trade-in</td><td class="c-hi">8</td><td class="c-mid">7</td><td class="c-hi">8</td><td class="c-hi">8</td><td class="c-mid">7</td><td class="c-hi">8</td><td class="c-lo">4</td><td class="avg">7.1</td><td class="verdict"><span class="verdict-pill v-near">Near miss, into S6</span></td></tr><tr><td class="name"><small>17</small>Prosumer service plan and &quot;director&#x27;s office&quot; espresso</td><td class="c-mid">6</td><td class="c-mid">7</td><td class="c-hi">9</td><td class="c-hi">8</td><td class="c-hi">8</td><td class="c-mid">6</td><td class="c-mid">7</td><td class="avg">7.3</td><td class="verdict"><span class="verdict-pill v-near">Near miss, into S6</span></td></tr><tr><td class="name"><small>18</small>Matchmaker-to-Mug home proposition</td><td class="c-mid">7</td><td class="c-lo">5</td><td class="c-mid">7</td><td class="c-lo">4</td><td class="c-mid">6</td><td class="c-hi">8</td><td class="c-hi">8</td><td class="avg">6.4</td><td class="verdict"><span class="verdict-pill v-near">Side option only</span></td></tr><tr class="sep"><td class="name"><small>S1</small><strong>No-Lock-In Workplace Coffee (2+3+4+5)</strong></td><td class="c-hi">9</td><td class="c-hi">9</td><td class="c-hi">8</td><td class="c-hi">8</td><td class="c-hi">8</td><td class="c-hi">8</td><td class="c-hi">8</td><td class="avg">8.3</td><td class="verdict"><span class="verdict-pill v-pass">Recommended</span></td></tr><tr><td class="name"><small>S2</small><strong>Café Kit Partner for roasters and seasonal sites (7+8+9+4)</strong></td><td class="c-hi">8</td><td class="c-hi">8</td><td class="c-hi">9</td><td class="c-hi">8</td><td class="c-hi">8</td><td class="c-hi">8</td><td class="c-hi">8</td><td class="avg">8.1</td><td class="verdict"><span class="verdict-pill v-pass">Recommended (after IAR)</span></td></tr><tr><td class="name"><small>S3</small><strong>Independent Partner Network (6 + subcontract engineers)</strong></td><td class="c-hi">8</td><td class="c-hi">8</td><td class="c-hi">8</td><td class="c-hi">8</td><td class="c-hi">8</td><td class="c-hi">8</td><td class="c-hi">9</td><td class="avg">8.1</td><td class="verdict"><span class="verdict-pill v-pass">Recommended</span></td></tr><tr><td class="name"><small>S4</small>Succession partnership on earn-out (11 + S3)</td><td class="c-mid">7</td><td class="c-hi">9</td><td class="c-hi">8</td><td class="c-hi">8</td><td class="c-hi">8</td><td class="c-mid">7</td><td class="c-mid">7</td><td class="avg">7.7</td><td class="verdict"><span class="verdict-pill v-near">Phase 3 gate</span></td></tr><tr><td class="name"><small>S5</small>Amenity coffee for customer-facing sites (12+15+13)</td><td class="c-hi">8</td><td class="c-mid">7</td><td class="c-hi">8</td><td class="c-hi">8</td><td class="c-hi">8</td><td class="c-hi">9</td><td class="c-hi">8</td><td class="avg">8.0</td><td class="verdict"><span class="verdict-pill v-near">Near miss, pilot inside S1</span></td></tr><tr><td class="name"><small>S6</small>Prosumer Care Club, then certified pre-owned (16+17)</td><td class="c-hi">8</td><td class="c-mid">7</td><td class="c-hi">9</td><td class="c-hi">8</td><td class="c-hi">8</td><td class="c-hi">8</td><td class="c-mid">7</td><td class="avg">7.9</td><td class="verdict"><span class="verdict-pill v-near">Phase 3 gate</span></td></tr></tbody></table></div>
 
 <h3 id="original-ideas-scores-and-rationale">Original ideas: scores and rationale</h3>
 <details class="detail">
-<summary>Idea 1: price-led drop ship webshop</summary>
+<summary>Idea 1: Drop-ship commercial machine webshop</summary>
 <div>
 
-<p>A wide catalogue of mass-market machines fulfilled by distributors.</p>
+<p>A catalogue of commercial machines fulfilled by Fiamma, Style Café or NMII, sold on price.</p>
 <div class="table-wrap"><table class="wide">
 <thead>
 <tr class="header">
@@ -279,37 +359,37 @@ footer.end { margin-top: 56px; padding-top: 18px; border-top: 1px solid var(--ru
 <tr class="odd">
 <td>MKT</td>
 <td>4</td>
-<td>No story to tell; Prime Day £100 cuts and Black Friday 35–60% discounts dominate the conversation.</td>
+<td>No story; Caffia and dealers already list hundreds of machines.</td>
 </tr>
 <tr class="even">
 <td>SAL</td>
 <td>5</td>
-<td>No stock needed, but there is no reason to buy here rather than at Currys or Amazon.</td>
+<td>Businesses want installation, training and service, which a webshop does not provide.</td>
 </tr>
 <tr class="odd">
 <td>COF</td>
 <td>4</td>
-<td>Adds nothing to the cup; Bella Barista's lead comes from advice, not catalogue size.</td>
+<td>Kit without water treatment and setup leads to the faults buyers complain about.</td>
 </tr>
 <tr class="even">
 <td>RET</td>
-<td>3</td>
-<td>Big retailers pass on manufacturer funding and match each other; a newcomer loses on price.</td>
+<td>4</td>
+<td>Undifferentiated, and margins are unpublished ("substantial discount" only).</td>
 </tr>
 <tr class="odd">
 <td>PRD</td>
 <td>4</td>
-<td>Undifferentiated; returned used espresso machines become B-stock that must be cleaned.</td>
+<td>A catalogue is not a product for an office manager.</td>
 </tr>
 <tr class="even">
 <td>DES</td>
 <td>4</td>
-<td>A commodity catalogue gives nothing ownable to design around.</td>
+<td>Nothing ownable to design.</td>
 </tr>
 <tr class="odd">
 <td>PRO</td>
 <td>6</td>
-<td>Brewed By Hand, Fiamma and NMII will drop ship, but margins and MAP rules are unpublished.</td>
+<td>No stock needed, but returns and warranty terms are unwritten.</td>
 </tr>
 </tbody>
 </table></div>
@@ -317,7 +397,115 @@ footer.end { margin-top: 56px; padding-top: 18px; border-top: 1px solid var(--ru
 </details>
 
 <details class="detail">
-<summary>Idea 2: affiliate review site only</summary>
+<summary>Idea 2: Office coffee introducer/agent</summary>
+<div>
+
+<p>Refer SMEs to operators and lessors for fees.</p>
+<div class="table-wrap"><table class="wide">
+<thead>
+<tr class="header">
+<th>Reviewer</th>
+<th>Score</th>
+<th>Rationale</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>MKT</td>
+<td>6</td>
+<td>An invisible middleman builds no brand equity.</td>
+</tr>
+<tr class="even">
+<td>SAL</td>
+<td>8</td>
+<td>Lessors pay 1–7%, and operators fund deals from contracts such as Bewley's £143k.</td>
+</tr>
+<tr class="odd">
+<td>COF</td>
+<td>7</td>
+<td>Coffee quality depends on which operator gets the customer.</td>
+</tr>
+<tr class="even">
+<td>RET</td>
+<td>6</td>
+<td>The customer sees the operator's brand, not this one.</td>
+</tr>
+<tr class="odd">
+<td>PRD</td>
+<td>6</td>
+<td>No product of its own; risk of being cut out after the first meeting.</td>
+</tr>
+<tr class="even">
+<td>DES</td>
+<td>5</td>
+<td>A referral form is all there is to design.</td>
+</tr>
+<tr class="odd">
+<td>PRO</td>
+<td>8</td>
+<td>No stock or credit risk; VendLocus-style non-circumvention protects fees.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</details>
+
+<details class="detail">
+<summary>Idea 3: Transparent no-lock-in office rental brand</summary>
+<div>
+
+<p>Published prices, a free trial and no auto-renewal, with the machine funded by a lessor and service subcontracted.</p>
+<div class="table-wrap"><table class="wide">
+<thead>
+<tr class="header">
+<th>Reviewer</th>
+<th>Score</th>
+<th>Rationale</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>MKT</td>
+<td>9</td>
+<td>"No rollover, prices online" answers the UKBF "watertight lease" stories directly.</td>
+</tr>
+<tr class="even">
+<td>SAL</td>
+<td>8</td>
+<td>£7–£20 a week is a simple, comparable price that is easy to close.</td>
+</tr>
+<tr class="odd">
+<td>COF</td>
+<td>8</td>
+<td>Choosing the machine (Jura, Coffetek, Franke) keeps quality in-house.</td>
+</tr>
+<tr class="even">
+<td>RET</td>
+<td>8</td>
+<td>Fills the gap left by Coffee Lady's quote-only selling, 50% cancellation fee and missing trial product.</td>
+</tr>
+<tr class="odd">
+<td>PRD</td>
+<td>8</td>
+<td>Machine, service and coffee on one page is a real product.</td>
+</tr>
+<tr class="even">
+<td>DES</td>
+<td>8</td>
+<td>A price page, trial kit and renewal-free contract are designable.</td>
+</tr>
+<tr class="odd">
+<td>PRO</td>
+<td>6</td>
+<td>Finance leases are fixed-term, so someone must carry the churn risk; subcontract SLAs are unpriced.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</details>
+
+<details class="detail">
+<summary>Idea 4: Own-label beans and consumables for business machines</summary>
 <div>
 
 <div class="table-wrap"><table class="wide">
@@ -332,37 +520,91 @@ footer.end { margin-top: 56px; padding-top: 18px; border-top: 1px solid var(--ru
 <tr class="odd">
 <td>MKT</td>
 <td>6</td>
-<td>Content builds an audience, but coffeeblog.co.uk and spam pages already crowd the search results.</td>
+<td>Office bean subscriptions are crowded (Kiss the Hippo, Pact).</td>
 </tr>
 <tr class="even">
 <td>SAL</td>
-<td>4</td>
-<td>About £17–£42 per machine sale at 5–10% commission needs very high traffic.</td>
+<td>7</td>
+<td>Recurring, but only sellable where no free-on-loan contract ties the customer's beans.</td>
+</tr>
+<tr class="odd">
+<td>COF</td>
+<td>8</td>
+<td>Fresh roaster beans beat powder; £12–£17 per kg white-label cost is workable.</td>
+</tr>
+<tr class="even">
+<td>RET</td>
+<td>8</td>
+<td>Dealers such as Coffee Lady sell no coffee at all, though Coinadrink and Cheshire Vending already run consumables shops.</td>
+</tr>
+<tr class="odd">
+<td>PRD</td>
+<td>8</td>
+<td>The repeat layer that turns a machine deal into lifetime value.</td>
+</tr>
+<tr class="even">
+<td>DES</td>
+<td>7</td>
+<td>Packaging is ownable but not decisive for B2B buyers.</td>
+</tr>
+<tr class="odd">
+<td>PRO</td>
+<td>8</td>
+<td>Low minimums (Caffè Society from £12 per kg) and no equipment.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</details>
+
+<details class="detail">
+<summary>Idea 5: Contract audit and "renewal rescue" service</summary>
+<div>
+
+<p>Free or paid review of a business's current coffee lease, its notice dates and its total cost.</p>
+<div class="table-wrap"><table class="wide">
+<thead>
+<tr class="header">
+<th>Reviewer</th>
+<th>Score</th>
+<th>Rationale</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>MKT</td>
+<td>9</td>
+<td>"Check your coffee contract before it rolls over" is a sharp, newsworthy hook.</td>
+</tr>
+<tr class="even">
+<td>SAL</td>
+<td>7</td>
+<td>It creates switching leads, but the audit itself earns little.</td>
 </tr>
 <tr class="odd">
 <td>COF</td>
 <td>6</td>
-<td>Honest testing is valued, but is no different from established reviewers.</td>
+<td>Adds nothing to what ends up in the cup.</td>
 </tr>
 <tr class="even">
 <td>RET</td>
-<td>5</td>
-<td>The retailer owns the customer and any repeat purchases.</td>
+<td>8</td>
+<td>Targets the 60–90-day notice window that competitors depend on.</td>
 </tr>
 <tr class="odd">
 <td>PRD</td>
-<td>5</td>
-<td>There is no product, only links.</td>
+<td>7</td>
+<td>A strong lead magnet, but not a full product on its own.</td>
 </tr>
 <tr class="even">
 <td>DES</td>
-<td>6</td>
-<td>An editorial brand is possible but slow to build.</td>
+<td>8</td>
+<td>A "renewal radar" calculator and reminder emails are designable.</td>
 </tr>
 <tr class="odd">
 <td>PRO</td>
 <td>9</td>
-<td>No stock, no supplier risk, Awin sign-up is free.</td>
+<td>No stock or equipment; founder time only.</td>
 </tr>
 </tbody>
 </table></div>
@@ -370,10 +612,10 @@ footer.end { margin-top: 56px; padding-top: 18px; border-top: 1px solid var(--ru
 </details>
 
 <details class="detail">
-<summary>Idea 3: curated matchmaker and setup shop</summary>
+<summary>Idea 6: Vertical pre-qualified coffee lead marketplace</summary>
 <div>
 
-<p>A quiz recommends the right machine, which is drop shipped or linked through an affiliate programme, with a paid dial-in session.</p>
+<p>A "Bark for coffee" sending each lead to two or three vetted suppliers.</p>
 <div class="table-wrap"><table class="wide">
 <thead>
 <tr class="header">
@@ -385,38 +627,38 @@ footer.end { margin-top: 56px; padding-top: 18px; border-top: 1px solid var(--ru
 <tbody>
 <tr class="odd">
 <td>MKT</td>
-<td>7</td>
-<td>"We match you to the right machine" is a clear message, but a one-off purchase limits repeat sharing.</td>
+<td>6</td>
+<td>Competes with Bark, Approved Index and Expert Market for search terms.</td>
 </tr>
 <tr class="even">
 <td>SAL</td>
 <td>7</td>
-<td>The quiz captures buying intent; one-off margin is unknown until trade terms arrive.</td>
+<td>£30–£150 per qualified lead is affordable on £1,000+ a year contracts (inference).</td>
 </tr>
 <tr class="odd">
 <td>COF</td>
-<td>8</td>
-<td>Dial-in guidance targets the 20% of faults that are dispensing problems, often caused by grinding too fine.</td>
+<td>6</td>
+<td>No control over the supplier's quality.</td>
 </tr>
 <tr class="even">
 <td>RET</td>
 <td>7</td>
-<td>Competes on Bella Barista's strength (advice), but there is no repeat revenue.</td>
+<td>Suppliers' complaints about lead quality are a real opening.</td>
 </tr>
 <tr class="odd">
 <td>PRD</td>
 <td>7</td>
-<td>Strong first experience but nothing recurring after delivery.</td>
+<td>Pre-qualifying on cups a day, sites and renewal date adds value.</td>
 </tr>
 <tr class="even">
 <td>DES</td>
-<td>8</td>
-<td>The quiz, unboxing and setup ritual form a designable, ownable experience.</td>
+<td>6</td>
+<td>A form-led brand is hard to love.</td>
 </tr>
 <tr class="odd">
 <td>PRO</td>
-<td>7</td>
-<td>Drop ship terms and returns responsibility are not yet in writing.</td>
+<td>9</td>
+<td>Pure software and calls; no equipment.</td>
 </tr>
 </tbody>
 </table></div>
@@ -424,7 +666,7 @@ footer.end { margin-top: 56px; padding-top: 18px; border-top: 1px solid var(--ru
 </details>
 
 <details class="detail">
-<summary>Idea 4: machine plus white-label bean subscription</summary>
+<summary>Idea 7: White-label kit, finance and service back office for roasters</summary>
 <div>
 
 <div class="table-wrap"><table class="wide">
@@ -438,38 +680,92 @@ footer.end { margin-top: 56px; padding-top: 18px; border-top: 1px solid var(--ru
 <tbody>
 <tr class="odd">
 <td>MKT</td>
+<td>6</td>
+<td>Invisible to cafés if run under the roaster's brand.</td>
+</tr>
+<tr class="even">
+<td>SAL</td>
+<td>8</td>
+<td>Bridge-style roasters want to shed equipment risk; each roaster brings many cafés.</td>
+</tr>
+<tr class="odd">
+<td>COF</td>
+<td>8</td>
+<td>Pairs good beans with properly specified machines and training.</td>
+</tr>
+<tr class="even">
+<td>RET</td>
 <td>7</td>
-<td>Bean subscriptions are crowded (Pact, Grind, Blue Coffee Box); the bundle needs a stronger hook.</td>
+<td>Specialty roasters already bundle training; the gap is the equipment side.</td>
+</tr>
+<tr class="odd">
+<td>PRD</td>
+<td>8</td>
+<td>Clear job: machine spec, lease, install and service on the roaster's behalf.</td>
+</tr>
+<tr class="even">
+<td>DES</td>
+<td>6</td>
+<td>White-label limits brand-building.</td>
+</tr>
+<tr class="odd">
+<td>PRO</td>
+<td>7</td>
+<td>Many cafés are sole traders, so it needs IAR status; subcontract engineers are unpriced.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</details>
+
+<details class="detail">
+<summary>Idea 8: Pause-able seasonal hospitality package</summary>
+<div>
+
+<p>No weekly kg minimum, with winter pause for garden centres, farm shops, vans and holiday parks.</p>
+<div class="table-wrap"><table class="wide">
+<thead>
+<tr class="header">
+<th>Reviewer</th>
+<th>Score</th>
+<th>Rationale</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>MKT</td>
+<td>8</td>
+<td>"The coffee deal with a pause button" is distinctive.</td>
 </tr>
 <tr class="even">
 <td>SAL</td>
 <td>7</td>
-<td>Recurring revenue, but benchmark churn of 5–10% a month limits lifetime value.</td>
+<td>Clear pain point, but seasonal revenue is lumpy.</td>
 </tr>
 <tr class="odd">
 <td>COF</td>
 <td>8</td>
-<td>Fresh roaster beans are better than pods for bean-to-cup owners; Sage/Beanz proves the pairing.</td>
+<td>Seasonal sites need good quality on peak days.</td>
 </tr>
 <tr class="even">
 <td>RET</td>
-<td>7</td>
-<td>Sage already gives free bags at the till through Currys and Lakeland.</td>
+<td>8</td>
+<td>Directly counters FreshGround-style "deliveries cannot be paused" terms.</td>
 </tr>
 <tr class="odd">
 <td>PRD</td>
 <td>8</td>
-<td>Turns a one-off sale into a relationship; Pact kept 99% of customers after a price rise.</td>
+<td>Clear product rules: pause months, no shortfall charges.</td>
 </tr>
 <tr class="even">
 <td>DES</td>
-<td>7</td>
-<td>Packaging is ownable, but alone it looks like a me-too subscription.</td>
+<td>8</td>
+<td>Seasonal kits and signage are designable.</td>
 </tr>
 <tr class="odd">
 <td>PRO</td>
-<td>8</td>
-<td>White label from £12/kg with minimums of 20 × 227g bags.</td>
+<td>6</td>
+<td>Who funds an idle machine over winter is unsolved without a lessor or roaster partner.</td>
 </tr>
 </tbody>
 </table></div>
@@ -477,7 +773,7 @@ footer.end { margin-top: 56px; padding-top: 18px; border-top: 1px solid var(--ru
 </details>
 
 <details class="detail">
-<summary>Idea 5: home machine subscription with own fleet</summary>
+<summary>Idea 9: Coffee van and cart starter introducer</summary>
 <div>
 
 <div class="table-wrap"><table class="wide">
@@ -491,38 +787,38 @@ footer.end { margin-top: 56px; padding-top: 18px; border-top: 1px solid var(--ru
 <tbody>
 <tr class="odd">
 <td>MKT</td>
-<td>8</td>
-<td>"Netflix for espresso" is new to the UK; no visible incumbent outside pod bundles.</td>
+<td>7</td>
+<td>Van launches are visual and shareable.</td>
 </tr>
 <tr class="even">
 <td>SAL</td>
 <td>6</td>
-<td>No UK take-up or churn data, and Nespresso dropped its £225 exit fee after customer pushback.</td>
+<td>Builders already broker finance; low volume per month.</td>
 </tr>
 <tr class="odd">
 <td>COF</td>
 <td>7</td>
-<td>Good for quality, if servicing is included.</td>
+<td>Fracino dual-fuel machines dominate; training adds value.</td>
 </tr>
 <tr class="even">
 <td>RET</td>
 <td>6</td>
-<td>Rental clashes with heavy Black Friday discounting on buying outright.</td>
+<td>Catering Units and The Big Coffee own the relationship.</td>
 </tr>
 <tr class="odd">
 <td>PRD</td>
-<td>7</td>
-<td>Attractive bundle, unproven demand.</td>
+<td>6</td>
+<td>More a channel than a product.</td>
 </tr>
 <tr class="even">
 <td>DES</td>
-<td>8</td>
-<td>Upgrade paths and swap kits are rich design ground.</td>
+<td>7</td>
+<td>Van branding is a strong canvas.</td>
 </tr>
 <tr class="odd">
 <td>PRO</td>
-<td>3</td>
-<td>A £400–£800 machine needs 12–24 months of fees to pay back; contradicts the no-upfront-cost constraint.</td>
+<td>6</td>
+<td>Van traders are mostly sole traders, a regulated credit-broking group.</td>
 </tr>
 </tbody>
 </table></div>
@@ -530,7 +826,7 @@ footer.end { margin-top: 56px; padding-top: 18px; border-top: 1px solid var(--ru
 </details>
 
 <details class="detail">
-<summary>Idea 6: refurbished home espresso specialist</summary>
+<summary>Idea 10: Refurbished commercial machines with a 12-month on-site warranty</summary>
 <div>
 
 <div class="table-wrap"><table class="wide">
@@ -545,37 +841,37 @@ footer.end { margin-top: 56px; padding-top: 18px; border-top: 1px solid var(--ru
 <tr class="odd">
 <td>MKT</td>
 <td>7</td>
-<td>Good sustainability and value story, but claims must meet the Green Claims Code.</td>
+<td>"12 months on-site" beats the 1–6-month norm.</td>
 </tr>
 <tr class="even">
 <td>SAL</td>
 <td>7</td>
-<td>Refurbished Sage machines sell at 35–50% off RRP.</td>
+<td>£1,550–£1,650 entry two-groups suit tight café budgets.</td>
 </tr>
 <tr class="odd">
 <td>COF</td>
 <td>8</td>
-<td>Back Market buyers report limescale and poor cleaning; a coffee specialist could do better.</td>
+<td>Proper refurbishment and filtration solve real reliability issues.</td>
 </tr>
 <tr class="even">
 <td>RET</td>
 <td>7</td>
-<td>Back Market and refurbed already own the channel and its 12-month warranty standard.</td>
+<td>Liquidline, Clumsy Goat and Logic Vending already sell refurbished machines.</td>
 </tr>
 <tr class="odd">
 <td>PRD</td>
 <td>7</td>
-<td>Credible, but quality depends on parts and skilled labour.</td>
+<td>Credible product, but quality depends on engineering labour.</td>
 </tr>
 <tr class="even">
 <td>DES</td>
 <td>7</td>
-<td>A "certified refurbished" grading system is designable.</td>
+<td>A grading standard is designable.</td>
 </tr>
 <tr class="odd">
 <td>PRO</td>
 <td>4</td>
-<td>Requires buying stock, no liquidation pallet pricing known, no right-to-repair parts access.</td>
+<td>Needs stock, workshop labour and warranty reserves; food-contact cleaning is mandatory.</td>
 </tr>
 </tbody>
 </table></div>
@@ -583,7 +879,326 @@ footer.end { margin-top: 56px; padding-top: 18px; border-top: 1px solid var(--ru
 </details>
 
 <details class="detail">
-<summary>Idea 7: independent care and servicing plan for home machines</summary>
+<summary>Idea 11: Cash purchase of a retiring independent's customer book</summary>
+<div>
+
+<div class="table-wrap"><table class="wide">
+<thead>
+<tr class="header">
+<th>Reviewer</th>
+<th>Score</th>
+<th>Rationale</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>MKT</td>
+<td>5</td>
+<td>Inherits someone else's brand and reputation.</td>
+</tr>
+<tr class="even">
+<td>SAL</td>
+<td>9</td>
+<td>Instant recurring revenue and route density, which is what Liquidline and Selecta buy.</td>
+</tr>
+<tr class="odd">
+<td>COF</td>
+<td>8</td>
+<td>Brings experienced engineers and know-how.</td>
+</tr>
+<tr class="even">
+<td>RET</td>
+<td>7</td>
+<td>A proven consolidation pattern.</td>
+</tr>
+<tr class="odd">
+<td>PRD</td>
+<td>7</td>
+<td>Legacy contracts may clash with the "no lock-in" promise.</td>
+</tr>
+<tr class="even">
+<td>DES</td>
+<td>5</td>
+<td>Little to design.</td>
+</tr>
+<tr class="odd">
+<td>PRO</td>
+<td>3</td>
+<td>Needs capital, lessor consent to assign leases, and multiples are undisclosed.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</details>
+
+<details class="detail">
+<summary>Idea 12: Amenity coffee for customer-facing sites and holiday lets</summary>
+<div>
+
+<p>Branded premium coffee for dealerships, gyms, salons, waiting rooms and short lets.</p>
+<div class="table-wrap"><table class="wide">
+<thead>
+<tr class="header">
+<th>Reviewer</th>
+<th>Score</th>
+<th>Rationale</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>MKT</td>
+<td>8</td>
+<td>Visible to the site's own customers, so every cup advertises.</td>
+</tr>
+<tr class="even">
+<td>SAL</td>
+<td>7</td>
+<td>No sector volume or willingness-to-pay data found.</td>
+</tr>
+<tr class="odd">
+<td>COF</td>
+<td>8</td>
+<td>Bean-to-cup quality is achievable at low volumes.</td>
+</tr>
+<tr class="even">
+<td>RET</td>
+<td>8</td>
+<td>Under-served below the majors' 30–50-cup thresholds; Coffee Lady's range starts at £855 and has no micro-site offer.</td>
+</tr>
+<tr class="odd">
+<td>PRD</td>
+<td>7</td>
+<td>Needs packaging by site type.</td>
+</tr>
+<tr class="even">
+<td>DES</td>
+<td>9</td>
+<td>Branded cups and a "hospitality-grade" counter set-up are rich design ground.</td>
+</tr>
+<tr class="odd">
+<td>PRO</td>
+<td>6</td>
+<td>Machine funding is unclear for micro-businesses and sole-trader salons.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</details>
+
+<details class="detail">
+<summary>Idea 13: Revenue-share self-serve in low-volume venues</summary>
+<div>
+
+<div class="table-wrap"><table class="wide">
+<thead>
+<tr class="header">
+<th>Reviewer</th>
+<th>Score</th>
+<th>Rationale</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>MKT</td>
+<td>7</td>
+<td>Branded units are visible.</td>
+</tr>
+<tr class="even">
+<td>SAL</td>
+<td>5</td>
+<td>Nestlé's own revenue figures don't reconcile; 10–40-cup venues are unproven.</td>
+</tr>
+<tr class="odd">
+<td>COF</td>
+<td>7</td>
+<td>Feasible with telemetry.</td>
+</tr>
+<tr class="even">
+<td>RET</td>
+<td>6</td>
+<td>Costa Express holds 71% of premium self-serve.</td>
+</tr>
+<tr class="odd">
+<td>PRD</td>
+<td>7</td>
+<td>Nayax and Vendon kits make it workable.</td>
+</tr>
+<tr class="even">
+<td>DES</td>
+<td>7</td>
+<td>Unit branding is designable.</td>
+</tr>
+<tr class="odd">
+<td>PRO</td>
+<td>4</td>
+<td>Own machines, payment kits and servicing mean capital.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</details>
+
+<details class="detail">
+<summary>Idea 14: Direct public-sector tender bidding</summary>
+<div>
+
+<div class="table-wrap"><table class="wide">
+<thead>
+<tr class="header">
+<th>Reviewer</th>
+<th>Score</th>
+<th>Rationale</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>MKT</td>
+<td>4</td>
+<td>Tenders reward compliance, not brand.</td>
+</tr>
+<tr class="even">
+<td>SAL</td>
+<td>6</td>
+<td>Contracts are large (£80k–£143k), but bids receive many tenders (nine at Leeds).</td>
+</tr>
+<tr class="odd">
+<td>COF</td>
+<td>6</td>
+<td>Specifications usually fix the machine type.</td>
+</tr>
+<tr class="even">
+<td>RET</td>
+<td>5</td>
+<td>Incumbents with track records win.</td>
+</tr>
+<tr class="odd">
+<td>PRD</td>
+<td>5</td>
+<td>The product is defined by the buyer.</td>
+</tr>
+<tr class="even">
+<td>DES</td>
+<td>4</td>
+<td>Little room for design.</td>
+</tr>
+<tr class="odd">
+<td>PRO</td>
+<td>5</td>
+<td>Needs references, insurance levels and service coverage a newcomer lacks.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</details>
+
+<details class="detail">
+<summary>Idea 15: Telemetry "uptime guarantee" managed service</summary>
+<div>
+
+<div class="table-wrap"><table class="wide">
+<thead>
+<tr class="header">
+<th>Reviewer</th>
+<th>Score</th>
+<th>Rationale</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>MKT</td>
+<td>8</td>
+<td>"We know it's broken before you do" is a strong claim.</td>
+</tr>
+<tr class="even">
+<td>SAL</td>
+<td>6</td>
+<td>Unproven willingness to pay above standard service.</td>
+</tr>
+<tr class="odd">
+<td>COF</td>
+<td>8</td>
+<td>Vendon retrofits espresso and superautomatic machines with cleaning and fault alerts.</td>
+</tr>
+<tr class="even">
+<td>RET</td>
+<td>7</td>
+<td>Operators already collect data from about 70% of machines.</td>
+</tr>
+<tr class="odd">
+<td>PRD</td>
+<td>8</td>
+<td>Turns service into a measurable product.</td>
+</tr>
+<tr class="even">
+<td>DES</td>
+<td>7</td>
+<td>A live status page is designable.</td>
+</tr>
+<tr class="odd">
+<td>PRO</td>
+<td>5</td>
+<td>Kit pricing is unpublished, and engineer coverage must back the guarantee.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</details>
+
+<details class="detail">
+<summary>Idea 16: Prosumer certified pre-owned and trade-in</summary>
+<div>
+
+<div class="table-wrap"><table class="wide">
+<thead>
+<tr class="header">
+<th>Reviewer</th>
+<th>Score</th>
+<th>Rationale</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>MKT</td>
+<td>8</td>
+<td>First UK trade-in programme; Clive Coffee is the US model.</td>
+</tr>
+<tr class="even">
+<td>SAL</td>
+<td>7</td>
+<td>Used Biancas trade at about £875–£1,900, so the market is liquid.</td>
+</tr>
+<tr class="odd">
+<td>COF</td>
+<td>8</td>
+<td>Servicing before resale is what used buyers pay extra for.</td>
+</tr>
+<tr class="even">
+<td>RET</td>
+<td>8</td>
+<td>Bella Barista sells only "sold as seen" clearance stock.</td>
+</tr>
+<tr class="odd">
+<td>PRD</td>
+<td>7</td>
+<td>Depends on parts and skilled labour.</td>
+</tr>
+<tr class="even">
+<td>DES</td>
+<td>8</td>
+<td>A grading and warranty badge is designable.</td>
+</tr>
+<tr class="odd">
+<td>PRO</td>
+<td>4</td>
+<td>About £800–£1,200 of working capital per unit; secondary segment.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</details>
+
+<details class="detail">
+<summary>Idea 17: Prosumer service plan and "director's office" espresso</summary>
 <div>
 
 <div class="table-wrap"><table class="wide">
@@ -602,33 +1217,33 @@ footer.end { margin-top: 56px; padding-top: 18px; border-top: 1px solid var(--ru
 </tr>
 <tr class="even">
 <td>SAL</td>
-<td>6</td>
-<td>Uncertain willingness to pay; no UK pricing benchmarks found.</td>
+<td>7</td>
+<td>£155–£240 per service anchors the price, but no willingness-to-pay data exists.</td>
 </tr>
 <tr class="odd">
 <td>COF</td>
 <td>9</td>
-<td>Scale build-up is the leading cause of poor performance; Sage offers no repairs after 2 years.</td>
+<td>E61 machines need regular gasket and descale work; a gasket kit costs about £13.</td>
 </tr>
 <tr class="even">
 <td>RET</td>
-<td>7</td>
-<td>A clear gap left by De'Longhi's slow repairs.</td>
+<td>8</td>
+<td>Espresso Underground lists service plans as "coming soon", so nobody offers one yet.</td>
 </tr>
 <tr class="odd">
 <td>PRD</td>
 <td>8</td>
-<td>Auto-shipped descaler and filters, with setup based on local water hardness, fit a subscription well.</td>
+<td>Shares engineers with the B2B offer.</td>
 </tr>
 <tr class="even">
 <td>DES</td>
 <td>6</td>
-<td>Service is intangible without a product wrapper.</td>
+<td>Service is intangible.</td>
 </tr>
 <tr class="odd">
 <td>PRO</td>
-<td>5</td>
-<td>Parts access is unprotected by law; engineer callouts at £120–£195 destroy the margin.</td>
+<td>7</td>
+<td>Subcontract engineer rates unknown; a 30-mile collection radius limits coverage.</td>
 </tr>
 </tbody>
 </table></div>
@@ -636,62 +1251,10 @@ footer.end { margin-top: 56px; padding-top: 18px; border-top: 1px solid var(--ru
 </details>
 
 <details class="detail">
-<summary>Idea 8: B2B introducer for free-on-loan, lease and finance</summary>
+<summary>Idea 18: Matchmaker-to-Mug home proposition</summary>
 <div>
 
-<div class="table-wrap"><table class="wide">
-<thead>
-<tr class="header">
-<th>Reviewer</th>
-<th>Score</th>
-<th>Rationale</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>MKT</td>
-<td>6</td>
-<td>An invisible middleman builds no brand.</td>
-</tr>
-<tr class="even">
-<td>SAL</td>
-<td>8</td>
-<td>Contract values from about £4.8k to £143k leave room for fees; lenders pay 1–7%.</td>
-</tr>
-<tr class="odd">
-<td>COF</td>
-<td>7</td>
-<td>Quality depends on which operator is chosen.</td>
-</tr>
-<tr class="even">
-<td>RET</td>
-<td>6</td>
-<td>No product the customer sees as yours.</td>
-</tr>
-<tr class="odd">
-<td>PRD</td>
-<td>6</td>
-<td>No product of its own; risk of being cut out once the customer meets the operator.</td>
-</tr>
-<tr class="even">
-<td>DES</td>
-<td>5</td>
-<td>Nothing to design beyond a referral form.</td>
-</tr>
-<tr class="odd">
-<td>PRO</td>
-<td>8</td>
-<td>No stock, and the lender carries the credit risk; non-circumvention terms are needed.</td>
-</tr>
-</tbody>
-</table></div>
-</div>
-</details>
-
-<details class="detail">
-<summary>Idea 9: self-serve machines in low-volume venues (gyms, barbers, car washes)</summary>
-<div>
-
+<p>The earlier home quiz, drop ship and bean subscription idea, re-scored for a B2B-first business.</p>
 <div class="table-wrap"><table class="wide">
 <thead>
 <tr class="header">
@@ -704,196 +1267,92 @@ footer.end { margin-top: 56px; padding-top: 18px; border-top: 1px solid var(--ru
 <tr class="odd">
 <td>MKT</td>
 <td>7</td>
-<td>Visible branded machines in local venues.</td>
-</tr>
-<tr class="even">
-<td>SAL</td>
-<td>6</td>
-<td>Venues selling 10–40 cups a day are unproven; Nestlé's own revenue claims don't add up.</td>
-</tr>
-<tr class="odd">
-<td>COF</td>
-<td>7</td>
-<td>Bean-to-cup quality is achievable with telemetry.</td>
-</tr>
-<tr class="even">
-<td>RET</td>
-<td>7</td>
-<td>A real gap below the majors' 30–50 cup threshold.</td>
-</tr>
-<tr class="odd">
-<td>PRD</td>
-<td>7</td>
-<td>Nayax and Vendon kits make it workable.</td>
-</tr>
-<tr class="even">
-<td>DES</td>
-<td>7</td>
-<td>A branded unit offers a design opportunity.</td>
-</tr>
-<tr class="odd">
-<td>PRO</td>
-<td>4</td>
-<td>Machines, cashless kits and servicing need capital; no kit pricing was found.</td>
-</tr>
-</tbody>
-</table></div>
-</div>
-</details>
-
-<details class="detail">
-<summary>Idea 10: rental-block (build-to-rent) and holiday-let amenity coffee</summary>
-<div>
-
-<div class="table-wrap"><table class="wide">
-<thead>
-<tr class="header">
-<th>Reviewer</th>
-<th>Score</th>
-<th>Rationale</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>MKT</td>
-<td>6</td>
-<td>Niche, low visibility to consumers.</td>
-</tr>
-<tr class="even">
-<td>SAL</td>
-<td>6</td>
-<td>Demand is visible in listings, but who supplies it and at what price is unknown.</td>
-</tr>
-<tr class="odd">
-<td>COF</td>
-<td>7</td>
-<td>Bean machines beat the pods hosts use today.</td>
-</tr>
-<tr class="even">
-<td>RET</td>
-<td>6</td>
-<td>Small, fragmented buyers.</td>
-</tr>
-<tr class="odd">
-<td>PRD</td>
-<td>7</td>
-<td>A "host kit" restocked at each changeover is a clear product.</td>
-</tr>
-<tr class="even">
-<td>DES</td>
-<td>8</td>
-<td>Fits Airbnb's zero-waste host guidance; strong branding opportunity.</td>
-</tr>
-<tr class="odd">
-<td>PRO</td>
-<td>6</td>
-<td>Needs machine funding, and the per-stay economics are unknown.</td>
-</tr>
-</tbody>
-</table></div>
-</div>
-</details>
-
-<details class="detail">
-<summary>Idea 11: event coffee cart / pop-up bar</summary>
-<div>
-
-<div class="table-wrap"><table class="wide">
-<thead>
-<tr class="header">
-<th>Reviewer</th>
-<th>Score</th>
-<th>Rationale</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>MKT</td>
-<td>9</td>
-<td>Live, filmable and shareable; Clevr Blends grew from a travelling pop-up.</td>
-</tr>
-<tr class="even">
-<td>SAL</td>
-<td>6</td>
-<td>About £400 per event, with utilisation unknown.</td>
-</tr>
-<tr class="odd">
-<td>COF</td>
-<td>8</td>
-<td>Shows real coffee quality in person.</td>
-</tr>
-<tr class="even">
-<td>RET</td>
-<td>6</td>
-<td>A service business, not machine retail.</td>
-</tr>
-<tr class="odd">
-<td>PRD</td>
-<td>5</td>
-<td>Distracts from the core business of machines and beans.</td>
-</tr>
-<tr class="even">
-<td>DES</td>
-<td>8</td>
-<td>A strong physical brand canvas.</td>
-</tr>
-<tr class="odd">
-<td>PRO</td>
-<td>5</td>
-<td>Cart and machine estimated at £3k–£8k, plus staff.</td>
-</tr>
-</tbody>
-</table></div>
-</div>
-</details>
-
-<details class="detail">
-<summary>Idea 12: own-brand imported (OEM) machine</summary>
-<div>
-
-<div class="table-wrap"><table class="wide">
-<thead>
-<tr class="header">
-<th>Reviewer</th>
-<th>Score</th>
-<th>Rationale</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>MKT</td>
-<td>6</td>
-<td>Own brand is attractive, but trust is low for unknown appliance brands.</td>
+<td>Shareable, but it dilutes a B2B brand.</td>
 </tr>
 <tr class="even">
 <td>SAL</td>
 <td>5</td>
-<td>Faces the full force of Black Friday competition.</td>
+<td>£31–£83 machine margin per sale is off-target for the new focus.</td>
 </tr>
 <tr class="odd">
 <td>COF</td>
-<td>3</td>
-<td>Pump-pressure claims mislead; quality is unproven.</td>
+<td>7</td>
+<td>Still useful for buyers, but not for the priority segments.</td>
 </tr>
 <tr class="even">
 <td>RET</td>
 <td>4</td>
-<td>Unknown brands struggle without reviews.</td>
+<td>Competes with Currys and Amazon discounting, which the user wants to avoid.</td>
 </tr>
 <tr class="odd">
 <td>PRD</td>
 <td>6</td>
-<td>Full control, but slow to develop.</td>
+<td>Different journey from the B2B product.</td>
 </tr>
 <tr class="even">
 <td>DES</td>
 <td>8</td>
-<td>Complete design freedom.</td>
+<td>Still a strong ritual design.</td>
 </tr>
 <tr class="odd">
 <td>PRO</td>
-<td>2</td>
-<td>Minimum orders of 20–50 units at US$160–659, independent electrical safety testing, importer liability and WEEE producer duties.</td>
+<td>8</td>
+<td>No stock via drop ship or affiliates.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</details>
+
+<h3 id="strengthened-versions-and-why-they-pass-or-still-fail">Strengthened versions and why they pass or still fail</h3>
+<details class="detail">
+<summary>S1: No-Lock-In Workplace Coffee</summary>
+<div>
+
+<p>This combines ideas 2, 3, 4 and 5. A <strong>"Renewal Radar"</strong> contract check is the free lead magnet. A two-week trial uses a demo machine borrowed from a partner operator or dealer, copying Hot Numbers' free office trial (<a href="https://hotnumberscoffee.co.uk/office-coffee">Hot Numbers</a>). The customer then picks one of two routes. Route A is <strong>true monthly flexibility</strong> through a rolling-rental partner (United Vending, Redber or Logic Vending style), which earns an introducer fee. Route B is a <strong>lessor-funded machine with the business as supplier of record</strong>: a 2–3-year term only, no auto-renewal, a published end-of-term purchase price, and the business's own service plan and beans on 30-day rolling terms. Limited companies only until IAR status is in place. Procurement's objection (who carries churn) is answered by pushing churn risk to rolling-rental partners on Route A and making the fixed term transparent on Route B. A written engineer SLA is a launch gate. If it is not signed, PRO returns to 7.</p>
+<div class="table-wrap"><table class="wide">
+<thead>
+<tr class="header">
+<th>Reviewer</th>
+<th>Score</th>
+<th>Rationale</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>MKT</td>
+<td>9</td>
+<td>"We publish our prices and never roll you over" plus a free contract check gives every channel a hook.</td>
+</tr>
+<tr class="even">
+<td>SAL</td>
+<td>9</td>
+<td>Up to four revenue lines per office (introducer or lessor fee, machine margin, service, beans) without owning equipment.</td>
+</tr>
+<tr class="odd">
+<td>COF</td>
+<td>8</td>
+<td>Curated machine list plus own beans controls quality; the trial proves it in the office.</td>
+</tr>
+<tr class="even">
+<td>RET</td>
+<td>8</td>
+<td>Beats quote-only independents (Coffee Lady's inconsistent lease prices, 50% cancellation fee) on transparency and nationals on term length.</td>
+</tr>
+<tr class="odd">
+<td>PRD</td>
+<td>8</td>
+<td>One page, one contract, two clear routes; the renewal tracker keeps the promise visible.</td>
+</tr>
+<tr class="even">
+<td>DES</td>
+<td>8</td>
+<td>Trial kit, price page and plain-English contract make an intangible service tangible.</td>
+</tr>
+<tr class="odd">
+<td>PRO</td>
+<td>8</td>
+<td>Lessor pays the machine on completion; rolling partners carry churn; conditional on a signed engineer SLA.</td>
 </tr>
 </tbody>
 </table></div>
@@ -901,9 +1360,10 @@ footer.end { margin-top: 56px; padding-top: 18px; border-top: 1px solid var(--ru
 </details>
 
 <details class="detail">
-<summary>Idea 13: home barista classes</summary>
+<summary>S2: Café Kit Partner for roasters and seasonal sites</summary>
 <div>
 
+<p>This combines ideas 7, 8 and 9 with 4. The business signs two or three small roasters that have stopped or limited free-on-loan, as Bridge has. For their café customers it specifies the machine (Fracino as the default for vans and value sites, refurbished two-groups as an option), arranges the lease through Shire or Novuna, books installation and twice-yearly service through Fracino-partner or Coffee Lady engineers, and offers a <strong>pause-able winter plan</strong> for garden centres, farm shops and vans. Van builders become referral partners. The roaster keeps the beans, and the business earns lessor commission, any machine margin and the service margin. It launches only after IAR appointment. That answers Procurement's regulated-customer objection, and roaster co-branding answers Marketing's and Design's invisibility objection.</p>
 <div class="table-wrap"><table class="wide">
 <thead>
 <tr class="header">
@@ -916,92 +1376,48 @@ footer.end { margin-top: 56px; padding-top: 18px; border-top: 1px solid var(--ru
 <tr class="odd">
 <td>MKT</td>
 <td>8</td>
-<td>Experience gifting through Red Letter Days and ClassBento; content-rich.</td>
+<td>"Powered by" co-branding with each roaster plus the pause-button plan gives visible stories.</td>
 </tr>
 <tr class="even">
 <td>SAL</td>
-<td>6</td>
-<td>£35–£170 per session is capped by the founder's hours.</td>
+<td>8</td>
+<td>Each roaster is a multi-café channel; van builders add referrals.</td>
 </tr>
 <tr class="odd">
 <td>COF</td>
 <td>9</td>
-<td>Solves the dial-in problem behind many faults.</td>
+<td>Right machine, water treatment and roaster training together fix the most common café failures.</td>
 </tr>
 <tr class="even">
 <td>RET</td>
-<td>6</td>
-<td>Roasters and Smeg already run classes.</td>
+<td>8</td>
+<td>Fills the equipment gap Bridge left and the no-pause gap FreshGround's terms create.</td>
 </tr>
 <tr class="odd">
 <td>PRD</td>
-<td>6</td>
-<td>Better as a feature than a standalone product.</td>
+<td>8</td>
+<td>Clear modular offer: spec, finance, install, service, pause.</td>
 </tr>
 <tr class="even">
 <td>DES</td>
-<td>7</td>
-<td>Session formats are designable.</td>
+<td>8</td>
+<td>Co-branded kit and seasonal plan collateral are designable.</td>
 </tr>
 <tr class="odd">
 <td>PRO</td>
-<td>9</td>
-<td>No stock needed.</td>
+<td>8</td>
+<td>Lessor and roaster carry the machine and beans; only after IAR appointment and written engineer rates.</td>
 </tr>
 </tbody>
 </table></div>
 </div>
 </details>
 
-<h3 id="how-the-near-misses-were-strengthened">How the near-misses were strengthened</h3>
-<p><strong>S1, Matchmaker-to-Mug.</strong> Ideas 3, 4, 7 and 13 each failed on a different weakness: no repeat revenue, a me-too subscription, a dull service, and founder hours. Combined into one customer journey, the strengths of each cover the others' gaps. The journey runs from a quiz and café-vs-home cost calculator, to a machine drop shipped from UK stock (or an affiliate link where drop shipping isn't available), to a remote 30-minute dial-in call, and then to an own-label bean subscription with descaler and filters sent automatically according to local water hardness. Procurement's 8 depends on one thing: a written drop ship agreement that settles returns and warranty responsibility before launch. If that is not secured, the score reverts to 7 and the idea runs affiliate-only.</p>
-<div class="table-wrap"><table class="wide">
-<thead>
-<tr class="header">
-<th>Reviewer</th>
-<th>Score</th>
-<th>Rationale</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>MKT</td>
-<td>9</td>
-<td>Quiz, calculator and the £24.77-a-month savings story give shareable hooks for every channel.</td>
-</tr>
-<tr class="even">
-<td>SAL</td>
-<td>8</td>
-<td>Three revenue layers per customer (machine margin or commission, setup, beans), with an affiliate fallback.</td>
-</tr>
-<tr class="odd">
-<td>COF</td>
-<td>9</td>
-<td>Onboarding addresses dispensing faults and scale; fresh beans beat pods.</td>
-</tr>
-<tr class="even">
-<td>RET</td>
-<td>8</td>
-<td>Competes on Bella Barista's advice strength while UK stock avoids Coffee Friend's plug and refund failures.</td>
-</tr>
-<tr class="odd">
-<td>PRD</td>
-<td>8</td>
-<td>Repeat beans and descaler build lifetime value; easy cancellation already meets DMCC 2027 rules.</td>
-</tr>
-<tr class="even">
-<td>DES</td>
-<td>9</td>
-<td>One coherent ritual from quiz to unboxing to first shot to monthly bag; packaging is ownable.</td>
-</tr>
-<tr class="odd">
-<td>PRO</td>
-<td>8</td>
-<td>Brewed By Hand has no minimum spend and Stokes needs 20 bags; conditional on written returns terms.</td>
-</tr>
-</tbody>
-</table></div>
-<p><strong>S2, the no-lock-in micro-office coffee agent.</strong> Idea 8 failed with Marketing, Retail, Product and Design because the business was invisible and had no product of its own. The strengthened version gives it a brand, a trial experience and its own bean line. It offers small offices a free two-week trial, copying Hot Numbers' no-commitment offer (<a href="https://hotnumberscoffee.co.uk/office-coffee">Hot Numbers</a>), using a demonstration machine on loan from the partner operator. It then routes the customer to whichever model fits best. The first route is the operator's free-on-loan or rental deal, which earns an introducer fee under a VendLocus-style trigger and non-circumvention clause. The second is a lease-financed machine for limited companies, which earns lender commission and leaves the business supplying its own white-label beans. Rolling or short terms are marketed as "no 3–5-year lock-in". Chamber of Commerce member offers, like the NI Chamber's £75-a-month deal (<a href="https://www.northernirelandchamber.com/member-offer/office-coffee-machines-500-free-drinks-and-servicing-75-p-m/">NI Chamber</a>), and coworking spaces serve as channels and showrooms.</p>
+<details class="detail">
+<summary>S3: Independent Partner Network</summary>
+<div>
+
+<p>This strengthens idea 6. Enquiries generated by S1's content from outside the business's own patch go to one vetted local independent, not two or three. The independent must meet a published standard: no auto-renewal, a stated response time and published prices. The business earns a referral fee per signed contract under a VendLocus-style trigger. The same partners sell it subcontract engineering in its home region. This answers Coffee's objection (no quality control) with the standard, and Marketing's and Design's objection with a "No-Lock-In Partner" badge. Coffee Lady, Coinadrink, Logic Vending and Cheshire Vending are the first candidates.</p>
 <div class="table-wrap"><table class="wide">
 <thead>
 <tr class="header">
@@ -1014,45 +1430,207 @@ footer.end { margin-top: 56px; padding-top: 18px; border-top: 1px solid var(--ru
 <tr class="odd">
 <td>MKT</td>
 <td>8</td>
-<td>"No lock-in" directly answers the forum complaints; chamber and coworking channels are cheap.</td>
+<td>Turns S1's national content into national coverage, with a partner badge to sustain it.</td>
 </tr>
 <tr class="even">
 <td>SAL</td>
-<td>9</td>
-<td>Two fee streams (operator and lender) plus repeat bean sales, all without owning equipment.</td>
+<td>8</td>
+<td>Fees on out-of-area leads that would otherwise be wasted; partners such as Coffee Lady gain a coffee line they lack.</td>
 </tr>
 <tr class="odd">
 <td>COF</td>
 <td>8</td>
-<td>Choosing the operator and supplying own beans keeps quality under the business's control.</td>
+<td>The partner standard (response time, no rollover) protects the customer experience.</td>
 </tr>
 <tr class="even">
 <td>RET</td>
 <td>8</td>
-<td>Try-before-you-commit mirrors Hot Numbers; coworking spaces act as live showrooms.</td>
+<td>Independents lack search reach and leads; Caffia dominates search.</td>
 </tr>
 <tr class="odd">
 <td>PRD</td>
 <td>8</td>
-<td>The trial-to-contract journey plus the bean line is a real product, not just a referral.</td>
+<td>The network doubles as engineering supply and future acquisition pipeline.</td>
 </tr>
 <tr class="even">
 <td>DES</td>
 <td>8</td>
-<td>A branded trial kit and one-page offer make a B2B service tangible.</td>
+<td>Badge, partner profile pages and SLA scorecards are designable.</td>
+</tr>
+<tr class="odd">
+<td>PRO</td>
+<td>9</td>
+<td>No equipment; contracts carry non-circumvention terms.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</details>
+
+<details class="detail">
+<summary>S4: Succession partnership on earn-out (Phase 3 gate)</summary>
+<div>
+
+<p>This strengthens idea 11 by using S3 relationships to find willing sellers. Deals are structured as deferred payments from retained customers' margin, the seller is retained for 6–12 months for introductions, and legacy contracts move to no-rollover terms at renewal. Procurement rises from 3 to 7, Retail and Product to 8, and Marketing and Design to 7. They stay at 7 because no valuation multiples, lessor assignment rules or seller pipeline have been evidenced, and an inherited brand still has to be rebranded.</p>
+<div class="table-wrap"><table class="wide">
+<thead>
+<tr class="header">
+<th>Reviewer</th>
+<th>Score</th>
+<th>Rationale</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>MKT</td>
+<td>7</td>
+<td>Founder-centred brands such as Coffee Lady make customers loyal to a person, so a rebrand risks churn.</td>
+</tr>
+<tr class="even">
+<td>SAL</td>
+<td>9</td>
+<td>Recurring revenue and route density in one step.</td>
+</tr>
+<tr class="odd">
+<td>COF</td>
+<td>8</td>
+<td>Retained engineers and seller knowledge protect service.</td>
+</tr>
+<tr class="even">
+<td>RET</td>
+<td>8</td>
+<td>Mirrors Liquidline's and Alpine's tuck-in pattern.</td>
+</tr>
+<tr class="odd">
+<td>PRD</td>
+<td>8</td>
+<td>Moves legacy contracts onto the new product at renewal.</td>
+</tr>
+<tr class="even">
+<td>DES</td>
+<td>7</td>
+<td>Little to design until the rebrand.</td>
+</tr>
+<tr class="odd">
+<td>PRO</td>
+<td>7</td>
+<td>Earn-out removes the upfront cash, but lessor consent and multiples are unknown; sole-trader sellers mean asset deals, not share sales.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</details>
+
+<details class="detail">
+<summary>S5: Amenity coffee for customer-facing sites (near miss, pilot inside S1)</summary>
+<div>
+
+<p>This combines ideas 12, 15 and 13. Premium bean-to-cup on S1's Route B for dealerships, gyms, salons and waiting rooms, with optional telemetry and branded cups. Procurement reaches 8 by using S1's lessor route for limited companies only. <strong>Sales stays at 7</strong> because there is no evidence on volumes or willingness to pay in these sectors. It runs as a three-site pilot inside S1, not as a separate line.</p>
+<div class="table-wrap"><table class="wide">
+<thead>
+<tr class="header">
+<th>Reviewer</th>
+<th>Score</th>
+<th>Rationale</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>MKT</td>
+<td>8</td>
+<td>Every customer who waits at the site sees the brand.</td>
+</tr>
+<tr class="even">
+<td>SAL</td>
+<td>7</td>
+<td>Still no sector demand or volume evidence.</td>
+</tr>
+<tr class="odd">
+<td>COF</td>
+<td>8</td>
+<td>Right machine sizing for 10–40 cups a day.</td>
+</tr>
+<tr class="even">
+<td>RET</td>
+<td>8</td>
+<td>Under-served below the majors' thresholds.</td>
+</tr>
+<tr class="odd">
+<td>PRD</td>
+<td>8</td>
+<td>Sector bundles sit on S1's contract.</td>
+</tr>
+<tr class="even">
+<td>DES</td>
+<td>9</td>
+<td>Branded counter set-up is a strong canvas.</td>
 </tr>
 <tr class="odd">
 <td>PRO</td>
 <td>8</td>
-<td>Operators and lenders own the equipment and risk; limited companies only until IAR status is in place.</td>
+<td>Uses the S1 lessor route; no own fleet.</td>
 </tr>
 </tbody>
 </table></div>
-<p><strong>S3, a care club leading to refurbished machines (not yet recommended).</strong> This version starts with consumables and remote support only. Repairs go to a return-to-base partner, and customers' own trade-ins become refurbished stock later. That brings Marketing, Sales, Retail, Product and Design up to 8, and Coffee to 9. <strong>Procurement stays at 7.</strong> No repair partner's pricing has been obtained, there is no legal right to parts, and food-contact hygiene makes deep cleaning of refurbished machines mandatory (<a href="https://www.legislation.gov.uk/eur/2004/1935/contents">Reg 1935/2004</a>). It moves to a Phase 3 gate: it is recommended once a repair partner such as Advance Coffee Solutions or REPA (for Rocket parts) quotes a per-unit price.</p>
-<p><strong>S4, venue self-serve through partner operators (still fails).</strong> Asking the majors to place their machines in sub-30-cup venues runs against their own thresholds. Sales scored 6 and the rest 7, because no revenue data exists for gyms or barbers and Nestlé's published revenue figures do not reconcile (<a href="https://www.nestleprofessional.co.uk/node/1307">Nestlé Professional</a>). This stays a Phase 4 experiment for a single venue.</p>
+</div>
+</details>
+
+<details class="detail">
+<summary>S6: Prosumer Care Club, then certified pre-owned (Phase 3 gate)</summary>
+<div>
+
+<p>This combines ideas 16 and 17 for the secondary premium-home segment. It starts with a collect-and-return service plan delivered by the B2B subcontract engineers, and trade-ins from plan members become certified pre-owned stock later. It also offers "director's office" prosumer installs to small studios. <strong>Sales and Procurement stay at 7</strong>: there is no data on willingness to pay, and pre-owned stock still needs working capital.</p>
+<div class="table-wrap"><table class="wide">
+<thead>
+<tr class="header">
+<th>Reviewer</th>
+<th>Score</th>
+<th>Rationale</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>MKT</td>
+<td>8</td>
+<td>First UK trade-in programme plus a care club gives an enthusiast-community story.</td>
+</tr>
+<tr class="even">
+<td>SAL</td>
+<td>7</td>
+<td>No UK willingness-to-pay evidence for plans or certified pre-owned.</td>
+</tr>
+<tr class="odd">
+<td>COF</td>
+<td>9</td>
+<td>Serviced machines with history command higher resale prices on Coffee Forums UK.</td>
+</tr>
+<tr class="even">
+<td>RET</td>
+<td>8</td>
+<td>Bella Barista has no warrantied pre-owned line.</td>
+</tr>
+<tr class="odd">
+<td>PRD</td>
+<td>8</td>
+<td>The plan feeds trade-ins, which feed pre-owned stock.</td>
+</tr>
+<tr class="even">
+<td>DES</td>
+<td>8</td>
+<td>Grading badges and a service passport are designable.</td>
+</tr>
+<tr class="odd">
+<td>PRO</td>
+<td>7</td>
+<td>Pre-owned stock needs £800–£1,200 per unit; subcontract rates unknown.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</details>
 </div></section>
-<section class="block" id="roadmap"><h2><span class="secnum">05 · PHASED ROADMAP</span>A phased roadmap that starts at under £1,000</h2><div class="body-copy"><h3 id="phases-and-gates">Phases and gates</h3>
-<p>The phases are sequenced so that each one is paid for by the one before. Today is 1 November 2026, which puts Phase 0 across Black Friday and Christmas. That is a good time to collect waitlist sign-ups and buyer-intent data with "don't buy the wrong machine" content, and a bad time to sell machines on price.</p>
+<section class="block" id="roadmap-and-unit-economics-start-with-of"><h2><span class="secnum">06</span>Roadmap and unit economics start with offices, under £1,500</h2><div class="body-copy"><h3 id="phases-and-gates">Phases and gates</h3>
+<p>Today is 1 November 2026. Phase 0 runs through Q4, when office managers plan January budgets and the return to the office. That is a good moment for a renewal-check campaign.</p>
 <div class="table-wrap"><table class="wide">
 <thead>
 <tr class="header">
@@ -1060,92 +1638,97 @@ footer.end { margin-top: 56px; padding-top: 18px; border-top: 1px solid var(--ru
 <th>Timing</th>
 <th>What happens</th>
 <th>Est. cash outlay (estimate)</th>
-<th>Gate to proceed (suggested thresholds)</th>
+<th>Gate to proceed (suggested)</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td><strong>0: Validate</strong></td>
 <td>Nov 2026 – Jan 2027</td>
-<td>Landing page with matchmaker quiz, café-vs-home calculator and referral waitlist. Apply for trade accounts (Brewed By Hand, Fiamma, NMII) and affiliate programmes (Awin: De'Longhi, Rocket). Get white-label bean samples and quotes (Caffè Society, Stokes, Redber). Interview 20 home buyers and 10 micro-offices. Call 5 operators and 2 lenders for introducer terms.</td>
-<td>About £300–£900: domain, quiz/waitlist tools (£50–£400/month), bean samples, Valpak DTS £112.50</td>
-<td>At least 500 waitlist sign-ups; at least 2 suppliers with written margin and returns terms; at least 3 operators or lenders willing to sign introducer agreements</td>
+<td>Landing page with published indicative prices and the Renewal Radar contract check; 20 office-manager and 10 café-owner interviews; introducer terms from Shire, Novuna and Allica; rental and demo-loan terms from 3 operators or dealers (Logic Vending, Rental+, a rolling-rental operator); written engineer rates from 2 subcontractors (Coffee Lady, a Fracino partner); white-label bean samples</td>
+<td>About £500–£1,500 (site, tools, samples, travel)</td>
+<td>At least 2 lessors and 1 rolling-rental partner signed; written engineer SLA and rates; at least 30 contract checks completed</td>
 </tr>
 <tr class="even">
 <td><strong>1: Launch S1</strong></td>
 <td>Feb – Jun 2027</td>
-<td>Curated range of 10–20 machines, drop shipped or via affiliate links; £49 remote dial-in call; own-label beans launched with the smallest minimum order; subscription built for DMCC rules (reminders, one-click cancellation).</td>
-<td>About £500–£1,500: first bean minimum order (about 4.5–10 kg), bag design, creator samples</td>
-<td>Bean subscription attach rate of at least 25% of machine buyers; monthly churn of 8% or less</td>
+<td>One home region; limited companies only; free two-week trials; one Chamber or BID member offer; one coworking showroom; own-label beans on 30-day terms</td>
+<td>About £800–£2,000 (trial consumables, bean minimum, collateral)</td>
+<td>At least 10 signed offices; at least 2 fee types paid; SLA met on at least 90% of calls</td>
 </tr>
 <tr class="odd">
-<td><strong>2: Launch S2</strong></td>
-<td>Apr – Sep 2027</td>
-<td>Micro-office trials using operator demo machines; limited-company lease referrals; one Chamber/BID member offer; one coworking showroom. Add IAR before approaching sole traders.</td>
-<td>About £200–£800: trial kits, beans, travel</td>
-<td>At least 5 signed office deals; introducer fees actually paid by at least 2 partners</td>
+<td><strong>2: Add S2 and S3; pilot S5</strong></td>
+<td>Jul – Dec 2027</td>
+<td>Become an IAR of an authorised principal; sign 2–3 roasters; launch the pause-able seasonal plan before the garden-centre season; partner badge for out-of-area independents; three-site amenity pilot (dealership, gym, salon)</td>
+<td>Funded from Phase 1 contribution</td>
+<td>IAR in place; at least 5 café deals; at least 3 active network partners; pilot sites at 15+ cups a day</td>
 </tr>
 <tr class="even">
-<td><strong>3: Care club, then refurbished</strong></td>
-<td>Q4 2027 onward</td>
-<td>Paid care plan (descaler, filters, remote support, repairs through a partner); trade-ins from own customers become refurbished stock only once repair costs are quoted (S3 gate).</td>
-<td>Funded from Phase 1–2 contribution</td>
-<td>Repair partner quote in hand; cost per refurbished unit below 50% of the expected resale price</td>
+<td><strong>3: Gates</strong></td>
+<td>2028</td>
+<td>S4 earn-out on one small book; S6 Care Club in the home region; refurbished commercial machines (idea 10) once engineer costs are proven</td>
+<td>Case by case, earn-out structured</td>
+<td>Lessor consent to assignment; retained-customer rate of at least 85% at 6 months</td>
 </tr>
 <tr class="odd">
 <td><strong>4: Options</strong></td>
-<td>2028 onward</td>
-<td>Single-venue self-serve pilot with a Nayax kit; rental-block amenity contracts; own-label accessories; a Crowdcube round as a community event (Grind raised close to £3m from 1,786 investors) (<a href="https://www.crowdfundinsider.com/2019/03/145689-success-grinds-latest-crowdcube-round-now-nears-3-million-in-funding/">Crowdfund Insider</a>)</td>
+<td>2028+</td>
+<td>Telemetry uptime tier; public-sector frameworks once references exist; Matchmaker home side option</td>
 <td>Case by case</td>
-<td>Pilot reaches 20+ cups a day for 8 weeks</td>
+<td>Evidence-led</td>
 </tr>
 </tbody>
 </table></div>
-<h3 id="indicative-unit-economics-s1-home-customer-all-estimates">Indicative unit economics: S1 home customer (all estimates)</h3>
-<p>The calculation uses a £499 inc-VAT machine (£416 ex VAT). The machine margin is modelled at 10% and 20% because distributors publish no figure. The affiliate fallback at 7.5–10% yields about <strong>£31–£42</strong> (<a href="https://ui.awin.com/merchant-profile/22911">Awin De'Longhi</a>). Beans are modelled at 1 kg a month (about two double shots a day), sold at an assumed £28/kg, against a white-label cost of £12–£17/kg (<a href="https://www.caffesociety.co.uk/bespoke-private-label-coffee">Caffè Society</a>; <a href="https://www.redber.co.uk/products/bulk-wholesale-cafe-francais-whole-bean-coffee">Redber</a>) and an assumed £4–£5 for packing and postage. Lifetime comes from benchmark churn of <strong>5–10% a month</strong> (<a href="https://eightx.co/blog/coffee-subscription-churn-rate-benchmark">EightX</a>).</p>
+<h3 id="indicative-unit-economics-s1-small-office-all-estimates">Indicative unit economics: S1 small office (all estimates)</h3>
+<p>Assumptions: a 25-person office at about 2 cups per person a day (<a href="https://rental-plus.co.uk/blog/office-coffee-machine-rental-guide/">Rental+</a>), so about 50 drinks a day for 250 days. That suits a Jura-class machine rated "up to 50 cups per day" (<a href="https://www.jurang.co.uk/shop/65-professional-bean-to-cup">Jurang</a>). Ingredient spend scales from Cheshire Vending's £5,600 a year for 150 drinks a day (<a href="https://www.cheshirevending.com/resources-lease-vs-buy-vs-free-on-loan-coffee-machines">Cheshire Vending</a>).</p>
 <div class="table-wrap"><table class="wide">
 <thead>
 <tr class="header">
 <th>Line (estimate)</th>
-<th>Low case</th>
-<th>High case</th>
+<th>Route A: rolling rental via partner</th>
+<th>Route B: lessor-funded, own service and beans</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>Machine margin or affiliate commission</td>
-<td>£31</td>
-<td>£83</td>
+<td>One-off introducer fee from operator</td>
+<td>£100–£250 (assumption; unpublished)</td>
+<td>n/a</td>
 </tr>
 <tr class="even">
-<td>Remote dial-in call (£49, mostly founder time)</td>
-<td>£0 (bundled free)</td>
-<td>£49</td>
+<td>Machine margin as supplier of record on a ~£2,500 package</td>
+<td>n/a</td>
+<td>£375–£625 (assumed 15–25%; unpublished)</td>
 </tr>
 <tr class="odd">
-<td>Bean contribution per month</td>
-<td>£6</td>
-<td>£12</td>
+<td>Lessor commission (2–5% of £2,500)</td>
+<td>n/a</td>
+<td>£50–£125</td>
 </tr>
 <tr class="even">
-<td>Expected subscription life (1/churn)</td>
-<td>10 months</td>
-<td>20 months</td>
+<td>Ingredients revenue, ~12,500 drinks a year</td>
+<td>Only if the partner allows own beans</td>
+<td>About £1,870 a year</td>
 </tr>
 <tr class="odd">
-<td>Bean lifetime contribution</td>
-<td>£60</td>
-<td>£240</td>
+<td>Ingredient margin at an assumed 25–35%</td>
+<td>£0–£650 a year</td>
+<td>£470–£650 a year</td>
 </tr>
 <tr class="even">
-<td><strong>Contribution per customer before acquisition cost</strong></td>
-<td><strong>about £90</strong></td>
-<td><strong>about £370</strong></td>
+<td>Service plan at £35 a month (below Coffee Lady's £399.50 Jura package), less 2 subcontract visits at ~£120–£150</td>
+<td>n/a</td>
+<td>£0–£180 a year (one reactive £185 callout wipes it out)</td>
+</tr>
+<tr class="odd">
+<td><strong>Indicative 3-year contribution</strong></td>
+<td><strong>£100–£2,200</strong></td>
+<td><strong>about £1,800–£3,200</strong></td>
 </tr>
 </tbody>
 </table></div>
-<p>The calculation sets a hard ceiling on acquisition cost. TikTok Shop platform fees of <strong>3.8–9.8%</strong> (<a href="https://ecomcalctools.com/blog/fees-tiktok/tiktok-shop-uk/">EcomCalcTools</a>), plus creator commission of 10–15% on a £416 machine (£42–£62), would consume the entire machine margin. Creator commission should therefore be weighted towards beans and accessories, where the margin repeats, rather than machines.</p>
-<h3 id="indicative-unit-economics-s2-micro-office-deal-all-estimates">Indicative unit economics: S2 micro-office deal (all estimates)</h3>
+<p>The lesson: <strong>service protects the relationship, while coffee and the machine deal make the money.</strong> That is why remote triage and a written engineer SLA matter more than a nice-looking price list. At Bark's £7–£40 per lead and an assumed 1-in-5 conversion, acquisition costs about £35–£200 per office, well inside the contribution.</p>
+<h3 id="indicative-unit-economics-s2-café-deal-all-estimates">Indicative unit economics: S2 café deal (all estimates)</h3>
 <div class="table-wrap"><table class="wide">
 <thead>
 <tr class="header">
@@ -1156,105 +1739,109 @@ footer.end { margin-top: 56px; padding-top: 18px; border-top: 1px solid var(--ru
 </thead>
 <tbody>
 <tr class="odd">
-<td>Asset finance commission on a £3,000 package</td>
-<td>2–5% (Allica caps)</td>
-<td>£60–£150 one-off</td>
+<td>Lessor commission</td>
+<td>2–5% of a £10k two-group package</td>
+<td>£200–£500 one-off</td>
 </tr>
 <tr class="even">
-<td>Operator introducer fee</td>
-<td>Unpublished; negotiate, for example one month's rental</td>
-<td>Assumption: £100–£250 one-off</td>
+<td>Machine margin (if supplier of record)</td>
+<td>Assumed 10–20%; unpublished</td>
+<td>£1,000–£2,000 one-off</td>
 </tr>
 <tr class="odd">
-<td>Own-bean supply (lease route only)</td>
-<td>30 cups a day × 22 days × about 10g ≈ 6.6 kg/month × assumed £3–£8/kg margin</td>
-<td>About £20–£53 a month, so £240–£630 a year</td>
+<td>Service plan</td>
+<td>Charge £45 a month; 2 visits at assumed £150–£200 subcontract</td>
+<td>£140–£240 a year</td>
 </tr>
 <tr class="even">
-<td>Reference contract value for the partner</td>
-<td>£31/week Jura lease × 3 years (<a href="https://caffia.com/coffee-machine-rental">Caffia</a>)</td>
-<td>About £4,836</td>
+<td>Roaster referral or retainer</td>
+<td>Negotiable; unpublished</td>
+<td>Assumption: £0–£250 per placed café</td>
+</tr>
+<tr class="odd">
+<td><strong>Indicative first-year contribution</strong></td>
+<td></td>
+<td><strong>about £1,300–£3,000</strong></td>
 </tr>
 </tbody>
 </table></div>
-<p>The two routes conflict. Free-on-loan contracts normally require the customer to buy the operator's beans (<a href="https://www.contractsfinder.service.gov.uk/Notice/d719e860-83a9-4d52-b26e-f8ac866b2975">Contracts Finder</a>). The bean margin is therefore only available on the lease route, unless an operator agrees to stock the business's white-label blend. That is a question to ask every operator.</p>
 </div></section>
-<section class="block" id="buzz"><h2><span class="secnum">06 · LAUNCH BUZZ PLAN</span>Borrowed audiences beat paid ads for launch buzz</h2><div class="body-copy"><p>The cheap buzz that is well documented came from borrowing other people's audiences. After Little's Coffee appeared on Dragons' Den, in-store sales rose by <strong>more than 500%</strong> and it took <strong>three months of direct-to-consumer sales in four days</strong> (<a href="https://businesscloud.co.uk/news/why-bartletts-dragons-den-gamble-is-already-paying-off/">BusinessCloud</a>). James Hoffmann's crowd tasting with Cometeer shipped about <strong>5,000 kits and collected about 4,000 survey responses</strong> (<a href="https://mavenanalytics.io/data-playground/great-american-coffee-taste-test">Maven Analytics</a>). Harry's referral waitlist collected <strong>about 100,000 emails in a week, 77% of them through referrals</strong> (<a href="https://referralrock.com/blog/?p=31149">ReferralRock</a>). Javy scaled on TikTok Shop through about <strong>7,000 videos from small creators in 30 days</strong>, all paid by commission (<a href="https://www.baijing.cn/article/48977">Baijing</a>). The warning is Grind, which spent <strong>£3.8m on marketing</strong> in one year while losing money (<a href="https://www.worldcoffeeportal.com/news/venues-e-commerce-and-wholesale-yield-strong-2023-sales-for-londons-grind/">World Coffee Portal</a>). Buzz needs repeat revenue behind it.</p>
-<p>The launch plan below aims to make the business the first place people go for advice before buying, rather than one more place to compare prices.</p>
+<section class="block" id="a-b2b-launch-built-on-exposing-lock-in"><h2><span class="secnum">07</span>A B2B launch built on exposing lock-in</h2><div class="body-copy"><p>The best low-cost buzz for business buyers comes from <strong>publishing what the industry hides and offering proof in the buyer's own building.</strong> The tactics below rely on proven formats: free office trials (Hot Numbers), member-body offers (NI Chamber), showrooms where buyers "try first" (Nu Vending), and instant quote tools (Admiral Vending's AI quote tool) (<a href="https://hotnumberscoffee.co.uk/office-coffee">Hot Numbers</a>; <a href="https://www.northernirelandchamber.com/member-offer/office-coffee-machines-500-free-drinks-and-servicing-75-p-m/">NI Chamber</a>; <a href="https://thelondoneconomic.com/?p=120241">The London Economic</a>; <a href="https://www.vendingtimes.com/news/admiral-vending-introduces-ai-powered-coffee-machine-quote-tool-in-uk/">Vending Times</a>).</p>
 <div class="table-wrap"><table class="wide">
 <thead>
 <tr class="header">
 <th>Stage</th>
 <th>Tactic</th>
-<th>Why it works here</th>
+<th>Why it works with business buyers</th>
 <th>Est. cost (estimate)</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>Pre-launch (Phase 0)</td>
-<td><strong>"Wrong Machine Amnesty" referral waitlist</strong>: climb the list for free beans, then a free dial-in call, then a chance to win a machine</td>
-<td>Copies Harry's structure; add fraud checks because about 15% of Harry's sign-ups were fake (<a href="https://www.prefinery.com/blog/referral-programs/prelaunch-campaign/harrys/">Prefinery</a>)</td>
-<td>£50–£300 a month plus reward stock</td>
+<td>Pre-launch</td>
+<td><strong>"Lock-In Amnesty" Renewal Radar</strong>: upload a coffee contract and get a plain-English report of the notice date, rollover risk and true cost, plus calendar reminders</td>
+<td>Targets the 90-day notice trap; every report is a dated switching lead</td>
+<td>Founder time plus £0–£100 a month of tools</td>
 </tr>
 <tr class="even">
 <td>Pre-launch</td>
-<td><strong>Café-vs-home calculator</strong> with a data PR hook from the £3.64 latte and £24.77 monthly saving</td>
-<td>Linkable SEO asset; assumptions must be published to meet ASA rules</td>
-<td>£0–£2k</td>
-</tr>
-<tr class="odd">
-<td>Pre-launch</td>
-<td><strong>Matchmaker quiz</strong> with a guarantee to re-match the buyer if the machine is wrong for them</td>
-<td>Positions the business as the first stop; Admiral Vending's AI quote tool shows the format (<a href="https://www.vendingtimes.com/news/admiral-vending-introduces-ai-powered-coffee-machine-quote-tool-in-uk/">Vending Times</a>)</td>
-<td>£0–£100 a month</td>
-</tr>
-<tr class="even">
-<td>Launch moment</td>
-<td><strong>"Great British Home Barista Taste-Off"</strong>: a letterbox kit of four blind samples, fronted by one UK coffee creator, with results published as a data story</td>
-<td>Hoffmann format at UK scale; doubles as a trial of the white-label beans</td>
-<td>Kit about £15–£25, sold at cost; creator fee</td>
+<td><strong>UK Office Coffee Price Index</strong>: published prices for common machines and a quarterly data story using Caffia's and others' published lease rates</td>
+<td>Journalists and FM press like data; it positions the brand as the honest source</td>
+<td>£0–£500</td>
 </tr>
 <tr class="odd">
 <td>Launch</td>
-<td><strong>TikTok Shop affiliate swarm</strong>: seed 20–50 creators, commission weighted towards beans</td>
-<td>Commission-only, no upfront fee; every post needs #ad</td>
-<td>£3k–£15k of product at cost if machines are seeded; less if only beans</td>
+<td><strong>"Taste-Off in your office"</strong>: a free two-week trial with a blind cupping of the current coffee against the business's own coffee on day one</td>
+<td>The Hot Numbers trial format plus a moment staff talk about</td>
+<td>Beans and courier, £30–£60 per trial</td>
+</tr>
+<tr class="even">
+<td>Launch</td>
+<td><strong>Chamber, BID and coworking deals</strong>: an exclusive member price and a showroom machine in a coworking lounge</td>
+<td>Borrowed trust and hundreds of SMEs passing the machine daily</td>
+<td>£0–£300 a month in coffee</td>
+</tr>
+<tr class="odd">
+<td>Launch</td>
+<td><strong>Founder LinkedIn series</strong>: "coffee as a return-to-office perk", with occupancy data and a running tally of contracts rescued</td>
+<td>Office managers and FM leads live on LinkedIn; costs only time</td>
+<td>Time</td>
 </tr>
 <tr class="even">
 <td>Sustain</td>
-<td><strong>"Fix My Shot" clinics</strong>: livestreams and short videos diagnosing viewers' shots</td>
-<td>Targets the 20% of faults that are dispensing problems; endless content</td>
-<td>Founder time</td>
+<td><strong>Public response-time scoreboard</strong> for the business's own service calls</td>
+<td>Turns the SLA into proof; no competitor publishes one</td>
+<td>Time, and telemetry later</td>
 </tr>
 <tr class="odd">
 <td>Sustain</td>
-<td><strong>Giveaway with a lifestyle community</strong>, following the Sage × Mumsnet model (<a href="https://mumsnet.com/articles/win-sage-barista-express">Mumsnet</a>)</td>
-<td>Borrowed audience; ask the distributor to fund the prize</td>
-<td>Prize cost</td>
+<td><strong>Pause-button launch for seasonal sites</strong>, timed for garden centres in February</td>
+<td>Trade-press story with a clear contrast to no-pause free-on-loan terms</td>
+<td>Collateral</td>
 </tr>
 <tr class="even">
 <td>Sustain</td>
-<td><strong>Get reviewed by coffeeblog.co.uk and T3</strong> rather than trying to outrank them</td>
-<td>Search results for "best bean to cup" are dominated and spammy (<a href="https://coffeeblog.co.uk/best-bean-to-cup-coffee-machines/">Coffeeblog</a>)</td>
-<td>Sample units on loan from the distributor</td>
+<td><strong>Partner badge for independents</strong> (S3)</td>
+<td>Each partner promotes the standard to its own customers</td>
+<td>Badge design</td>
 </tr>
 <tr class="odd">
-<td>B2B</td>
-<td><strong>Coworking pop-up bar</strong> that doubles as the S2 showroom</td>
-<td>Clevr's pop-up origin plus Hot Numbers' trial model</td>
-<td>£300–£2k a day</td>
+<td>Launch</td>
+<td><strong>Local networking circuit</strong> (Business Buzz, Chambers, BNI-style groups), copying Coffee Lady's networking-led growth</td>
+<td>Coffee Lady credits networking with building its business</td>
+<td>£10–£30 per event</td>
 </tr>
 <tr class="even">
-<td>Later</td>
-<td><strong>Dragons' Den application, sponsor-funded contests, Crowdcube round</strong></td>
-<td>Death Wish won a free Super Bowl spot through a sponsor contest (<a href="https://www.marketingdive.com/news/death-wish-coffee-wins-intuit-contest-for-super-bowl-ad/412964/">Marketing Dive</a>)</td>
-<td>Mostly time</td>
+<td>Sustain</td>
+<td><strong>Review engine</strong>: ask every trial and every service visit for a Google review</td>
+<td>Coffee Lady's "5.0★ Google-rated" and Office Coffee Company's Trustpilot 5.0 set the bar</td>
+<td>Time</td>
 </tr>
 </tbody>
 </table></div>
+<p>Two warnings apply. Incentivised reviews have been explicitly unlawful since 6 April 2025, with CMA fines of up to 10% of turnover (<a href="https://kpmg.com/uk/en/insights/legal/new-consumer-enforcement-regime.html">KPMG</a>), so reviews must never be bought. And Grind's £3.8m marketing year shows that buzz without recurring margin burns cash (<a href="https://www.worldcoffeeportal.com/news/venues-e-commerce-and-wholesale-yield-strong-2023-sales-for-londons-grind/">World Coffee Portal</a>).</p>
 </div></section>
-<section class="block" id="risks"><h2><span class="secnum">07 · RISKS, PARTNERS &AMP; GAPS</span>Risks, compliance, partners and open questions</h2><div class="body-copy"><h3 id="key-risks">Key risks</h3>
+<section class="block" id="risks-compliance-and-contract-checklist"><h2><span class="secnum">08</span>Risks, compliance and contract checklist</h2><div class="body-copy"><h3 id="key-risks">Key risks</h3>
 <div class="table-wrap"><table class="wide">
 <thead>
 <tr class="header">
@@ -1265,48 +1852,49 @@ footer.end { margin-top: 56px; padding-top: 18px; border-top: 1px solid var(--ru
 </thead>
 <tbody>
 <tr class="odd">
-<td>Machine margins turn out too thin</td>
-<td>No distributor publishes margins or MAP rules</td>
-<td>Run on beans and services; use affiliate links where drop ship margin is under about 10%</td>
+<td>Engineer cost or slow response breaks the promise</td>
+<td>£185 PAYG callouts; response time drives choice above 200 drinks a day</td>
+<td>Written subcontract SLA and rates before launch; remote triage; one home region first</td>
 </tr>
 <tr class="even">
-<td>Brands restrict new dealers</td>
-<td>Prosumer distributors also sell direct (<a href="https://bellabarista.co.uk/collections/heat-exchanger">Bella Barista</a>)</td>
-<td>Start with open-programme brands (Brewed By Hand catalogue, De'Longhi via Awin)</td>
-</tr>
-<tr class="odd">
-<td>Returns of used machines</td>
-<td>14-day cancellation right (<a href="https://www.legislation.gov.uk/uksi/2013/3134/contents">SI 2013/3134</a>)</td>
-<td>Written agreement that the distributor takes returns back; tell customers up front who pays return postage</td>
-</tr>
-<tr class="even">
-<td>Subscription churn</td>
-<td>5–10% a month is normal (<a href="https://eightx.co/blog/coffee-subscription-churn-rate-benchmark">EightX</a>)</td>
-<td>Shot-count or usage-based delivery; community; pause instead of cancel</td>
+<td>"No lock-in" is misleading on a finance lease</td>
+<td>Leases are fixed 2–5-year terms with break fees</td>
+<td>Say "no auto-renewal, published buy-out" for Route B; offer Route A for true flexibility</td>
 </tr>
 <tr class="odd">
 <td>Partners cut the business out</td>
-<td>Operators meet customers directly</td>
-<td>Non-circumvention clause and a clear fee trigger, as in the VendLocus terms</td>
+<td>Operators and independents meet customers directly</td>
+<td>VendLocus-style trigger and 12-month non-circumvention</td>
 </tr>
 <tr class="even">
-<td>FCA breach</td>
-<td>Sole traders and small partnerships are regulated (<a href="https://www.novuna.co.uk/media/n2qlshid/introducer-onboarding-and-ongoing-montitoring-checklist-2025.pdf">Novuna</a>)</td>
-<td>Limited companies only until IAR status is in place</td>
+<td>FCA breach with sole traders</td>
+<td>Sole traders and partnerships of 2–3 are regulated</td>
+<td>Limited companies only until IAR appointment</td>
 </tr>
 <tr class="odd">
-<td>Fines over creators and reviews</td>
-<td>Up to 10% of turnover (<a href="https://kpmg.com/uk/en/insights/legal/new-consumer-enforcement-regime.html">KPMG</a>)</td>
-<td>Creator brief template; label incentivised reviews</td>
+<td>Free-on-loan partners block own beans</td>
+<td>Contracts tie consumables to the operator</td>
+<td>Ask at Phase 0; favour rolling-rental partners</td>
 </tr>
 <tr class="even">
-<td>Single-supplier dependency</td>
-<td>Brewed By Hand is exclusive for several brands</td>
-<td>Hold at least 2 drop ship and at least 2 roaster relationships</td>
+<td>Coffee Lady and nationals copy transparency</td>
+<td>Caffia already publishes lease prices</td>
+<td>Move first on renewal data, partner standard and response scoreboard</td>
+</tr>
+<tr class="odd">
+<td>Book acquisition destroys value</td>
+<td>Unknown multiples; lessor consent needed</td>
+<td>Earn-out only; start as a subcontractor</td>
+</tr>
+<tr class="even">
+<td>Seasonal pause leaves idle assets</td>
+<td>Who funds winter is unsolved</td>
+<td>Pause applies to service and beans; lessor terms agreed up front</td>
 </tr>
 </tbody>
 </table></div>
-<h3 id="compliance-checklist">Compliance checklist</h3>
+<h3 id="compliance-and-contract-checklist">Compliance and contract checklist</h3>
+<p>Items marked "verify" come from background knowledge or secondary sources and need checking with a solicitor or the primary regulator.</p>
 <div class="table-wrap"><table class="wide">
 <thead>
 <tr class="header">
@@ -1317,155 +1905,180 @@ footer.end { margin-top: 56px; padding-top: 18px; border-top: 1px solid var(--ru
 </thead>
 <tbody>
 <tr class="odd">
-<td>Electrical Equipment (Safety) Regulations 2016, UKCA or CE (<a href="https://www.gov.uk/government/publications/electrical-equipment-safety-regulations-2016">GOV.UK</a>)</td>
-<td>Every machine sold</td>
-<td>Sell only marked, branded stock; avoid own imports in Phases 0–2</td>
+<td>B2B auto-renewal is generally enforceable if properly incorporated (<a href="https://sprintlaw.co.uk/articles/understanding-auto-renewal-clauses-what-uk-businesses-need-to-know-in-their-contracts/">Sprintlaw</a>)</td>
+<td>All business contracts</td>
+<td>Own contracts: no auto-renewal, or 30-day rolling with reminders; put notice dates on page one</td>
 </tr>
 <tr class="even">
-<td>WEEE distributor take-back (<a href="https://dts.valpak.co.uk/">Valpak</a>)</td>
-<td>Any electrical sale</td>
-<td>Join the DTS (minimum £112.50); check fees for the next phase from January 2027</td>
+<td>Lease and service are often separate contracts (<a href="https://baristalife.co/blogs/blog/commercial-coffee-machine-lease">Barista Life</a>)</td>
+<td>Route B and S2</td>
+<td>One summary sheet covering both; service cancellable on 30 days' notice</td>
 </tr>
 <tr class="odd">
-<td>WEEE producer registration (<a href="https://www.gov.uk/guidance/electrical-and-electronic-equipment-eee-producer-responsibility">GOV.UK</a>)</td>
-<td>Own-brand or imported machines only</td>
-<td>Not needed for drop shipping branded machines</td>
+<td>Consumer protections (CRA 2015, DMCC subscription rules) do not protect businesses (notes; verify)</td>
+<td>B2B sales</td>
+<td>Do not rely on them; the business's own terms are the protection</td>
 </tr>
 <tr class="even">
-<td>Consumer Rights Act 2015 and Consumer Contracts Regulations 2013</td>
-<td>All consumer sales</td>
-<td>Returns policy, 14-day refunds, fault handling, pre-contract information</td>
+<td>Unfair Contract Terms Act 1977 reasonableness test on exclusion clauses (verify)</td>
+<td>Own B2B terms</td>
+<td>Keep liability caps reasonable; have terms reviewed</td>
 </tr>
 <tr class="odd">
-<td>DMCC fake reviews, plus ASA/CMA influencer rules</td>
+<td>FCA credit broking: limited companies unregulated; sole traders and partnerships of 2–3 regulated (<a href="https://www.novuna.co.uk/media/n2qlshid/introducer-onboarding-and-ongoing-montitoring-checklist-2025.pdf">Novuna</a>)</td>
+<td>Any finance introduction</td>
+<td>Limited companies only in Phase 1; IAR appointment before S2</td>
+</tr>
+<tr class="even">
+<td>Commission disclosure after Johnson v FirstRand (<a href="https://assetfinanceconnect.com/?p=25809">Asset Finance Connect</a>)</td>
+<td>Every financed deal</td>
+<td>Written disclosure of commission source and amount</td>
+</tr>
+<tr class="odd">
+<td>FOS may cover micro-enterprises for regulated finance (verify)</td>
+<td>IAR phase</td>
+<td>Complaints process ready before IAR</td>
+</tr>
+<tr class="even">
+<td>Electrical Equipment (Safety) Regulations 2016; UKCA or CE accepted (<a href="https://www.gov.uk/government/publications/current-approaches-to-product-marking/product-regulations-and-current-approaches-to-product-marking-for-the-gb-market">GOV.UK</a>)</td>
+<td>Every machine supplied</td>
+<td>Supply only marked, branded machines</td>
+</tr>
+<tr class="odd">
+<td>WEEE: Valpak DTS (household sales; £112.50 minimum to 31 Dec 2026) (<a href="https://dts.valpak.co.uk/DTS/Fees">Valpak</a>); non-household take-back rules differ (verify)</td>
+<td>Prosumer sales; business machines</td>
+<td>Join DTS for S6; agree end-of-life take-back with suppliers</td>
+</tr>
+<tr class="even">
+<td>Food-contact materials Reg 1935/2004 (<a href="https://www.legislation.gov.uk/eur/2004/1935/contents">legislation.gov.uk</a>)</td>
+<td>Refurbished or pre-owned machines</td>
+<td>Replace brew-path seals; documented deep clean</td>
+</tr>
+<tr class="odd">
+<td>Pressure-vessel examination for espresso boilers, Gas Safe work on LPG van machines, and water-supply fittings rules (verify)</td>
+<td>Installation and service</td>
+<td>Contractually require subcontractors to hold the relevant competencies and insurance</td>
+</tr>
+<tr class="even">
+<td>Fake and incentivised reviews unlawful from 6 April 2025 (<a href="https://www.hilldickinson.com/our-view/articles/digital-markets-competition-and-consumers-act-2024-new-consumer-law-protections-now-in-force/">Hill Dickinson</a>)</td>
 <td>All marketing</td>
-<td>#ad on every creator post; no incentivised reviews without disclosure</td>
-</tr>
-<tr class="even">
-<td>DMCC subscription regime (Jan or spring 2027)</td>
-<td>Bean and care subscriptions</td>
-<td>Renewal reminders, easy online cancellation, cooling-off period</td>
+<td>No paid reviews; label any incentives</td>
 </tr>
 <tr class="odd">
-<td>CMA Green Claims Code (<a href="https://www.brownejacobson.com/insights/food-for-thought-spring-2026/cma-green-claims-supply-chain-guidance">Browne Jacobson</a>)</td>
-<td>Any "eco" or "pod-free" claim</td>
-<td>Keep an evidence file before making the claim</td>
+<td>Non-circumvention and fee trigger (<a href="https://tally.so/r/2EWAkA">VendLocus</a>)</td>
+<td>Every introducer and partner deal</td>
+<td>Written agreement before the first referral</td>
 </tr>
 <tr class="even">
-<td>FCA credit broking / IAR</td>
-<td>Finance for individuals, sole traders, partnerships of 2–3</td>
-<td>Limited companies only, or appoint IAR principal</td>
+<td>Contract and lease assignment with lessor consent</td>
+<td>S4 acquisitions</td>
+<td>Due diligence on every customer contract</td>
 </tr>
 <tr class="odd">
-<td>B2B auto-renewal clarity (<a href="https://sprintlaw.co.uk/articles/understanding-auto-renewal-clauses-what-uk-businesses-need-to-know-in-their-contracts/">Sprintlaw</a>)</td>
-<td>Office contracts</td>
-<td>Prominent terms; the "no lock-in" positioning helps here</td>
+<td>VAT registration at £90,000 (<a href="https://www.gov.uk/government/publications/vat-notice-70011-cancelling-your-registration/vat-notice-70011-supplement">GOV.UK</a>)</td>
+<td>Growth</td>
+<td>Register early if most customers are VAT-registered businesses</td>
 </tr>
 <tr class="even">
-<td>Food-contact materials, Reg 1935/2004</td>
-<td>Refurbished or own-brand machines</td>
-<td>Deep cleaning and replacement of the brew path and seals</td>
-</tr>
-<tr class="odd">
-<td>VAT at £90k; packaging EPR at £1m and 25t</td>
-<td>Growth thresholds</td>
-<td>Monitor rolling 12-month turnover</td>
-</tr>
-<tr class="even">
-<td>GPSR EU/NI responsible person</td>
-<td>Sales to Northern Ireland or the EU</td>
-<td>Sell to Great Britain only at first</td>
-</tr>
-<tr class="odd">
-<td>Product liability insurance</td>
+<td>Public liability, product liability and professional indemnity insurance (not priced)</td>
 <td>All phases</td>
-<td>Get a quote (cost not researched)</td>
+<td>Get quotes in Phase 0</td>
 </tr>
 </tbody>
 </table></div>
-<h3 id="suppliers-and-partners-to-contact-first">Suppliers and partners to contact first</h3>
+</div></section>
+<section class="block" id="who-to-contact-what-to-watch-what-to-val"><h2><span class="secnum">09</span>Who to contact, what to watch, what to validate</h2><div class="body-copy"><h3 id="suppliers-partners-and-competitors">Suppliers, partners and competitors</h3>
 <div class="table-wrap"><table class="wide">
 <thead>
 <tr class="header">
-<th>Partner</th>
+<th>Name</th>
 <th>Role</th>
-<th>First question to ask</th>
+<th>Why / first question</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>Brewed By Hand (trade, Stockshare)</td>
-<td>Drop shipping (Sage, Wilfa, grinders, accessories)</td>
-<td>Trade discount by brand, MAP rules, who handles returns and B-stock</td>
+<td>Coffee Lady (Aylesbury; Jan Revill, sole trader, FCA FRN 1004670)</td>
+<td>Competitor, engineer subcontractor, sole-trader lease referrals before IAR, own-label bean buyer, S3/S4 candidate</td>
+<td>Subcontract rates and area; finance partners; interest in referrals and a coffee line; long-term plans</td>
 </tr>
 <tr class="even">
-<td>Fiamma Espresso UK</td>
-<td>Drop shipping commercial and prosumer espresso</td>
-<td>Reseller discount, terms for direct-to-consumer delivery</td>
+<td>Logic Vending; Coinadrink; Cheshire Vending; Canny Coffee</td>
+<td>Independents: partners and competitors</td>
+<td>Demo-loan terms; referral appetite; out-of-area gaps</td>
 </tr>
 <tr class="odd">
-<td>NMII; Style Café; The Coffee Lobby</td>
-<td>Further drop ship and trade accounts</td>
-<td>Range, margins, minimums</td>
+<td>United Vending; Redber; Verde; Rental+</td>
+<td>Rolling-rental and service-inclusive partners for Route A</td>
+<td>Introducer fee; will they supply own-label beans?</td>
 </tr>
 <tr class="even">
-<td>Awin (De'Longhi, Rocket Espresso UK); Adtraction (Coffee Friend)</td>
-<td>Affiliate fallback</td>
-<td>Commission rate and cookie length</td>
+<td>UK Vending Ltd (Kent); Hornblower Businesses</td>
+<td>Succession watch; broker</td>
+<td>Owner plans; typical deal structures</td>
 </tr>
 <tr class="odd">
-<td>Caffè Society; Stokes; Redber; Extract; Wogan; Hot Numbers; Iron &amp; Fire</td>
-<td>White-label beans</td>
-<td>Price per kg at 5/20/50 kg, bag and label setup fees, price-review clauses</td>
+<td>Shire Leasing; Novuna; Allica; UTB</td>
+<td>Lessors</td>
+<td>Introducer agreement, commission grid, IAR principal route</td>
 </tr>
 <tr class="even">
-<td>Caffia; Liquidline; Rental+; Westwon; Bewley's; Nestlé Professional</td>
-<td>Equipment operators for S2</td>
-<td>Introducer fee, micro-office minimums, will they stock our beans, demo machine loans</td>
+<td>Fracino; Coffetek; Jurang (Jura, Franke, Bravilor dealer)</td>
+<td>Manufacturers and dealers</td>
+<td>Dealer criteria, trade pricing, demo units</td>
 </tr>
 <tr class="odd">
-<td>Novuna; Shire Leasing; Allica; UTB</td>
-<td>Asset finance for limited companies</td>
-<td>Introducer agreement, commission grid, IAR route</td>
+<td>Fiamma; Style Café; NMII; The Coffee Lobby</td>
+<td>Drop-ship and trade supply</td>
+<td>Reseller discount, delivery and install options</td>
 </tr>
 <tr class="even">
-<td>V12 Retail Finance; Klarna</td>
-<td>Consumer finance</td>
-<td>Merchant fee for interest-bearing and 0% plans</td>
+<td>Coffee Clinic; Cortile; All Things Coffee; Espresso Care Solutions; The Coffee Guys; Mulmar</td>
+<td>Subcontract engineers</td>
+<td>Per-visit and callout rates, response SLA, coverage</td>
 </tr>
 <tr class="odd">
-<td>Valpak DTS</td>
-<td>WEEE compliance</td>
-<td>Fees for the next phase from January 2027</td>
+<td>Bridge; Capital Coffee; Clifton; Dark Woods; Union; Ue Coffee Roasters</td>
+<td>Roaster partners for S2</td>
+<td>Appetite to outsource equipment and service</td>
 </tr>
 <tr class="even">
-<td>CIH/Euronics associate; Sirius</td>
-<td>Mass-market brand access later</td>
-<td>Associate fees and rebates</td>
+<td>Caffè Society; Redber; Extract; Wogan; Hot Numbers</td>
+<td>Own-label beans</td>
+<td>Per-kg price at 20/50/100 kg; bag setup</td>
 </tr>
 <tr class="odd">
-<td>Advance Coffee Solutions; REPA; Fracino</td>
-<td>Repairs, parts, British-made commercial machines (S3 gate)</td>
-<td>Return-to-base repair price per unit, parts availability</td>
+<td>Catering Units; Really Awesome Coffee; Coffee Latino; The Big Coffee</td>
+<td>Van-builder referrers (after IAR)</td>
+<td>Referral terms</td>
 </tr>
 <tr class="even">
-<td>Nayax; Vendon</td>
-<td>Telemetry for Phase 4</td>
+<td>Vendon; Nayax</td>
+<td>Telemetry (Phase 4)</td>
 <td>Kit and monthly fees</td>
 </tr>
 <tr class="odd">
-<td>coffeeblog.co.uk; London Coffee Festival</td>
-<td>Reviews and events</td>
-<td>Review loan process; fringe pop-up costs</td>
+<td>Bark; Approved Index; Expert Market; coffeebroker.net; Admiral Vending</td>
+<td>Lead channels and quote-tool competitors</td>
+<td>Coffee-category lead prices</td>
+</tr>
+<tr class="even">
+<td>Caffia; Liquidline; Selecta; Lavazza Professional; Nestlé Professional; Matthew Algie; Costa Express</td>
+<td>Nationals to watch</td>
+<td>Pricing moves, acquisitions, territory partners</td>
+</tr>
+<tr class="odd">
+<td>Bella Barista; Machina; Espresso Underground; Servicedbyjamie; Barista Boutique</td>
+<td>Premium-home benchmarks and service partners for S6</td>
+<td>Service capacity; trade-in appetite</td>
 </tr>
 </tbody>
 </table></div>
-<h3 id="open-questions-and-data-gaps-to-validate">Open questions and data gaps to validate</h3>
-<p>The biggest unknown is <strong>actual trade margin and returns terms</strong>. Every model in this report should be re-run once two written distributor offers are in hand. Also unverified: whether Sage UK has an affiliate or trade route open to small sellers; Amazon UK's official Kitchen commission rate; and the merchant fees for V12 and Klarna. On demand, there is no UK data on how buyers research machines, what share are bought as gifts, what share of sales fall in Q4, or how often machines are returned. On subscriptions, there is no UK machine-subscription take-up or churn data, and Phase 0 interviews and waitlist conversion have to supply it.</p>
-<p>Several commercial and regulatory questions are also open. Referral fees paid by office operators, landlords and coworking spaces are unpublished. It is unknown whether operators will let a client buy a third party's beans. Repair-partner pricing and warranty claim rates for bean-to-cup machines are unknown, and so are product liability insurance premiums. Several regulatory points are still unsettled: the DMCC subscription start date, WEEE fees for the next phase, and the official tariff and origin rules for any EU imports. Two sources in the notes are weaker than they look. The Nespresso £24.77 saving is the brand's own consumer estimate, and Javy's TikTok figures come from analytics tools. Both work as marketing hooks, not as planning numbers.</p>
+<h3 id="open-questions-to-validate">Open questions to validate</h3>
+<p>The decisive unknowns are commercial terms that nobody publishes: <strong>trade margins on bean-to-cup machines, operator introducer fees, lessor commission grids for coffee packages, and subcontract engineer rates and SLAs.</strong> Each recommended idea depends on at least two of them, so Phase 0 exists to get them in writing. Buyer behaviour is the second gap. There is no UK survey of who decides on office coffee, how buyers research it, how often they switch or how many miss their renewal window. The 30 Phase 0 interviews and the contract checks should answer these. Several points need confirming: whether rolling-rental partners will accept the business's own beans, sector volumes for dealerships, gyms and salons, seasonal café economics, and willingness to pay for prosumer care plans. For acquisitions, valuation multiples, owner-age profiles and lessor assignment rules are all unknown. On the legal side, have a solicitor confirm the UCTA, FOS micro-enterprise, pressure-system, Gas Safe, water-fittings and non-household WEEE points marked "verify". Some sources are also weaker than they look. Several independents' prices come from search snippets, Capital Coffee's and Verde's pages show conflicting minimums, and Cheshire Vending's lease-cost example contradicts its own percentage claim.</p>
 </div></section>
-<section class="block" id="conclusion"><h2><span class="secnum">08 · CONCLUSION</span>Conclusion</h2><div class="body-copy"><p>The research changes what kind of business this is. It is not a coffee machine retailer. It is a coffee advice and supply brand that uses machine sales to win customers. Machines are where buying decisions start, but the money in UK coffee is in beans, service and contracts. Distributors, operators and lenders will each carry stock, equipment or credit risk for anyone who brings them qualified customers. The user's no-upfront-cost constraint therefore fits the market well. The capital-heavy routes the panel rejected (own fleets, own imports, refurbished stock, carts) are exactly the ones incumbents already do at scale.</p>
-<p>Becoming customers' first stop depends less on a dramatic launch than on being the trusted advisor at the moment of purchase: the quiz, the calculator, the dial-in call and the "no lock-in" offer. A tasting kit and a creator swarm then make that position visible. The decisive near-term test is cheap and quick. Within the Phase 0 window, written trade terms from two drop ship suppliers and two equipment operators, plus 500 waitlist sign-ups, will show whether the two recommended ideas are real businesses or only promising on paper.</p>
+<section class="block" id="conclusion"><h2><span class="secnum">10</span>Conclusion</h2><div class="body-copy"><p>The B2B pivot turns the user's constraint into an advantage. In the home market, a newcomer without capital has to compete on price. In workplace and hospitality coffee, the people who hold capital (lessors, rolling-rental operators and roasters) want someone to find and keep customers, and the customers resent the way existing capital-holders lock them in. The business owns no machines. What it owns is the contract design, published prices, response-time data and the renewal calendar. Coffee Lady shows that a founder-led independent can serve 500 businesses on service and expertise. It also shows that the same model, without coffee supply, trials, rolling terms or consistent published prices, still leaves the most valuable recurring relationship unclaimed. That relationship is the opportunity.</p>
+<p>The panel's results also show what does not work. Every idea that needed the business's own stock or cash (refurbishment, self-serve fleets, a cash book purchase, pre-owned prosumer machines) failed on Procurement, and every idea that hid the business behind someone else's brand failed on Marketing and Design. The recommended ideas pass because they keep the brand at the front while partners carry the equipment and credit behind it. The near misses point to the most likely later step. Once the partner network has built trust, retiring independents' customer books can be bought on earn-out without upfront capital. The partner network is therefore both a revenue source and the way into acquisitions.</p>
 </div></section>
 
     <footer class="end">The seven reviewers are simulated expert personas scoring against the cited evidence, not real people. Figures marked "estimate" are illustrative arithmetic, not supplier quotes. Validate trade terms directly before committing.</footer>
